@@ -26,7 +26,7 @@ RewriteBase /ns/grel
 # ---------------------------
 
 # Rewrite rule to serve the RDF/XML content from the vocabulary URI by default
-RewriteRule ^$ 2018-09-04.ttl [R=303]
+RewriteRule ^$ 2019-02-05.ttl [R=303]
 
 # Rewrite rule to serve HTML content from the vocabulary URI by default (disabled)
 # (To enable this option, uncomment the rewrite rule below, and comment
