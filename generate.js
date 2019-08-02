@@ -15,9 +15,9 @@ const prefixes = {
   grel: "http://semweb.mmlab.be/ns/grel#",
 };
 
-const paramsPath = path.resolve(__dirname, 'params.csv');
-const functionsPath = path.resolve(__dirname, 'fns.csv');
-const outsPath = path.resolve(__dirname, 'outs.csv');
+const paramsPath = path.resolve(__dirname, 'fns_params.csv');
+const functionsPath = path.resolve(__dirname, 'fns_fns.csv');
+const outsPath = path.resolve(__dirname, 'fns_outs.csv');
 const outPath = path.resolve(__dirname, 'out.ttl');
 
 const boolNode = node('xsd', 'boolean');
