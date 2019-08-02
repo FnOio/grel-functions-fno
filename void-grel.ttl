@@ -1,0 +1,39 @@
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix fns: <https://fno.io/hub/data/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix grel: <http://semweb.mmlab.be/ns/grel#>.
+
+@prefix : <https://fno.io/hub/data/resource/#> .
+
+fns:void a void:DatasetDescription;
+    dcterms:title "A VoID Description of the Function Alignments Dataset of GREL";
+    dcterms:creator <https://ben.de-meester.org/#me> ;
+    foaf:primaryTopic fns:dataset;
+    .
+
+<https://ben.de-meester.org/#me>
+  rdf:type foaf:Person ;
+  foaf:mbox "mailto:Ben.DeMeester@UGent.be";
+  foaf:name "Ben De Meester"@en .
+
+fns:dataset a void:Dataset ;
+  foaf:homepage <https://fno.io> ;
+  dcterms:title "Function Alignments"@en ;
+  dcterms:description "The alignment of XPath, SPARQL, SQL, SPIN, and GREL functions using the Function Ontology";
+  dcterms:contributor <https://ben.de-meester.org/#me> ;
+  dcterms:modified "2018-08-01"^^xsd:date;
+  cc:license <http://creativecommons.org/license/by/3.0/> ;
+  dcterms:issued "2016-04-30"^^xsd:date ;
+  dcterms:rights "Copyright © Ghent University – imec – IDLab"@en ;
+  dcterms:subject <http://dbpedia.org/resource/Function_(mathematics)> ;
+  dcterms:subject <http://dbpedia.org/resource/Function_model> ;
+  void:feature <http://www.w3.org/ns/formats/Turtle> ;
+  void:exampleResource fns:prob_date ; 
+  void:vocabulary <http://www.w3.org/2004/02/skos/core#> .

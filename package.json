@@ -1,0 +1,15 @@
+{
+  "name": "grel-functions-fno-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben De Meester <ben.demeester@ugent.be> (http://ben.de-meester/org/#me)",
+  "license": "MIT",
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "n3": "^1.0.0-beta.2"
+  }
+}
