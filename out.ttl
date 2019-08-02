@@ -5,250 +5,250 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix grel: <http://semweb.mmlab.be/ns/grel#>.
 
-grel:array_a a fno:Parameter;
+grel:param_array_a a fno:Parameter;
     fno:name "a";
     rdfs:label "a";
-    fno:predicate grel:param_a;
+    fno:predicate grel:array_a;
     fno:type rdf:List;
     fno:required "true"^^xsd:boolean.
-grel:bool_b a fno:Parameter;
+grel:param_bool_b a fno:Parameter;
     fno:name "b";
     rdfs:label "b";
-    fno:predicate grel:param_b;
+    fno:predicate grel:bool_b;
     fno:type xsd:boolean;
     fno:required "true"^^xsd:boolean.
-grel:bool_b2 a fno:Parameter;
+grel:param_bool_b2 a fno:Parameter;
     fno:name "b2";
     rdfs:label "b2";
-    fno:predicate grel:param_b2;
+    fno:predicate grel:bool_b2;
     fno:type xsd:boolean;
     fno:required "true"^^xsd:boolean.
-grel:bool_rep_b a fno:Parameter;
+grel:param_bool_rep_b a fno:Parameter;
     fno:name "b3";
     rdfs:label "b3";
-    fno:predicate grel:param_rep_b;
+    fno:predicate grel:bool_rep_b;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:date_d a fno:Parameter;
+grel:param_date_d a fno:Parameter;
     fno:name "d";
     rdfs:label "d";
-    fno:predicate grel:param_d;
+    fno:predicate grel:date_d;
     fno:type xsd:date;
     fno:required "true"^^xsd:boolean.
-grel:dec_n a fno:Parameter;
+grel:param_dec_n a fno:Parameter;
     fno:name "d";
     rdfs:label "d";
-    fno:predicate grel:param_n;
+    fno:predicate grel:dec_n;
     fno:type xsd:decimal;
     fno:required "true"^^xsd:boolean.
-grel:int_i a fno:Parameter;
+grel:param_int_i a fno:Parameter;
     fno:name "d1";
     rdfs:label "d1";
-    fno:predicate grel:param_i;
+    fno:predicate grel:int_i;
     fno:type xsd:int;
     fno:required "true"^^xsd:boolean.
-grel:date_d2 a fno:Parameter;
+grel:param_date_d2 a fno:Parameter;
     fno:name "d2";
     rdfs:label "d2";
-    fno:predicate grel:param_d2;
+    fno:predicate grel:date_d2;
     fno:type xsd:date;
     fno:required "true"^^xsd:boolean.
-grel:dec_n2 a fno:Parameter;
+grel:param_dec_n2 a fno:Parameter;
     fno:name "d2";
     rdfs:label "d2";
-    fno:predicate grel:param_n2;
+    fno:predicate grel:dec_n2;
     fno:type xsd:decimal;
     fno:required "true"^^xsd:boolean.
-grel:int_i2 a fno:Parameter;
+grel:param_int_i2 a fno:Parameter;
     fno:name "d2";
     rdfs:label "d2";
-    fno:predicate grel:param_i2;
+    fno:predicate grel:int_i2;
     fno:type xsd:int;
     fno:required "true"^^xsd:boolean.
-grel:any_e a fno:Parameter;
+grel:param_any_e a fno:Parameter;
     fno:name "e";
     rdfs:label "e";
-    fno:predicate grel:param_e;
+    fno:predicate grel:any_e;
     fno:type xsd:any;
     fno:required "true"^^xsd:boolean.
-grel:dec_n_exp a fno:Parameter;
+grel:param_dec_n_exp a fno:Parameter;
     fno:name "e";
     rdfs:label "e";
-    fno:predicate grel:param_exp;
+    fno:predicate grel:dec_n_exp;
     fno:type xsd:decimal;
     fno:required "true"^^xsd:boolean.
-grel:any_true a fno:Parameter;
+grel:param_any_true a fno:Parameter;
     fno:name "eBlank";
     rdfs:label "eBlank";
-    fno:predicate grel:param_true;
+    fno:predicate grel:any_true;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:any_false a fno:Parameter;
+grel:param_any_false a fno:Parameter;
     fno:name "eFalse";
     rdfs:label "eFalse";
-    fno:predicate grel:param_false;
+    fno:predicate grel:any_false;
     fno:type xsd:any;
     fno:required "true"^^xsd:boolean.
-grel:string_encoder a fno:Parameter;
+grel:param_string_encoder a fno:Parameter;
     fno:name "encoder";
     rdfs:label "encoder";
-    fno:predicate grel:param_encoder;
+    fno:predicate grel:string_encoder;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_encoding a fno:Parameter;
+grel:param_string_encoding a fno:Parameter;
     fno:name "encoding";
     rdfs:label "encoding";
-    fno:predicate grel:param_encoding;
+    fno:predicate grel:string_encoding;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_find a fno:Parameter;
+grel:param_string_find a fno:Parameter;
     fno:name "f";
     rdfs:label "f";
-    fno:predicate grel:param_find;
+    fno:predicate grel:string_find;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_field a fno:Parameter;
+grel:param_string_field a fno:Parameter;
     fno:name "field";
     rdfs:label "field";
-    fno:predicate grel:param_field;
+    fno:predicate grel:string_field;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_format a fno:Parameter;
+grel:param_string_format a fno:Parameter;
     fno:name "format";
     rdfs:label "format";
-    fno:predicate grel:param_format;
+    fno:predicate grel:string_format;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_rep_format a fno:Parameter;
+grel:param_string_rep_format a fno:Parameter;
     fno:name "format1";
     rdfs:label "format1";
-    fno:predicate grel:param_rep_format;
+    fno:predicate grel:string_rep_format;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_fragment a fno:Parameter;
+grel:param_string_fragment a fno:Parameter;
     fno:name "frag";
     rdfs:label "frag";
-    fno:predicate grel:param_fragment;
+    fno:predicate grel:string_fragment;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:int_i_from a fno:Parameter;
+grel:param_int_i_from a fno:Parameter;
     fno:name "from";
     rdfs:label "from";
-    fno:predicate grel:param_from;
+    fno:predicate grel:int_i_from;
     fno:type xsd:int;
     fno:required "true"^^xsd:boolean.
-grel:uri_index a fno:Parameter;
+grel:param_uri_index a fno:Parameter;
     fno:name "i";
     rdfs:label "i";
-    fno:predicate grel:param_index;
+    fno:predicate grel:uri_index;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_key a fno:Parameter;
+grel:param_string_key a fno:Parameter;
     fno:name "key";
     rdfs:label "key";
-    fno:predicate grel:param_key;
+    fno:predicate grel:string_key;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_mode a fno:Parameter;
+grel:param_string_mode a fno:Parameter;
     fno:name "mode";
     rdfs:label "mode";
-    fno:predicate grel:param_mode;
+    fno:predicate grel:string_mode;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:int_rep_i a fno:Parameter;
+grel:param_int_rep_i a fno:Parameter;
     fno:name "n3";
     rdfs:label "n3";
-    fno:predicate grel:param_rep_I;
+    fno:predicate grel:int_rep_i;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:any_rep_e a fno:Parameter;
+grel:param_any_rep_e a fno:Parameter;
     fno:name "o1";
     rdfs:label "o1";
-    fno:predicate grel:param_rep_e;
+    fno:predicate grel:any_rep_e;
     fno:type xsd:any;
     fno:required "true"^^xsd:boolean.
-grel:string_s a fno:Parameter;
+grel:param_string_s a fno:Parameter;
     fno:name "o1";
     rdfs:label "o1";
-    fno:predicate grel:param_s;
+    fno:predicate grel:string_s;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_s2 a fno:Parameter;
+grel:param_string_s2 a fno:Parameter;
     fno:name "o2";
     rdfs:label "o2";
-    fno:predicate grel:param_s2;
+    fno:predicate grel:string_s2;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:bool_opt_omit a fno:Parameter;
+grel:param_bool_opt_omit a fno:Parameter;
     fno:name "omitFragment";
     rdfs:label "omitFragment";
-    fno:predicate grel:param_omit;
+    fno:predicate grel:bool_opt_omit;
     fno:type xsd:string;
     fno:required "false"^^xsd:boolean.
-grel:string_regex a fno:Parameter;
+grel:param_string_regex a fno:Parameter;
     fno:name "p";
     rdfs:label "p";
-    fno:predicate grel:param_regex;
+    fno:predicate grel:string_regex;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_replace a fno:Parameter;
+grel:param_string_replace a fno:Parameter;
     fno:name "r";
     rdfs:label "r";
-    fno:predicate grel:param_replace;
+    fno:predicate grel:string_replace;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_sep a fno:Parameter;
+grel:param_string_sep a fno:Parameter;
     fno:name "sep";
     rdfs:label "sep";
-    fno:predicate grel:param_sep;
+    fno:predicate grel:string_sep;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_opt_sep a fno:Parameter;
+grel:param_string_opt_sep a fno:Parameter;
     fno:name "sep";
     rdfs:label "sep";
-    fno:predicate grel:param_opt_sep;
+    fno:predicate grel:string_opt_sep;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:int_i_step a fno:Parameter;
+grel:param_int_i_step a fno:Parameter;
     fno:name "step";
     rdfs:label "step";
-    fno:predicate grel:param_step;
+    fno:predicate grel:int_i_step;
     fno:type xsd:int;
     fno:required "true"^^xsd:boolean.
-grel:string_sub a fno:Parameter;
+grel:param_string_sub a fno:Parameter;
     fno:name "sub";
     rdfs:label "sub";
-    fno:predicate grel:param_sub;
+    fno:predicate grel:string_sub;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:string_time_unit a fno:Parameter;
+grel:param_string_time_unit a fno:Parameter;
     fno:name "timeUnit";
     rdfs:label "timeUnit";
-    fno:predicate grel:param_time_unit;
+    fno:predicate grel:string_time_unit;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:int_i_to a fno:Parameter;
+grel:param_int_i_to a fno:Parameter;
     fno:name "to";
     rdfs:label "to";
-    fno:predicate grel:param_to;
+    fno:predicate grel:int_i_to;
     fno:type xsd:int;
     fno:required "true"^^xsd:boolean.
-grel:int_i_opt_to a fno:Parameter;
+grel:param_int_i_opt_to a fno:Parameter;
     fno:name "to";
     rdfs:label "to";
-    fno:predicate grel:param_opt_to;
+    fno:predicate grel:int_i_opt_to;
     fno:type xsd:string;
     fno:required "false"^^xsd:boolean.
-grel:string_unit a fno:Parameter;
+grel:param_string_unit a fno:Parameter;
     fno:name "unit";
     rdfs:label "unit";
-    fno:predicate grel:param_unit;
+    fno:predicate grel:string_unit;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
-grel:uri_value a fno:Parameter;
+grel:param_uri_value a fno:Parameter;
     fno:name "v";
     rdfs:label "v";
-    fno:predicate grel:param_value;
+    fno:predicate grel:uri_value;
     fno:type xsd:string;
     fno:required "true"^^xsd:boolean.
 grel:output_any a fno:Output;
@@ -278,502 +278,502 @@ grel:output_int a fno:Output;
 grel:output_string a fno:Output;
     fno:predicate grel:out_string;
     fno:type xsd:string.
-grel:controls_if a fno:Function;
+grel:fn_controls_if a fno:Function;
     fno:name "if";
     dcterms:description "if";
-    fno:expects (grel:bool_b grel:any_true grel:any_false);
+    fno:expects (grel:param_bool_b grel:any_true grel:any_false);
     fno:returns (grel:output_any).
-grel:boolean_and a fno:Function;
+grel:fn_boolean_and a fno:Function;
     fno:name "and";
     dcterms:description "and";
-    fno:expects (grel:bool_b grel:bool_b2 grel:bool_rep_b);
+    fno:expects (grel:param_bool_b grel:bool_b2 grel:bool_rep_b);
     fno:returns (grel:output_bool).
-grel:boolean_or a fno:Function;
+grel:fn_boolean_or a fno:Function;
     fno:name "or";
     dcterms:description "or";
-    fno:expects (grel:bool_b grel:bool_b2 grel:bool_rep_b);
+    fno:expects (grel:param_bool_b grel:bool_b2 grel:bool_rep_b);
     fno:returns (grel:output_bool).
-grel:boolean_xor a fno:Function;
+grel:fn_boolean_xor a fno:Function;
     fno:name "xor";
     dcterms:description "xor";
-    fno:expects (grel:bool_b grel:bool_b2 grel:bool_rep_b);
+    fno:expects (grel:param_bool_b grel:bool_b2 grel:bool_rep_b);
     fno:returns (grel:output_bool).
-grel:date_diff a fno:Function;
+grel:fn_date_diff a fno:Function;
     fno:name "diff";
     dcterms:description "diff";
-    fno:expects (grel:date_d grel:date_d2 grel:string_time_unit);
+    fno:expects (grel:param_date_d grel:date_d2 grel:string_time_unit);
     fno:returns (grel:output_decimal).
-grel:date_inc a fno:Function;
+grel:fn_date_inc a fno:Function;
     fno:name "inc";
     dcterms:description "inc";
-    fno:expects (grel:date_d grel:dec_n grel:string_unit);
+    fno:expects (grel:param_date_d grel:dec_n grel:string_unit);
     fno:returns (grel:output_date).
-grel:array_sum a fno:Function;
+grel:fn_array_sum a fno:Function;
     fno:name "sum";
     dcterms:description "sum";
     fno:expects ();
     fno:returns (grel:output_number).
-grel:math_pow a fno:Function;
+grel:fn_math_pow a fno:Function;
     fno:name "pow";
     dcterms:description "pow";
-    fno:expects (grel:dec_n grel:dec_n_exp);
+    fno:expects (grel:param_dec_n grel:dec_n_exp);
     fno:returns (grel:output_decimal).
-grel:math_max a fno:Function;
+grel:fn_math_max a fno:Function;
     fno:name "max";
     dcterms:description "max";
-    fno:expects (grel:dec_n grel:dec_n2);
+    fno:expects (grel:param_dec_n grel:dec_n2);
     fno:returns (grel:output_decimal).
-grel:math_min a fno:Function;
+grel:fn_math_min a fno:Function;
     fno:name "min";
     dcterms:description "min";
-    fno:expects (grel:dec_n grel:dec_n2);
+    fno:expects (grel:param_dec_n grel:dec_n2);
     fno:returns (grel:output_decimal).
-grel:string_ngram a fno:Function;
+grel:fn_string_ngram a fno:Function;
     fno:name "ngram";
     dcterms:description "ngram";
-    fno:expects (grel:string_s grel:int_i);
+    fno:expects (grel:param_string_s grel:int_i);
     fno:returns (grel:output_array).
-grel:string_ngramFingerprint a fno:Function;
+grel:fn_string_ngramFingerprint a fno:Function;
     fno:name "ngramFingerprint";
     dcterms:description "ngramFingerprint";
-    fno:expects (grel:string_s grel:int_i);
+    fno:expects (grel:param_string_s grel:int_i);
     fno:returns (grel:output_array).
-grel:string_splitByLengths a fno:Function;
+grel:fn_string_splitByLengths a fno:Function;
     fno:name "splitByLengths";
     dcterms:description "splitByLengths";
-    fno:expects (grel:string_s grel:int_i grel:int_i2 grel:int_rep_i);
+    fno:expects (grel:param_string_s grel:int_i grel:int_i2 grel:int_rep_i);
     fno:returns (grel:output_array).
-grel:array_get a fno:Function;
+grel:fn_array_get a fno:Function;
     fno:name "get";
     dcterms:description "get";
-    fno:expects (grel:array_a grel:int_i_from grel:int_i_opt_to);
+    fno:expects (grel:param_array_a grel:int_i_from grel:int_i_opt_to);
     fno:returns (grel:output_array).
-grel:array_slice a fno:Function;
+grel:fn_array_slice a fno:Function;
     fno:name "slice";
     dcterms:description "slice";
-    fno:expects (grel:array_a grel:int_i_from grel:int_i_opt_to);
+    fno:expects (grel:param_array_a grel:int_i_from grel:int_i_opt_to);
     fno:returns (grel:output_array).
-grel:string_get a fno:Function;
+grel:fn_string_get a fno:Function;
     fno:name "get";
     dcterms:description "get";
-    fno:expects (grel:string_s grel:int_i_from grel:int_i_opt_to);
+    fno:expects (grel:param_string_s grel:int_i_from grel:int_i_opt_to);
     fno:returns (grel:output_string).
-grel:string_slice a fno:Function;
+grel:fn_string_slice a fno:Function;
     fno:name "slice";
     dcterms:description "slice";
-    fno:expects (grel:string_s grel:int_i_from grel:int_i_opt_to);
+    fno:expects (grel:param_string_s grel:int_i_from grel:int_i_opt_to);
     fno:returns (grel:output_string).
-grel:string_substring a fno:Function;
+grel:fn_string_substring a fno:Function;
     fno:name "substring";
     dcterms:description "substring";
-    fno:expects (grel:string_s grel:int_i_from grel:int_i_opt_to);
+    fno:expects (grel:param_string_s grel:int_i_from grel:int_i_opt_to);
     fno:returns (grel:output_string).
-grel:math_mod a fno:Function;
+grel:fn_math_mod a fno:Function;
     fno:name "mod";
     dcterms:description "mod";
-    fno:expects (grel:int_i grel:int_i2);
+    fno:expects (grel:param_int_i grel:int_i2);
     fno:returns (grel:output_int).
-grel:controls_forRange a fno:Function;
+grel:fn_controls_forRange a fno:Function;
     fno:name "forRange";
     dcterms:description "forRange";
-    fno:expects (grel:int_i_from grel:inti_i_to grel:int_i_step grel:uri_value grel:any_e);
+    fno:expects (grel:param_int_i_from grel:inti_i_to grel:int_i_step grel:uri_value grel:any_e);
     fno:returns (grel:output_array).
-grel:string_reinterpret a fno:Function;
+grel:fn_string_reinterpret a fno:Function;
     fno:name "reinterpret";
     dcterms:description "reinterpret";
-    fno:expects (grel:string_s grel:string_encoder);
+    fno:expects (grel:param_string_s grel:string_encoder);
     fno:returns (grel:output_string).
-grel:string_phonetic a fno:Function;
+grel:fn_string_phonetic a fno:Function;
     fno:name "phonetic";
     dcterms:description "phonetic";
-    fno:expects (grel:string_s grel:string_encoding);
+    fno:expects (grel:param_string_s grel:string_encoding);
     fno:returns (grel:output_string).
-grel:other_get a fno:Function;
+grel:fn_other_get a fno:Function;
     fno:name "get";
     dcterms:description "get";
-    fno:expects (grel:any_e grel:string_field);
+    fno:expects (grel:param_any_e grel:string_field);
     fno:returns (grel:output_any).
-grel:other_hasField a fno:Function;
+grel:fn_other_hasField a fno:Function;
     fno:name "hasField";
     dcterms:description "hasField";
-    fno:expects (grel:any_e grel:string_field);
+    fno:expects (grel:param_any_e grel:string_field);
     fno:returns (grel:output_bool).
-grel:string_replace a fno:Function;
+grel:fn_string_replace a fno:Function;
     fno:name "replace";
     dcterms:description "replace";
-    fno:expects (grel:string_s grel:string_find grel:string_replace);
+    fno:expects (grel:param_string_s grel:string_find grel:string_replace);
     fno:returns (grel:output_string).
-grel:string_replaceChars a fno:Function;
+grel:fn_string_replaceChars a fno:Function;
     fno:name "replaceChars";
     dcterms:description "replaceChars";
-    fno:expects (grel:string_s grel:string_find grel:string_replace);
+    fno:expects (grel:param_string_s grel:string_find grel:string_replace);
     fno:returns (grel:output_string).
-grel:date_toString a fno:Function;
+grel:fn_date_toString a fno:Function;
     fno:name "toString";
     dcterms:description "toString";
-    fno:expects (grel:date_d grel:string_format);
+    fno:expects (grel:param_date_d grel:string_format);
     fno:returns (grel:output_string).
-grel:string_partition a fno:Function;
+grel:fn_string_partition a fno:Function;
     fno:name "partition";
     dcterms:description "partition";
-    fno:expects (grel:string_s grel:string_fragment grel:bool_opt_b);
+    fno:expects (grel:param_string_s grel:string_fragment grel:bool_opt_b);
     fno:returns (grel:output_array).
-grel:string_rpartition a fno:Function;
+grel:fn_string_rpartition a fno:Function;
     fno:name "rpartition";
     dcterms:description "rpartition";
-    fno:expects (grel:string_s grel:string_fragment grel:bool_opt_b);
+    fno:expects (grel:param_string_s grel:string_fragment grel:bool_opt_b);
     fno:returns (grel:output_array).
-grel:date_toDate a fno:Function;
+grel:fn_date_toDate a fno:Function;
     fno:name "toDate";
     dcterms:description "toDate";
     fno:expects ();
     fno:returns (grel:output_date).
-grel:string_escape a fno:Function;
+grel:fn_string_escape a fno:Function;
     fno:name "escape";
     dcterms:description "escape";
-    fno:expects (grel:string_s grel:string_mode);
+    fno:expects (grel:param_string_s grel:string_mode);
     fno:returns (grel:output_string).
-grel:string_unescape a fno:Function;
+grel:fn_string_unescape a fno:Function;
     fno:name "unescape";
     dcterms:description "unescape";
-    fno:expects (grel:string_s grel:string_mode);
+    fno:expects (grel:param_string_s grel:string_mode);
     fno:returns (grel:output_string).
-grel:string_smartSplit a fno:Function;
+grel:fn_string_smartSplit a fno:Function;
     fno:name "smartSplit";
     dcterms:description "smartSplit";
-    fno:expects (grel:string_s grel:string_opt_sep);
+    fno:expects (grel:param_string_s grel:string_opt_sep);
     fno:returns (grel:output_array).
-grel:string_find a fno:Function;
+grel:fn_string_find a fno:Function;
     fno:name "find";
     dcterms:description "find";
-    fno:expects (grel:string_s grel:string_regex);
+    fno:expects (grel:param_string_s grel:string_regex);
     fno:returns (grel:output_array).
-grel:string_match a fno:Function;
+grel:fn_string_match a fno:Function;
     fno:name "match";
     dcterms:description "match";
-    fno:expects (grel:string_s grel:string_regex);
+    fno:expects (grel:param_string_s grel:string_regex);
     fno:returns (grel:output_array).
-grel:date_toDate a fno:Function;
+grel:fn_date_toDate a fno:Function;
     fno:name "toDate";
     dcterms:description "toDate";
-    fno:expects (grel:any_e grel:string_rep_format);
+    fno:expects (grel:param_any_e grel:string_rep_format);
     fno:returns (grel:output_date).
-grel:string_diff a fno:Function;
+grel:fn_string_diff a fno:Function;
     fno:name "diff";
     dcterms:description "diff";
-    fno:expects (grel:string_s grel:string_s2);
+    fno:expects (grel:param_string_s grel:string_s2);
     fno:returns (grel:output_string).
-grel:array_join a fno:Function;
+grel:fn_array_join a fno:Function;
     fno:name "join";
     dcterms:description "join";
-    fno:expects (grel:array_a grel:string_sep);
+    fno:expects (grel:param_array_a grel:string_sep);
     fno:returns (grel:output_string).
-grel:string_chomp a fno:Function;
+grel:fn_string_chomp a fno:Function;
     fno:name "chomp";
     dcterms:description "chomp";
-    fno:expects (grel:string_s grel:string_sep);
+    fno:expects (grel:param_string_s grel:string_sep);
     fno:returns (grel:output_string).
-grel:string_split a fno:Function;
+grel:fn_string_split a fno:Function;
     fno:name "split";
     dcterms:description "split";
-    fno:expects (grel:string_s grel:string_sep);
+    fno:expects (grel:param_string_s grel:string_sep);
     fno:returns (grel:output_array).
-grel:string_contains a fno:Function;
+grel:fn_string_contains a fno:Function;
     fno:name "contains";
     dcterms:description "contains";
-    fno:expects (grel:string_s grel:string_sub);
+    fno:expects (grel:param_string_s grel:string_sub);
     fno:returns (grel:output_bool).
-grel:string_endWith a fno:Function;
+grel:fn_string_endWith a fno:Function;
     fno:name "endWith";
     dcterms:description "endWith";
-    fno:expects (grel:string_s grel:string_sub);
+    fno:expects (grel:param_string_s grel:string_sub);
     fno:returns (grel:output_bool).
-grel:string_indexOf a fno:Function;
+grel:fn_string_indexOf a fno:Function;
     fno:name "indexOf";
     dcterms:description "indexOf";
-    fno:expects (grel:string_s grel:string_sub);
+    fno:expects (grel:param_string_s grel:string_sub);
     fno:returns (grel:output_int).
-grel:string_lastIndexOf a fno:Function;
+grel:fn_string_lastIndexOf a fno:Function;
     fno:name "lastIndexOf";
     dcterms:description "lastIndexOf";
-    fno:expects (grel:string_s grel:string_sub);
+    fno:expects (grel:param_string_s grel:string_sub);
     fno:returns (grel:output_int).
-grel:string_startsWith a fno:Function;
+grel:fn_string_startsWith a fno:Function;
     fno:name "startsWith";
     dcterms:description "startsWith";
-    fno:expects (grel:string_s grel:string_sub);
+    fno:expects (grel:param_string_s grel:string_sub);
     fno:returns (grel:output_bool).
-grel:date_datePart a fno:Function;
+grel:fn_date_datePart a fno:Function;
     fno:name "datePart";
     dcterms:description "datePart";
-    fno:expects (grel:date_d grel:string_unit);
+    fno:expects (grel:param_date_d grel:string_unit);
     fno:returns (grel:output_any).
-grel:controls_forEachIndex a fno:Function;
+grel:fn_controls_forEachIndex a fno:Function;
     fno:name "forEachIndex";
     dcterms:description "forEachIndex";
-    fno:expects (grel:array_a grel:uri_index grel:uri_value grel:any_e);
+    fno:expects (grel:param_array_a grel:uri_index grel:uri_value grel:any_e);
     fno:returns (grel:output_array).
-grel:controls_forNonBlank a fno:Function;
+grel:fn_controls_forNonBlank a fno:Function;
     fno:name "forNonBlank";
     dcterms:description "forNonBlank";
-    fno:expects (grel:any_e grel:uri_value grel:any_false grel:any_true);
+    fno:expects (grel:param_any_e grel:uri_value grel:any_false grel:any_true);
     fno:returns (grel:output_any).
-grel:controls_with a fno:Function;
+grel:fn_controls_with a fno:Function;
     fno:name "with";
     dcterms:description "with";
-    fno:expects (grel:any_e grel:uri_value grel:any_e);
+    fno:expects (grel:param_any_e grel:uri_value grel:any_e);
     fno:returns (grel:output_any).
-grel:controls_filter a fno:Function;
+grel:fn_controls_filter a fno:Function;
     fno:name "filter";
     dcterms:description "filter";
-    fno:expects (grel:array_a grel:uri_value grel:any_e);
+    fno:expects (grel:param_array_a grel:uri_value grel:any_e);
     fno:returns (grel:output_array).
-grel:controls_forEach a fno:Function;
+grel:fn_controls_forEach a fno:Function;
     fno:name "forEach";
     dcterms:description "forEach";
-    fno:expects (grel:array_a grel:uri_value grel:any_e);
+    fno:expects (grel:param_array_a grel:uri_value grel:any_e);
     fno:returns (grel:output_array).
-grel:controls_isBlank a fno:Function;
+grel:fn_controls_isBlank a fno:Function;
     fno:name "isBlank";
     dcterms:description "isBlank";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:controls_isError a fno:Function;
+grel:fn_controls_isError a fno:Function;
     fno:name "isError";
     dcterms:description "isError";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:controls_isNonBlank a fno:Function;
+grel:fn_controls_isNonBlank a fno:Function;
     fno:name "isNonBlank";
     dcterms:description "isNonBlank";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:controls_isNotNull a fno:Function;
+grel:fn_controls_isNotNull a fno:Function;
     fno:name "isNotNull";
     dcterms:description "isNotNull";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:controls_isNull a fno:Function;
+grel:fn_controls_isNull a fno:Function;
     fno:name "isNull";
     dcterms:description "isNull";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:controls_isNumeric a fno:Function;
+grel:fn_controls_isNumeric a fno:Function;
     fno:name "isNumeric";
     dcterms:description "isNumeric";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_bool).
-grel:other_jsonize a fno:Function;
+grel:fn_other_jsonize a fno:Function;
     fno:name "jsonize";
     dcterms:description "jsonize";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_string).
-grel:string_toNumber a fno:Function;
+grel:fn_string_toNumber a fno:Function;
     fno:name "toNumber";
     dcterms:description "toNumber";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_decimal).
-grel:string_toString a fno:Function;
+grel:fn_string_toString a fno:Function;
     fno:name "toString";
     dcterms:description "toString";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_string).
-grel:other_type a fno:Function;
+grel:fn_other_type a fno:Function;
     fno:name "type";
     dcterms:description "type";
-    fno:expects (grel:any_e);
+    fno:expects (grel:param_any_e);
     fno:returns (grel:output_string).
-grel:other_coalesce a fno:Function;
+grel:fn_other_coalesce a fno:Function;
     fno:name "coalesce";
     dcterms:description "coalesce";
-    fno:expects (grel:any_rep_e);
+    fno:expects (grel:param_any_rep_e);
     fno:returns (grel:output_any).
-grel:array_length a fno:Function;
+grel:fn_array_length a fno:Function;
     fno:name "length";
     dcterms:description "length";
-    fno:expects (grel:array_a);
+    fno:expects (grel:param_array_a);
     fno:returns (grel:output_int).
-grel:array_reverse a fno:Function;
+grel:fn_array_reverse a fno:Function;
     fno:name "reverse";
     dcterms:description "reverse";
-    fno:expects (grel:array_a);
+    fno:expects (grel:param_array_a);
     fno:returns (grel:output_array).
-grel:array_sort a fno:Function;
+grel:fn_array_sort a fno:Function;
     fno:name "sort";
     dcterms:description "sort";
-    fno:expects (grel:array_a);
+    fno:expects (grel:param_array_a);
     fno:returns (grel:output_array).
-grel:math_sum a fno:Function;
+grel:fn_math_sum a fno:Function;
     fno:name "sum";
     dcterms:description "sum";
-    fno:expects (grel:array_a);
+    fno:expects (grel:param_array_a);
     fno:returns (grel:output_decimal).
-grel:array_uniques a fno:Function;
+grel:fn_array_uniques a fno:Function;
     fno:name "uniques";
     dcterms:description "uniques";
-    fno:expects (grel:array_a);
+    fno:expects (grel:param_array_a);
     fno:returns (grel:output_array).
-grel:string_indexOf a fno:Function;
+grel:fn_string_indexOf a fno:Function;
     fno:name "indexOf";
     dcterms:description "indexOf";
     fno:expects ();
     fno:returns (grel:output_number).
-grel:boolean_not a fno:Function;
+grel:fn_boolean_not a fno:Function;
     fno:name "not";
     dcterms:description "not";
-    fno:expects (grel:bool_b);
+    fno:expects (grel:param_bool_b);
     fno:returns (grel:output_bool).
-grel:math_ceil a fno:Function;
+grel:fn_math_ceil a fno:Function;
     fno:name "ceil";
     dcterms:description "ceil";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_int).
-grel:math_exp a fno:Function;
+grel:fn_math_exp a fno:Function;
     fno:name "exp";
     dcterms:description "exp";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_decimal).
-grel:math_floor a fno:Function;
+grel:fn_math_floor a fno:Function;
     fno:name "floor";
     dcterms:description "floor";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_int).
-grel:math_ln a fno:Function;
+grel:fn_math_ln a fno:Function;
     fno:name "ln";
     dcterms:description "ln";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_decimal).
-grel:math_log a fno:Function;
+grel:fn_math_log a fno:Function;
     fno:name "log";
     dcterms:description "log";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_decimal).
-grel:math_round a fno:Function;
+grel:fn_math_round a fno:Function;
     fno:name "round";
     dcterms:description "round";
-    fno:expects (grel:dec_n);
+    fno:expects (grel:param_dec_n);
     fno:returns (grel:output_int).
-grel:string_mqlKeyUnquote a fno:Function;
+grel:fn_string_mqlKeyUnquote a fno:Function;
     fno:name "mqlKeyUnquote";
     dcterms:description "mqlKeyUnquote";
-    fno:expects (grel:string_key);
+    fno:expects (grel:param_string_key);
     fno:returns (grel:output_string).
-grel:string_fingerprint a fno:Function;
+grel:fn_string_fingerprint a fno:Function;
     fno:name "fingerprint";
     dcterms:description "fingerprint";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_length a fno:Function;
+grel:fn_string_length a fno:Function;
     fno:name "length";
     dcterms:description "length";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_int).
-grel:string_md5 a fno:Function;
+grel:fn_string_md5 a fno:Function;
     fno:name "md5";
     dcterms:description "md5";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_mqlKeyQuote a fno:Function;
+grel:fn_string_mqlKeyQuote a fno:Function;
     fno:name "mqlKeyQuote";
     dcterms:description "mqlKeyQuote";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:other_parseHtml a fno:Function;
+grel:fn_other_parseHtml a fno:Function;
     fno:name "parseHtml";
     dcterms:description "parseHtml";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_element).
-grel:other_parseJson a fno:Function;
+grel:fn_other_parseJson a fno:Function;
     fno:name "parseJson";
     dcterms:description "parseJson";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_any).
-grel:string_sha1 a fno:Function;
+grel:fn_string_sha1 a fno:Function;
     fno:name "sha1";
     dcterms:description "sha1";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_splitByCharType a fno:Function;
+grel:fn_string_splitByCharType a fno:Function;
     fno:name "splitByCharType";
     dcterms:description "splitByCharType";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_array).
-grel:string_strip a fno:Function;
+grel:fn_string_strip a fno:Function;
     fno:name "strip";
     dcterms:description "strip";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_toLowercase a fno:Function;
+grel:fn_string_toLowercase a fno:Function;
     fno:name "toLowercase";
     dcterms:description "toLowercase";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_toTitlecase a fno:Function;
+grel:fn_string_toTitlecase a fno:Function;
     fno:name "toTitlecase";
     dcterms:description "toTitlecase";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_toUppercase a fno:Function;
+grel:fn_string_toUppercase a fno:Function;
     fno:name "toUppercase";
     dcterms:description "toUppercase";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_trim a fno:Function;
+grel:fn_string_trim a fno:Function;
     fno:name "trim";
     dcterms:description "trim";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_string).
-grel:string_unicode a fno:Function;
+grel:fn_string_unicode a fno:Function;
     fno:name "unicode";
     dcterms:description "unicode";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_array).
-grel:string_unicodeType a fno:Function;
+grel:fn_string_unicodeType a fno:Function;
     fno:name "unicodeType";
     dcterms:description "unicodeType";
-    fno:expects (grel:string_s);
+    fno:expects (grel:param_string_s);
     fno:returns (grel:output_array).
-grel:other_cross a fno:Function;
+grel:fn_other_cross a fno:Function;
     fno:name "cross";
     dcterms:description "cross";
     fno:expects ();
     fno:returns (grel:output_array).
-grel:other_facetCount a fno:Function;
+grel:fn_other_facetCount a fno:Function;
     fno:name "facetCount";
     dcterms:description "facetCount";
     fno:expects ();
     fno:returns (grel:output_int).
-grel:other_htmlAttr a fno:Function;
+grel:fn_other_htmlAttr a fno:Function;
     fno:name "htmlAttr";
     dcterms:description "htmlAttr";
     fno:expects ();
     fno:returns (grel:output_any).
-grel:other_htmlText a fno:Function;
+grel:fn_other_htmlText a fno:Function;
     fno:name "htmlText";
     dcterms:description "htmlText";
     fno:expects ();
     fno:returns (grel:output_string).
-grel:other_innerHtml a fno:Function;
+grel:fn_other_innerHtml a fno:Function;
     fno:name "innerHtml";
     dcterms:description "innerHtml";
     fno:expects ();
     fno:returns (grel:output_string).
-grel:date_now a fno:Function;
+grel:fn_date_now a fno:Function;
     fno:name "now";
     dcterms:description "now";
     fno:expects ();
     fno:returns (grel:output_datetime).
-grel:other_outerHtml a fno:Function;
+grel:fn_other_outerHtml a fno:Function;
     fno:name "outerHtml";
     dcterms:description "outerHtml";
     fno:expects ();
     fno:returns (grel:output_string).
-grel:other_ownText a fno:Function;
+grel:fn_other_ownText a fno:Function;
     fno:name "ownText";
     dcterms:description "ownText";
     fno:expects ();
     fno:returns (grel:output_string).
-grel:other_select a fno:Function;
+grel:fn_other_select a fno:Function;
     fno:name "select";
     dcterms:description "select";
     fno:expects ();

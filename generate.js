@@ -81,11 +81,11 @@ function createParams(paramsPath, store, cb) {
       if (!o.name || created[o.name]) {
         return;
       }
-      const param = node('grel', o.name);
+      const param = node('grel', `param_${o.name}`);
       store.addQuad(param, nodes.a, nodes.parameter);
       store.addQuad(param, nodes.name, literal(o['param name']));
       store.addQuad(param, nodes.label, literal(o['param name']));
-      store.addQuad(param, nodes.predicate, node('grel', o.pred));
+      store.addQuad(param, nodes.predicate, node('grel', o.name));
       store.addQuad(param, nodes.type, toType(o['param type']));
       const req = o.req ? nodes._false : nodes._true;
       store.addQuad(param, nodes.required, req);
@@ -137,13 +137,13 @@ function createFunctions(functionsPath, store, cb) {
       if (!o.slug) {
         return;
       }
-      const param = node('grel', `${o.Type.toLowerCase()}_${o.slug}`);
-      store.addQuad(param, nodes.a, nodes.fno);
-      store.addQuad(param, nodes.name, literal(o.slug));
-      store.addQuad(param, nodes.description, literal(o.slug));
+      const fn = node('grel', `fn_${o.Type.toLowerCase()}_${o.slug}`);
+      store.addQuad(fn, nodes.a, nodes.fno);
+      store.addQuad(fn, nodes.name, literal(o.slug));
+      store.addQuad(fn, nodes.description, literal(o.slug));
       let params = [];
       if (o.p1_uri) {
-        params.push(node('grel', o.p1_uri));
+        params.push(node('grel', `param_${o.p1_uri}`));
       }
       if (o.p2_uri) {
         params.push(node('grel', o.p2_uri));
@@ -160,10 +160,10 @@ function createFunctions(functionsPath, store, cb) {
       if (o.p6_uri) {
         params.push(node('grel', o.p6_uri));
       }
-      store.addQuad(param, nodes.expects, writer.list(params));
+      store.addQuad(fn, nodes.expects, writer.list(params));
       let returns = [];
       returns.push(node('grel', `output_${o.typeOut}`));
-      store.addQuad(param, nodes.returns, writer.list(returns));
+      store.addQuad(fn, nodes.returns, writer.list(returns));
     });
     return;
   }).then(() => {
