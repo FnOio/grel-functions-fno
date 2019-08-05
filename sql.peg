@@ -1,0 +1,37 @@
+Functions = head:Expression tail:(_ expr:Expression)* _ {
+      let result = [].concat(head);
+      tail.forEach(elem => {
+        result.push(elem[1])
+      });
+      return result; }
+
+Expression
+  = head:Word _ tail:Factor {
+      return {function: head, parameters: tail}
+    }
+
+Parameter
+  = argument:(Argument / CONSTANT) {
+      return {argument: argument.value, type: argument.type}
+    }
+
+Factor
+  = "(" _ head:Parameter tail:(_ Parameter)* _ ")" {
+      let result = [].concat(head);
+      tail.forEach(elem => {
+        result.push(elem[1])
+      });
+      return result; }
+
+Argument "argument"
+  = [a-z0-9_*]+ { return {value: text(), type: "argument"} }
+
+CONSTANT "constant"
+  = [A-Z]+ { return {value: text(), type: "constant" } }
+
+Word "word"
+  = [a-zA-Z0-9_]+ { return text() }
+
+_ "whitespace"
+  = [ \t\n\r]*
+
