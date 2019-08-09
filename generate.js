@@ -1,7 +1,14 @@
 const fs = require("fs");
 const path = require("path");
+const {PassThrough} = require('stream');
+
 const N3 = require("n3");
 const csv = require("csvtojson");
+const graphy = require('graphy');
+const read = graphy.content.ttl.read;
+const write = graphy.content.ttl.write;
+const tree = graphy.util.dataset.tree;
+
 const GrelParser = require("./lib/grel-parser");
 const SPARQLParser = require("./lib/sparql-parser");
 const XPATHParser = require("./lib/xpath-parser");
@@ -71,269 +78,307 @@ main().then(() => {
 
 async function main() {
   const outStream = fs.createWriteStream(outPath);
-  const writer = N3.Writer(outStream, {prefixes});
+  const outStreamPretty = fs.createWriteStream(outPath + "_p.ttl");
+  const pipeStream = new PassThrough();
+  const writer = new N3.Writer(pipeStream, {prefixes});
   // await createProblems(functionsPath, writer);
   // await createParams(paramsPath, writer);
   // await createOuts(outsPath, writer);
   // await createFunctions(functionsPath, writer);
-  await createAlignment(alignmentPath, writer);
+  const jsonObj = await csv({delimiter: ","}).fromFile(alignmentPath);
+  createAlignment(jsonObj, writer);
+  writer.end();
 
   return new Promise((resolve, reject) => {
-    writer.end((e, res) => {
-      outStream.end();
+    pipeStream.pipe(outStream);
+    pipeStream.pipe(read())
+      .pipe(tree())
+      .pipe(write())
+      .pipe(outStreamPretty).on('end', () => {
       resolve();
     });
   });
 }
 
-async function createAlignment(alignmentsPath, store) {
-  const jsonObj = await csv({delimiter: ","}).fromFile(alignmentsPath);
+function createAlignment(jsonObj, store) {
   const problems = {};
 
   const GrelImplementation = node('fns', `Implementation/GREL`);
   store.addQuad(GrelImplementation, nodes.a, node('fno', 'Implementation'));
   store.addQuad(GrelImplementation, nodes.a, node('fnoi', 'DeclarativeImplementation'));
   store.addQuad(GrelImplementation, nodes.a, node('fnoi', 'OpenRefineImplementation'));
+  store.addQuad(GrelImplementation, nodes.label, literal('GREL Implementation (OpenRefine)'));
 
   const SPARQLImplementation = node('fns', `Implementation/SPARQL`);
   store.addQuad(SPARQLImplementation, nodes.a, node('fno', 'Implementation'));
   store.addQuad(SPARQLImplementation, nodes.a, node('fnoi', 'DeclarativeImplementation'));
   store.addQuad(SPARQLImplementation, nodes.a, node('fnoi', 'SPARQLImplementation'));
+  store.addQuad(SPARQLImplementation, nodes.label, literal('SPARQL Implementation'));
 
   const XPathImplementation = node('fns', `Implementation/XPATH`);
   store.addQuad(XPathImplementation, nodes.a, node('fno', 'Implementation'));
   store.addQuad(XPathImplementation, nodes.a, node('fnoi', 'DeclarativeImplementation'));
   store.addQuad(XPathImplementation, nodes.a, node('fnoi', 'XPATHImplementation'));
+  store.addQuad(XPathImplementation, nodes.label, literal('XPath Implementation'));
 
   const SQLImplementation = node('fns', `Implementation/SQL`);
   store.addQuad(SQLImplementation, nodes.a, node('fno', 'Implementation'));
   store.addQuad(SQLImplementation, nodes.a, node('fnoi', 'DeclarativeImplementation'));
   store.addQuad(SQLImplementation, nodes.a, node('fnoi', 'SQLImplementation'));
+  store.addQuad(SQLImplementation, nodes.label, literal('SQL Implementation'));
 
   jsonObj.forEach(o => {
     if (!o.function) {
       return;
     }
+
     const problem = node('fns', `Problem/${o.function}`);
     store.addQuad(problem, nodes.a, nodes.problem);
     store.addQuad(problem, nodes.name, literal(o.function));
 
-    const fn = node('fns', `Function/${o.function}`);
-    store.addQuad(fn, nodes.a, nodes.fno);
-    store.addQuad(fn, nodes.name, literal(o.function));
-    store.addQuad(fn, nodes.solves, problem);
+    const broadFn = node('fns', `Function/${o.function}`);
+    store.addQuad(broadFn, nodes.a, nodes.fno);
+    store.addQuad(broadFn, nodes.name, literal(o.function));
+    store.addQuad(broadFn, nodes.solves, problem);
 
     if (!(o.GREL && o.SPARQL && o.XPath && o.SQL)) {
       return;
     }
 
-    const grelFn = node('fns', `Function/grel_${o.GREL}`);
-    store.addQuad(grelFn, nodes.a, nodes.fno);
-    store.addQuad(grelFn, nodes.solves, problem);
-    store.addQuad(grelFn, nodes.skosBroader, fn);
-    store.addQuad(grelFn, node('rdfs', 'seeAlso'), literal(o.GREL_iri));
-    store.addQuad(grelFn, nodes.name, literal(o.GREL));
-    try {
-      const fnObj = GrelParser.parse(o.GREL_signature)[0];
-      const mapping = node('fns', `Mapping/grel_${o.GREL}_${fnObj.function}`);
-      store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
-      store.addQuad(mapping, node('fno', 'function'), grelFn);
-      store.addQuad(mapping, node('fno', 'implementation'), GrelImplementation);
-      const parameters = [];
-      fnObj.parameters.forEach((p, i) => {
-        const paramMapping = node('fns', `ParameterMapping/grel_${o.GREL}_${p.type}_${p.argument}`);
-        store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
-        store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
-        store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
-        store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
-        const param = node('fns', `Parameter/grel_${o.GREL}_${p.type}_${p.argument}`);
-        store.addQuad(param, nodes.a, node('fno', 'Parameter'));
-        store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/grel_${p.argument}`));
-        // TODO type
-        parameters.push(param);
-        store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
-        // TODO required
-      });
-      store.addQuad(grelFn, nodes.expects, store.list(parameters));
-      const methodMapping = node('fns', `MethodMapping/grel_${fnObj.function}`);
-      store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
-      store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
-      store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
-      store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
-      const output = node('fns', `Output/grel_${fnObj.function}`);
-      store.addQuad(output, nodes.a, node('fno', 'Output'));
-      const outputs = [];
-      outputs.push(output);
-      store.addQuad(grelFn, nodes.returns, store.list(outputs));
-      const returnMapping = node('fns', `ReturnMapping/grel_${fnObj.function}`);
-      store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
-      store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
-      store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
-    } catch (e) {
-      console.log('GREL ' + o.GREL_signature);
-      // console.log(e);
-    }
-    store.addQuad(grelFn, nodes.description, literal(o.GREL_description));
-    // TODO categories
-
-    const sparqlFn = node('fns', `Function/sparql_${o.SPARQL}`);
-    store.addQuad(sparqlFn, nodes.a, nodes.fno);
-    store.addQuad(sparqlFn, nodes.solves, problem);
-    store.addQuad(sparqlFn, nodes.skosBroader, fn);
-    store.addQuad(sparqlFn, node('rdfs', 'seeAlso'), literal(o.SPARQL_iri));
-    store.addQuad(sparqlFn, nodes.name, literal(o.SPARQL));
-    try {
-      const fnObj = SPARQLParser.parse(o.SPARQL_signature)[0];
-      const mapping = node('fns', `Mapping/sparql_${o.SPARQL}_${fnObj.function}`);
-      store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
-      store.addQuad(mapping, node('fno', 'function'), sparqlFn);
-      store.addQuad(mapping, node('fno', 'implementation'), SPARQLImplementation);
-      const parameters = [];
-      fnObj.parameters.forEach((p, i) => {
-        const paramMapping = node('fns', `ParameterMapping/sparql_${o.SPARQL}_${p.type}_${p.argument}`);
-        store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
-        store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
-        store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
-        store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
-        const param = node('fns', `Parameter/sparql_${o.SPARQL}_${p.type}_${p.argument}`);
-        store.addQuad(param, nodes.a, node('fno', 'Parameter'));
-        store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sparql_${p.argument}`));
-        // TODO type
-        parameters.push(param);
-        store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
-        // TODO required
-      });
-      store.addQuad(grelFn, nodes.expects, store.list(parameters));
-      const methodMapping = node('fns', `MethodMapping/sparql_${fnObj.function}`);
-      store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
-      store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
-      store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
-      store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
-      const output = node('fns', `Output/sparql_${fnObj.function}`);
-      store.addQuad(output, nodes.a, node('fno', 'Output'));
-      const outputs = [];
-      outputs.push(output);
-      store.addQuad(grelFn, nodes.returns, store.list(outputs));
-      const returnMapping = node('fns', `ReturnMapping/sparql_${fnObj.function}`);
-      store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
-      store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
-      store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
-    } catch (e) {
-      console.log('SPARQL ' + o.SPARQL_signature);
-      // console.log(e);
-    }
-    store.addQuad(sparqlFn, nodes.description, literal(o.SPARQL_description));
-    // TODO categories
-
-    const xpathFn = node('fns', `Function/xpath_${o.XPath.slice(3)}`);
-    store.addQuad(xpathFn, nodes.a, nodes.fno);
-    store.addQuad(xpathFn, nodes.solves, problem);
-    store.addQuad(xpathFn, nodes.skosBroader, fn);
-    store.addQuad(xpathFn, node('rdfs', 'seeAlso'), literal(o.XPath_iri));
-    store.addQuad(xpathFn, nodes.name, literal(o.XPath.slice(3)));
-    try {
-      const fnObj = XPATHParser.parse(o.Xpath_signature)[0];
-      const mapping = node('fns', `Mapping/xpath_${o.XPath}_${fnObj.function}`);
-      store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
-      store.addQuad(mapping, node('fno', 'function'), xpathFn);
-      store.addQuad(mapping, node('fno', 'implementation'), XPathImplementation);
-      const parameters = [];
-      fnObj.parameters.forEach((p, i) => {
-        const paramMapping = node('fns', `ParameterMapping/xpath_${o.XPath}_${p.type}_${p.argument}`);
-        store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
-        store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
-        store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
-        store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
-        const param = node('fns', `Parameter/xpath_${o.XPATH}_${p.type}_${p.argument}`);
-        store.addQuad(param, nodes.a, node('fno', 'Parameter'));
-        store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/xpath_${p.argument}`));
-        // TODO type
-        parameters.push(param);
-        store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
-        // TODO required
-      });
-      store.addQuad(xpathFn, nodes.expects, store.list(parameters));
-      const methodMapping = node('fns', `MethodMapping/xpath_${fnObj.function}`);
-      store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
-      store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
-      store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
-      store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
-      const output = node('fns', `Output/xpath_${fnObj.function}`);
-      store.addQuad(output, nodes.a, node('fno', 'Output'));
-      const outputs = [];
-      outputs.push(output);
-      store.addQuad(xpathFn, nodes.returns, store.list(outputs));
-      const returnMapping = node('fns', `ReturnMapping/xpath_${fnObj.function}`);
-      store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
-      store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
-      store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
-    } catch (e) {
-      console.log('XPATH ' + o.Xpath_signature);
-      // console.log(e);
-    }
-    store.addQuad(xpathFn, nodes.description, literal(o.Xpath_description));
-    // TODO categories
-
-    if (o.SQL.split(' or ').length > 1) {
-      o.SQL.split(' or ').forEach(s => {
-        const sqlFn = node('fns', `Function/sql_${s}`);
-      });
-    }
-    const sqlName = o.SQL.split(' or ')[0].toLowerCase();
-    const sqlFn = node('fns', `Function/sql_${sqlName}`);
-    store.addQuad(sqlFn, nodes.a, nodes.fno);
-    store.addQuad(sqlFn, nodes.solves, problem);
-    store.addQuad(sqlFn, nodes.skosBroader, fn);
-    if (o.SQL.split(' or ').length > 1) {
-      o.SQL.split(' or ').forEach(s => {
-        store.addQuad(sqlFn, nodes.name, literal(s));
-      });
-    } else {
-      store.addQuad(sqlFn, nodes.name, literal(o.SQL));
-    }
-    try {
-      const fnObj = SQLParser.parse(o.SQL_signature)[0];
-      const mapping = node('fns', `Mapping/sql_${o.SQL}_${fnObj.function}`);
-      store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
-      store.addQuad(mapping, node('fno', 'function'), sqlFn);
-      store.addQuad(mapping, node('fno', 'implementation'), SQLImplementation);
-      const parameters = [];
-      fnObj.parameters.forEach((p, i) => {
-        const paramMapping = node('fns', `ParameterMapping/sql_${o.SQL}_${p.type}_${p.argument}`);
-        store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
-        store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
-        store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
-        store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
-        const param = node('fns', `Parameter/sql_${o.SQL}_${p.type}_${p.argument}`);
-        store.addQuad(param, nodes.a, node('fno', 'Parameter'));
-        store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sql_${p.argument}`));
-        // TODO type
-        parameters.push(param);
-        store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
-        // TODO required
-      });
-      store.addQuad(sqlFn, nodes.expects, store.list(parameters));
-      const methodMapping = node('fns', `MethodMapping/sql_${fnObj.function}`);
-      store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
-      store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
-      store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
-      store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
-      const output = node('fns', `Output/sql_${fnObj.function}`);
-      store.addQuad(output, nodes.a, node('fno', 'Output'));
-      const outputs = [];
-      outputs.push(output);
-      store.addQuad(sqlFn, nodes.returns, store.list(outputs));
-      const returnMapping = node('fns', `ReturnMapping/sql_${fnObj.function}`);
-      store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
-      store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
-      store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
-    } catch (e) {
-      console.log('SQL ' + o.SQL_signature);
-      // console.log(e);
-    }
-    store.addQuad(sqlFn, nodes.description, literal(o.SQL_description));
-    // TODO categories
+    doGrel(o, store, problem, broadFn, GrelImplementation);
+    doSparql(o, store, problem, broadFn, SPARQLImplementation);
+    doXpath(o, store, problem, broadFn, XPathImplementation);
+    doSql(o, store, problem, broadFn, SQLImplementation);
   });
+}
+
+// TODO ARRAY?
+
+function doGrel(o, store, problem, broadFn, implementation) {
+  const fn = node('fns', `Function/grel_${o.GREL}`);
+  store.addQuad(fn, nodes.a, nodes.fno);
+  store.addQuad(fn, nodes.solves, problem);
+  store.addQuad(fn, nodes.skosBroader, broadFn);
+  store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.GREL_iri));
+  store.addQuad(fn, nodes.name, literal(o.GREL));
+  try {
+    const fnObj = GrelParser.parse(o.GREL_signature)[0];
+    const mapping = node('fns', `Mapping/grel_${o.GREL}_${fnObj.function}`);
+    store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
+    store.addQuad(mapping, node('fno', 'function'), fn);
+    store.addQuad(mapping, node('fno', 'implementation'), implementation);
+    const parameters = [];
+    fnObj.parameters.forEach((p, i) => {
+      const paramMapping = node('fns', `ParameterMapping/grel_${o.GREL}_${p.type}_${p.argument}`);
+      store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
+      store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
+      store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
+      store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
+      const param = node('fns', `Parameter/grel_${o.GREL}_${p.type}_${p.argument}`);
+      store.addQuad(param, nodes.a, node('fno', 'Parameter'));
+      store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/grel_${p.argument}`));
+      store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
+      // TODO type
+      parameters.push(param);
+      store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
+      // TODO required
+    });
+    store.addQuad(fn, nodes.expects, store.list(parameters));
+    const methodMapping = node('fns', `MethodMapping/grel_${fnObj.function}`);
+    store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
+    store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
+    store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
+    store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
+    const output = node('fns', `Output/grel_${fnObj.function}`);
+    store.addQuad(output, nodes.a, node('fno', 'Output'));
+    // TODO no outputType ?
+    store.addQuad(output, nodes.predicate, node('fns', `Predicate/grel_out`));
+    const outputs = [];
+    outputs.push(output);
+    store.addQuad(fn, nodes.returns, store.list(outputs));
+    const returnMapping = node('fns', `ReturnMapping/grel_${fnObj.function}`);
+    store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
+    store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
+    store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
+  } catch (e) {
+    console.log('GREL ' + o.GREL_signature);
+    // console.log(e);
+  }
+  store.addQuad(fn, nodes.description, literal(o.GREL_description));
+  // TODO categories
+}
+
+function doSparql(o, store, problem, broadFn, implementation) {
+  const fn = node('fns', `Function/sparql_${o.SPARQL}`);
+  store.addQuad(fn, nodes.a, nodes.fno);
+  store.addQuad(fn, nodes.solves, problem);
+  store.addQuad(fn, nodes.skosBroader, broadFn);
+  store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.SPARQL_iri));
+  store.addQuad(fn, nodes.name, literal(o.SPARQL));
+  try {
+    const fnObj = SPARQLParser.parse(o.SPARQL_signature)[0];
+    const mapping = node('fns', `Mapping/sparql_${o.SPARQL}_${fnObj.function}`);
+    store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
+    store.addQuad(mapping, node('fno', 'function'), fn);
+    store.addQuad(mapping, node('fno', 'implementation'), implementation);
+    const parameters = [];
+    fnObj.parameters.forEach((p, i) => {
+      const paramMapping = node('fns', `ParameterMapping/sparql_${o.SPARQL}_${p.type}_${p.argument}`);
+      store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
+      store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
+      store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
+      store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
+      const param = node('fns', `Parameter/sparql_${o.SPARQL}_${p.type}_${p.argument}`);
+      store.addQuad(param, nodes.a, node('fno', 'Parameter'));
+      store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sparql_${p.argument}`));
+      store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
+      // TODO type
+      parameters.push(param);
+      store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
+      // TODO required
+    });
+    store.addQuad(fn, nodes.expects, store.list(parameters));
+    const methodMapping = node('fns', `MethodMapping/sparql_${fnObj.function}`);
+    store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
+    store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
+    store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
+    store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
+    const output = node('fns', `Output/sparql_${fnObj.function}`);
+    store.addQuad(output, nodes.a, node('fno', 'Output'));
+    store.addQuad(output, nodes.predicate, node('fns', `Predicate/sparql_out_${fnObj.output}`));
+    // TODO outputType ?
+    const outputs = [];
+    outputs.push(output);
+    store.addQuad(fn, nodes.returns, store.list(outputs));
+    const returnMapping = node('fns', `ReturnMapping/sparql_${fnObj.function}`);
+    store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
+    store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
+    store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
+  } catch (e) {
+    console.log('SPARQL ' + o.SPARQL_signature);
+    // console.log(e);
+  }
+  store.addQuad(fn, nodes.description, literal(o.SPARQL_description));
+  // TODO categories
+}
+
+function doXpath(o, store, problem, broadFn, implementation) {
+  const fn = node('fns', `Function/xpath_${o.XPath.slice(3)}`);
+  store.addQuad(fn, nodes.a, nodes.fno);
+  store.addQuad(fn, nodes.solves, problem);
+  store.addQuad(fn, nodes.skosBroader, broadFn);
+  store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.XPath_iri));
+  store.addQuad(fn, nodes.name, literal(o.XPath.slice(3)));
+  try {
+    const fnObj = XPATHParser.parse(o.Xpath_signature)[0];
+    const mapping = node('fns', `Mapping/xpath_${o.XPath}_${fnObj.function}`);
+    store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
+    store.addQuad(mapping, node('fno', 'function'), fn);
+    store.addQuad(mapping, node('fno', 'implementation'), implementation);
+    const parameters = [];
+    fnObj.parameters.forEach((p, i) => {
+      const paramMapping = node('fns', `ParameterMapping/xpath_${o.XPath}_${p.type}_${p.argument}`);
+      store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
+      store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
+      store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
+      store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
+      const param = node('fns', `Parameter/xpath_${o.XPATH}_${p.type}_${p.argument}`);
+      store.addQuad(param, nodes.a, node('fno', 'Parameter'));
+      store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/xpath_${p.argument}`));
+      store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
+      // TODO type
+      parameters.push(param);
+      store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
+      // TODO required
+    });
+    store.addQuad(fn, nodes.expects, store.list(parameters));
+    const methodMapping = node('fns', `MethodMapping/xpath_${fnObj.function}`);
+    store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
+    store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
+    store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
+    store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
+    const output = node('fns', `Output/xpath_${fnObj.function}`);
+    store.addQuad(output, nodes.a, node('fno', 'Output'));
+    store.addQuad(output, nodes.predicate, node('fns', `Predicate/xpath_out_${fnObj.output}`));
+    // TODO outputType ?
+    const outputs = [];
+    outputs.push(output);
+    store.addQuad(fn, nodes.returns, store.list(outputs));
+    const returnMapping = node('fns', `ReturnMapping/xpath_${fnObj.function}`);
+    store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
+    store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
+    store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
+  } catch (e) {
+    console.log('XPATH ' + o.Xpath_signature);
+    // console.log(e);
+  }
+  store.addQuad(fn, nodes.description, literal(o.Xpath_description));
+  // TODO categories
+}
+
+function doSql(o, store, problem, broadFn, implementation) {
+  if (o.SQL.split(' or ').length > 1) {
+    o.SQL.split(' or ').forEach(s => {
+      const sqlFn = node('fns', `Function/sql_${s}`);
+    });
+  }
+  const sqlName = o.SQL.split(' or ')[0].toLowerCase();
+  const fn = node('fns', `Function/sql_${sqlName}`);
+  store.addQuad(fn, nodes.a, nodes.fno);
+  store.addQuad(fn, nodes.solves, problem);
+  store.addQuad(fn, nodes.skosBroader, broadFn);
+  if (o.SQL.split(' or ').length > 1) {
+    o.SQL.split(' or ').forEach(s => {
+      store.addQuad(fn, nodes.name, literal(s));
+    });
+  } else {
+    store.addQuad(fn, nodes.name, literal(o.SQL));
+  }
+  try {
+    const fnObj = SQLParser.parse(o.SQL_signature)[0];
+    const mapping = node('fns', `Mapping/sql_${encodeURIComponent(o.SQL)}_${fnObj.function}`);
+    store.addQuad(mapping, nodes.a, node('fno', 'Mapping'));
+    store.addQuad(mapping, node('fno', 'function'), fn);
+    store.addQuad(mapping, node('fno', 'implementation'), implementation);
+    const parameters = [];
+    fnObj.parameters.forEach((p, i) => {
+      const paramMapping = node('fns', `ParameterMapping/sql_${encodeURIComponent(o.SQL)}_${p.type}_${p.argument}`);
+      store.addQuad(mapping, node('fno', 'parameterMapping'), paramMapping);
+      store.addQuad(paramMapping, nodes.a, node('fno', 'ParameterMapping'));
+      store.addQuad(paramMapping, nodes.a, node('fnom', 'PositionParameterMapping'));
+      store.addQuad(paramMapping, node('fnom', 'implementationParameterPosition'), literal(i));
+      const param = node('fns', `Parameter/sql_${encodeURIComponent(o.SQL)}_${p.type}_${p.argument}`);
+      store.addQuad(param, nodes.a, node('fno', 'Parameter'));
+      store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sql_${p.argument}`));
+      store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
+      // TODO type
+      parameters.push(param);
+      store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
+      // TODO required
+    });
+    store.addQuad(fn, nodes.expects, store.list(parameters));
+    const methodMapping = node('fns', `MethodMapping/sql_${fnObj.function}`);
+    store.addQuad(methodMapping, nodes.a, node('fno', 'MethodMapping'));
+    store.addQuad(methodMapping, nodes.a, node('fnom', 'StringMethodMapping'));
+    store.addQuad(methodMapping, node('fnom', 'method-name'), literal(fnObj.function));
+    store.addQuad(mapping, node('fno', 'methodMapping'), methodMapping);
+    const output = node('fns', `Output/sql_${fnObj.function}`);
+    store.addQuad(output, nodes.a, node('fno', 'Output'));
+    // TODO no outputType ?
+    store.addQuad(output, nodes.predicate, node('fns', `Predicate/sql_out`));
+    const outputs = [];
+    outputs.push(output);
+    store.addQuad(fn, nodes.returns, store.list(outputs));
+    const returnMapping = node('fns', `ReturnMapping/sql_${fnObj.function}`);
+    store.addQuad(returnMapping, nodes.a, node('fno', 'ReturnMapping'));
+    store.addQuad(returnMapping, nodes.a, node('fnom', 'DefaultReturnMapping'));
+    store.addQuad(returnMapping, node('fnom', 'functionOutput'), output);
+  } catch (e) {
+    console.log('SQL ' + o.SQL_signature);
+    // console.log(e);
+  }
+  store.addQuad(fn, nodes.description, literal(o.SQL_description));
+  // TODO categories
 }
 
 async function createProblems(functionsPath, store) {
