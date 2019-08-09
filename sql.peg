@@ -10,13 +10,36 @@ Expression
       return {function: head, parameters: tail}
     }
 
+OptionalComplexParameter
+  = "[" parameter: ComplexRequiredParameter "]" {
+  	parameter.required = false;
+  	return parameter;
+  }
+
+ComplexParameter
+  = ComplexRequiredParameter / OptionalComplexParameter
+
+ComplexRequiredParameter
+  = parameter:Parameter array:("," _ "..." _ Parameter)? {
+  	parameter.required = true;
+    parameter.array = false;
+    if (array) {
+    	parameter.argument = parameter.argument.slice(0, -1);
+        parameter.array = true;
+    }
+    return parameter;
+  }
+
 Parameter
-  = argument:(Argument / CONSTANT) {
-      return {argument: argument.value, type: argument.type}
+  = preConstant:CONSTANT? _ argument:Argument {
+      if (preConstant) {
+      	argument.preConstant = preConstant
+      }
+      return argument;
     }
 
 Factor
-  = "(" _ head:Parameter tail:(_ Parameter)* _ ")" {
+  = "(" _ head:ComplexParameter tail:(_ ComplexParameter)* _ ")" {
       let result = [].concat(head);
       tail.forEach(elem => {
         result.push(elem[1])
@@ -24,10 +47,16 @@ Factor
       return result; }
 
 Argument "argument"
-  = [a-z0-9_*]+ { return {value: text(), type: "argument"} }
+  = arg:(Variable / Keyword) {return arg;}
+
+Variable "variable"
+  = [a-z0-9_*]+ { return {argument: text(), type: "variable"} }
+
+Keyword "keyword"
+  = argument:("HOUR" / "MINUTE" / "DAY" / "YEAR" / "MONTH" / "SECOND") {return {argument, type: "constant"}}
 
 CONSTANT "constant"
-  = [A-Z]+ { return {value: text(), type: "constant" } }
+  = constant:("FROM" / "PLACING" / "FOR" / "COLLATE") { return constant }
 
 Word "word"
   = [a-zA-Z0-9_]+ { return text() }

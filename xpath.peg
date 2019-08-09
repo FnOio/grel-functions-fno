@@ -14,7 +14,7 @@ Parameter
   = argument:Word _ "as" _ type:Word { return {type, argument} }
 
 Factor
-  = "(" _ head:(Parameter)? tail:(_ "," _ Parameter)* _ ")" {
+  = "(" _ head:(Parameter)? tail:(_ "," _ Parameter)* dots:(_ "," _ "...")? _ ")" {
       let result = [];
       if (head) {
        result = result.concat(head);
@@ -22,10 +22,15 @@ Factor
       tail.forEach(elem => {
         result.push(elem[3])
       });
+      if (dots) {
+      	head.argument = head.argument.slice(0,-1)
+        head.array = true;
+      	result = [head];
+      }
       return result; }
 
 Word "word"
-  = [a-zA-Z0-9:$?*-]+ { return text() }
+  = [a-zA-Z0-9:$?*\-\[\]]+ { return text() }
 
 _ "whitespace"
   = [ \t\n\r]*

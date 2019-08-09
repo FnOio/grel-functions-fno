@@ -10,19 +10,26 @@ Expression
       return {function: fn, parameters: tail, output}
     }
 
-Term
-  = head:Factor tail:(_ ("*" / "/") _ Factor)* {
-      return tail.reduce(function(result, element) {
-        if (element[1] === "*") { return result * element[3]; }
-        if (element[1] === "/") { return result / element[3]; }
-      }, head);
-    }
+ComplexParameter
+  = param:Parameter arr:(_ "..." _ Parameter)? {
+  	  let result = {
+        type: param.type,
+        argument: param.argument,
+        required: param.required,
+        array: false
+      };
+  	  if (arr) {
+        result.argument = result.argument.slice(0, -1);
+        result.array = true;
+      }
+      return result;
+  }
 
 Parameter
   = opt:("optional" _)? type:Word _ argument:Word { return {type, argument, required: opt ? false : true} }
 
 Factor
-  = "(" _ head:Parameter tail:(_ "," _ Parameter)* _ ")" {
+  = "(" _ head:ComplexParameter tail:(_ "," _ ComplexParameter)* _ ")" {
       let result = [].concat(head);
       tail.forEach(elem => {
         result.push(elem[3])
@@ -34,4 +41,3 @@ Word "word"
 
 _ "whitespace"
   = [ \t\n\r]*
-

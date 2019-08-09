@@ -10,27 +10,19 @@ Expression
       return {function: head, parameters: tail}
     }
 
-Term
-  = head:Factor tail:(_ ("*" / "/") _ Factor)* {
-      return tail.reduce(function(result, element) {
-        if (element[1] === "*") { return result * element[3]; }
-        if (element[1] === "/") { return result / element[3]; }
-      }, head);
-    }
-
 Parameter
   = opt:("optional" _)? type:Word _ argument:Word { return {type, argument, required: opt ? false : true} }
 
 Factor
-  = "(" _ head:Parameter tail:(_ "," _ Parameter)* _ ")" { 
+  = "(" _ head:Parameter tail:(_ "," _ Parameter)* _ ")" {
       let result = [].concat(head);
       tail.forEach(elem => {
         result.push(elem[3])
       });
       return result; }
-  
+
 Word "word"
-  = [a-zA-Z0-9]+ { return text() }
+  = [a-zA-Z0-9"]+ { return text() }
 
 _ "whitespace"
   = [ \t\n\r]*
