@@ -19,17 +19,10 @@
     rdfs:label "SQL Implementation".
 <https://fno.io/hub/data/resource/Problem/abs> a fno:Problem;
     fno:name "abs".
-<https://fno.io/hub/data/resource/Function/abs> a fno:Function;
-    fno:name "abs";
-    fno:solves <https://fno.io/hub/data/resource/Problem/abs>.
 <https://fno.io/hub/data/resource/Problem/ceil> a fno:Problem;
     fno:name "ceil".
-<https://fno.io/hub/data/resource/Function/ceil> a fno:Function;
-    fno:name "ceil";
-    fno:solves <https://fno.io/hub/data/resource/Problem/ceil>.
 <https://fno.io/hub/data/resource/Function/grel_ceil> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/ceil>;
-    skos:broader <https://fno.io/hub/data/resource/Function/ceil>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#ceilnumber-d";
     fno:name "ceil".
 <https://fno.io/hub/data/resource/Mapping/grel_ceil_ceil> a fno:Mapping;
@@ -40,6 +33,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_ceil_number_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:decimal;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_ceil_number_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_ceil_number_d>.
 <https://fno.io/hub/data/resource/Function/grel_ceil> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_ceil_number_d>).
@@ -54,7 +48,6 @@
 <https://fno.io/hub/data/resource/Function/grel_ceil> dcterms:description "Returns the ceiling of a number. For example, ceil(3.7) returns 4 and ceil(-3.7) returns -3.".
 <https://fno.io/hub/data/resource/Function/sparql_ceil> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/ceil>;
-    skos:broader <https://fno.io/hub/data/resource/Function/ceil>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-round";
     fno:name "ceil".
 <https://fno.io/hub/data/resource/Mapping/sparql_ceil_CEIL> a fno:Mapping;
@@ -65,6 +58,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_ceil_numeric_term> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_term>;
+    fno:type xsd:decimal;
     rdfs:label "term".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_ceil_numeric_term> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_ceil_numeric_term>.
 <https://fno.io/hub/data/resource/Function/sparql_ceil> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_ceil_numeric_term>).
@@ -72,14 +66,14 @@
     fnom:method-name "CEIL".
 <https://fno.io/hub/data/resource/Mapping/sparql_ceil_CEIL> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_CEIL>.
 <https://fno.io/hub/data/resource/Output/sparql_CEIL> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_ceil> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_CEIL>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_CEIL> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_CEIL>.
 <https://fno.io/hub/data/resource/Function/sparql_ceil> dcterms:description "Returns the smallest (closest to negative infinity) number with no fractional part that is not less than the value of arg. An error is raised if arg is not a numeric value.\n\nThis function is the same as fn:numeric-ceil for terms with a datatype from XDM. ".
 <https://fno.io/hub/data/resource/Function/xpath_ceiling> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/ceil>;
-    skos:broader <https://fno.io/hub/data/resource/Function/ceil>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-ceiling";
     fno:name "ceiling".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:ceiling_fn:ceiling> a fno:Mapping;
@@ -90,6 +84,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:decimal;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:ceiling_xs:numeric?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_ceiling> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg>).
@@ -97,14 +92,14 @@
     fnom:method-name "fn:ceiling".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:ceiling_fn:ceiling> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:ceiling>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:ceiling> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:numeric?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:numeric?>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/xpath_ceiling> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:ceiling>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:ceiling> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:ceiling>.
 <https://fno.io/hub/data/resource/Function/xpath_ceiling> dcterms:description "Rounds $arg upwards to a whole number.".
 <https://fno.io/hub/data/resource/Function/sql_ceil> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/ceil>;
-    skos:broader <https://fno.io/hub/data/resource/Function/ceil>;
     fno:name "CEIL", "CEILING".
 <https://fno.io/hub/data/resource/Mapping/sql_CEIL%20or%20CEILING_CEIL> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_ceil>;
@@ -114,6 +109,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_CEIL%20or%20CEILING_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_CEIL%20or%20CEILING_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_CEIL%20or%20CEILING_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_ceil> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_CEIL%20or%20CEILING_variable_expression>).
@@ -128,12 +124,8 @@
 <https://fno.io/hub/data/resource/Function/sql_ceil> dcterms:description "Rounds a noninteger value upwards to the next greatest integer. Returns an integer value unchanged.".
 <https://fno.io/hub/data/resource/Problem/concat> a fno:Problem;
     fno:name "concat".
-<https://fno.io/hub/data/resource/Function/concat> a fno:Function;
-    fno:name "concat";
-    fno:solves <https://fno.io/hub/data/resource/Problem/concat>.
 <https://fno.io/hub/data/resource/Function/grel_join> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/concat>;
-    skos:broader <https://fno.io/hub/data/resource/Function/concat>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#joinarray-a-string-sep";
     fno:name "join".
 <https://fno.io/hub/data/resource/Mapping/grel_join_join> a fno:Mapping;
@@ -144,6 +136,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_join_array_a> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_a>;
+    fno:type rdf:List;
     rdfs:label "a".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_join_array_a> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_join_array_a>.
 <https://fno.io/hub/data/resource/Mapping/grel_join_join> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_join_string_sep>.
@@ -151,6 +144,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_join_string_sep> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_sep>;
+    fno:type xsd:string;
     rdfs:label "sep".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_join_string_sep> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_join_string_sep>.
 <https://fno.io/hub/data/resource/Function/grel_join> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_join_array_a> <https://fno.io/hub/data/resource/Parameter/grel_join_string_sep>).
@@ -165,7 +159,6 @@
 <https://fno.io/hub/data/resource/Function/grel_join> dcterms:description "Returns the string obtained by joining the array a with the separator sep. For example, join([ \"foo\", \"bar\", \"baz\" ], \";\") returns the string foo;bar;baz.".
 <https://fno.io/hub/data/resource/Function/sparql_CONCAT> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/concat>;
-    skos:broader <https://fno.io/hub/data/resource/Function/concat>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-concat";
     fno:name "CONCAT".
 <https://fno.io/hub/data/resource/Mapping/sparql_CONCAT_CONCAT> a fno:Mapping;
@@ -176,6 +169,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_CONCAT_string_ltrl> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_ltrl>;
+    fno:type xsd:string;
     rdfs:label "ltrl".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_CONCAT_string_ltrl> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_CONCAT_string_ltrl>.
 <https://fno.io/hub/data/resource/Function/sparql_CONCAT> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_CONCAT_string_ltrl>).
@@ -183,14 +177,14 @@
     fnom:method-name "CONCAT".
 <https://fno.io/hub/data/resource/Mapping/sparql_CONCAT_CONCAT> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_CONCAT>.
 <https://fno.io/hub/data/resource/Output/sparql_CONCAT> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/sparql_CONCAT> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_CONCAT>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_CONCAT> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_CONCAT>.
 <https://fno.io/hub/data/resource/Function/sparql_CONCAT> dcterms:description "The CONCAT function corresponds to the XPath fn:concat function. The function accepts string literals as arguments.\n\nThe lexical form of the returned literal is obtained by concatenating the lexical forms of its inputs. If all input literals are typed literals of type xsd:string, then the returned literal is also of type xsd:string, if all input literals are plain literals with identical language tag, then the returned literal is a plain literal with the same language tag, in all other cases, the returned literal is a simple literal.".
 <https://fno.io/hub/data/resource/Function/xpath_concat> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/concat>;
-    skos:broader <https://fno.io/hub/data/resource/Function/concat>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-concat";
     fno:name "concat".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:concat_fn:concat> a fno:Mapping;
@@ -201,6 +195,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:concat_xs:anyAtomicType?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_concat> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType?_$arg>).
@@ -208,14 +203,14 @@
     fnom:method-name "fn:concat".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:concat_fn:concat> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:concat>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:concat> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/xpath_concat> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:concat>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:concat> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:concat>.
 <https://fno.io/hub/data/resource/Function/xpath_concat> dcterms:description "Returns the concatenation of the string values of the arguments.".
 <https://fno.io/hub/data/resource/Function/sql_concat> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/concat>;
-    skos:broader <https://fno.io/hub/data/resource/Function/concat>;
     fno:name "CONCAT".
 <https://fno.io/hub/data/resource/Mapping/sql_CONCAT_CONCAT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_concat>;
@@ -225,6 +220,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_CONCAT_variable_str> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_str>;
+    fno:type xsd:string;
     rdfs:label "str".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_CONCAT_variable_str> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_CONCAT_variable_str>.
 <https://fno.io/hub/data/resource/Function/sql_concat> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_CONCAT_variable_str>).
@@ -239,32 +235,16 @@
 <https://fno.io/hub/data/resource/Function/sql_concat> dcterms:description "joins two distinct strings into one string value.".
 <https://fno.io/hub/data/resource/Problem/contains> a fno:Problem;
     fno:name "contains".
-<https://fno.io/hub/data/resource/Function/contains> a fno:Function;
-    fno:name "contains";
-    fno:solves <https://fno.io/hub/data/resource/Problem/contains>.
 <https://fno.io/hub/data/resource/Problem/day> a fno:Problem;
     fno:name "day".
-<https://fno.io/hub/data/resource/Function/day> a fno:Function;
-    fno:name "day";
-    fno:solves <https://fno.io/hub/data/resource/Problem/day>.
 <https://fno.io/hub/data/resource/Problem/encode_for_uri> a fno:Problem;
     fno:name "encode_for_uri".
-<https://fno.io/hub/data/resource/Function/encode_for_uri> a fno:Function;
-    fno:name "encode_for_uri";
-    fno:solves <https://fno.io/hub/data/resource/Problem/encode_for_uri>.
 <https://fno.io/hub/data/resource/Problem/ends_with> a fno:Problem;
     fno:name "ends_with".
-<https://fno.io/hub/data/resource/Function/ends_with> a fno:Function;
-    fno:name "ends_with";
-    fno:solves <https://fno.io/hub/data/resource/Problem/ends_with>.
 <https://fno.io/hub/data/resource/Problem/floor> a fno:Problem;
     fno:name "floor".
-<https://fno.io/hub/data/resource/Function/floor> a fno:Function;
-    fno:name "floor";
-    fno:solves <https://fno.io/hub/data/resource/Problem/floor>.
 <https://fno.io/hub/data/resource/Function/grel_floor> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/floor>;
-    skos:broader <https://fno.io/hub/data/resource/Function/floor>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#floornumber-d";
     fno:name "floor".
 <https://fno.io/hub/data/resource/Mapping/grel_floor_floor> a fno:Mapping;
@@ -275,6 +255,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_floor_number_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:decimal;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_floor_number_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_floor_number_d>.
 <https://fno.io/hub/data/resource/Function/grel_floor> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_floor_number_d>).
@@ -289,7 +270,6 @@
 <https://fno.io/hub/data/resource/Function/grel_floor> dcterms:description "Returns the floor of a number. For example, floor(3.7) returns 3 and floor(-3.7) returns -4.".
 <https://fno.io/hub/data/resource/Function/sparql_floor> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/floor>;
-    skos:broader <https://fno.io/hub/data/resource/Function/floor>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-floor";
     fno:name "floor".
 <https://fno.io/hub/data/resource/Mapping/sparql_floor_FLOOR> a fno:Mapping;
@@ -300,6 +280,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_floor_numeric_term> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_term>;
+    fno:type xsd:decimal;
     rdfs:label "term".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_floor_numeric_term> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_floor_numeric_term>.
 <https://fno.io/hub/data/resource/Function/sparql_floor> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_floor_numeric_term>).
@@ -307,14 +288,14 @@
     fnom:method-name "FLOOR".
 <https://fno.io/hub/data/resource/Mapping/sparql_floor_FLOOR> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_FLOOR>.
 <https://fno.io/hub/data/resource/Output/sparql_FLOOR> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_floor> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_FLOOR>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_FLOOR> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_FLOOR>.
 <https://fno.io/hub/data/resource/Function/sparql_floor> dcterms:description "Returns the largest (closest to positive infinity) number with no fractional part that is not greater than the value of arg. An error is raised if arg is not a numeric value.\n\nThis function is the same as fn:numeric-floor for terms with a datatype from XDM. ".
 <https://fno.io/hub/data/resource/Function/xpath_floor> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/floor>;
-    skos:broader <https://fno.io/hub/data/resource/Function/floor>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-floor";
     fno:name "floor".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:floor_fn:floor> a fno:Mapping;
@@ -325,6 +306,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:decimal;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:floor_xs:numeric?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_floor> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:numeric?_$arg>).
@@ -332,14 +314,14 @@
     fnom:method-name "fn:floor".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:floor_fn:floor> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:floor>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:floor> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:numeric?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:numeric?>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/xpath_floor> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:floor>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:floor> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:floor>.
 <https://fno.io/hub/data/resource/Function/xpath_floor> dcterms:description "Rounds $arg downwards to a whole number.".
 <https://fno.io/hub/data/resource/Function/sql_floor> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/floor>;
-    skos:broader <https://fno.io/hub/data/resource/Function/floor>;
     fno:name "FLOOR".
 <https://fno.io/hub/data/resource/Mapping/sql_FLOOR_FLOOR> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_floor>;
@@ -349,6 +331,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_FLOOR_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_FLOOR_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_FLOOR_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_floor> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_FLOOR_variable_expression>).
@@ -363,12 +346,8 @@
 <https://fno.io/hub/data/resource/Function/sql_floor> dcterms:description "Rounds a noninteger value downwards to the next least integer. Returns an integer value unchanged.".
 <https://fno.io/hub/data/resource/Problem/hours> a fno:Problem;
     fno:name "hours".
-<https://fno.io/hub/data/resource/Function/hours> a fno:Function;
-    fno:name "hours";
-    fno:solves <https://fno.io/hub/data/resource/Problem/hours>.
 <https://fno.io/hub/data/resource/Function/grel_datePart> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/hours>;
-    skos:broader <https://fno.io/hub/data/resource/Function/hours>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit";
     fno:name "datePart".
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> a fno:Mapping;
@@ -379,6 +358,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:dateTime;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_date_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d>.
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"hours\">.
@@ -386,6 +366,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"hours\"> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_\"hours\">;
+    fno:type xsd:string;
     rdfs:label "\"hours\"".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"hours\"> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"hours\">.
 <https://fno.io/hub/data/resource/Function/grel_datePart> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"hours\">).
@@ -400,7 +381,6 @@
 <https://fno.io/hub/data/resource/Function/grel_datePart> dcterms:description "Returns part of a date. Data type returned depends on the unit. Units supported are:".
 <https://fno.io/hub/data/resource/Function/sparql_hours> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/hours>;
-    skos:broader <https://fno.io/hub/data/resource/Function/hours>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-hours";
     fno:name "hours".
 <https://fno.io/hub/data/resource/Mapping/sparql_hours_HOURS> a fno:Mapping;
@@ -411,6 +391,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_hours_xsd:dateTime_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:dateTime;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_hours_xsd:dateTime_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_hours_xsd:dateTime_arg>.
 <https://fno.io/hub/data/resource/Function/sparql_hours> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_hours_xsd:dateTime_arg>).
@@ -418,14 +399,14 @@
     fnom:method-name "HOURS".
 <https://fno.io/hub/data/resource/Mapping/sparql_hours_HOURS> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_HOURS>.
 <https://fno.io/hub/data/resource/Output/sparql_HOURS> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_hours> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_HOURS>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_HOURS> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_HOURS>.
 <https://fno.io/hub/data/resource/Function/sparql_hours> dcterms:description "Returns the hours part of arg as an integer. The value is as given in the lexical form of the XSD dateTime.\n\nThis function corresponds to fn:hours-from-dateTime.".
 <https://fno.io/hub/data/resource/Function/xpath_hours-from-dateTime> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/hours>;
-    skos:broader <https://fno.io/hub/data/resource/Function/hours>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-hours-from-dateTime";
     fno:name "hours-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:hours-from-dateTime_fn:hours-from-dateTime> a fno:Mapping;
@@ -436,6 +417,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:dateTime;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:hours-from-dateTime_xs:dateTime?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_hours-from-dateTime> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>).
@@ -443,14 +425,14 @@
     fnom:method-name "fn:hours-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:hours-from-dateTime_fn:hours-from-dateTime> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:hours-from-dateTime>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:hours-from-dateTime> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_hours-from-dateTime> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:hours-from-dateTime>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:hours-from-dateTime> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:hours-from-dateTime>.
 <https://fno.io/hub/data/resource/Function/xpath_hours-from-dateTime> dcterms:description "Returns the hours component of an xs:dateTime.".
 <https://fno.io/hub/data/resource/Function/sql_extract> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/hours>;
-    skos:broader <https://fno.io/hub/data/resource/Function/hours>;
     fno:name "EXTRACT".
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_extract>;
@@ -460,6 +442,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_HOUR> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_HOUR>;
+    fno:type xsd:string;
     rdfs:label "HOUR".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_constant_HOUR> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_HOUR>.
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression>.
@@ -467,6 +450,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_extract> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_HOUR> <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>).
@@ -481,12 +465,8 @@
 <https://fno.io/hub/data/resource/Function/sql_extract> dcterms:description "".
 <https://fno.io/hub/data/resource/Problem/lower_case> a fno:Problem;
     fno:name "lower_case".
-<https://fno.io/hub/data/resource/Function/lower_case> a fno:Function;
-    fno:name "lower_case";
-    fno:solves <https://fno.io/hub/data/resource/Problem/lower_case>.
 <https://fno.io/hub/data/resource/Function/grel_toLowercase> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/lower_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/lower_case>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#tolowercasestring-s";
     fno:name "toLowercase".
 <https://fno.io/hub/data/resource/Mapping/grel_toLowercase_toLowercase> a fno:Mapping;
@@ -497,6 +477,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_toLowercase_string_s> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_s>;
+    fno:type xsd:string;
     rdfs:label "s".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_toLowercase_string_s> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_toLowercase_string_s>.
 <https://fno.io/hub/data/resource/Function/grel_toLowercase> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_toLowercase_string_s>).
@@ -511,7 +492,6 @@
 <https://fno.io/hub/data/resource/Function/grel_toLowercase> dcterms:description "Returns s converted to lowercase.".
 <https://fno.io/hub/data/resource/Function/sparql_LCASE> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/lower_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/lower_case>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-lcase";
     fno:name "LCASE".
 <https://fno.io/hub/data/resource/Mapping/sparql_LCASE_LCASE> a fno:Mapping;
@@ -522,6 +502,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_LCASE_string_str> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_str>;
+    fno:type xsd:string;
     rdfs:label "str".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_LCASE_string_str> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_LCASE_string_str>.
 <https://fno.io/hub/data/resource/Function/sparql_LCASE> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_LCASE_string_str>).
@@ -529,14 +510,14 @@
     fnom:method-name "LCASE".
 <https://fno.io/hub/data/resource/Mapping/sparql_LCASE_LCASE> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_LCASE>.
 <https://fno.io/hub/data/resource/Output/sparql_LCASE> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/sparql_LCASE> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_LCASE>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_LCASE> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_LCASE>.
 <https://fno.io/hub/data/resource/Function/sparql_LCASE> dcterms:description "The LCASE function corresponds to the XPath fn:lower-case function. It returns a string literal whose lexical form is the lower case of the lexcial form of the argument.".
 <https://fno.io/hub/data/resource/Function/xpath_lower-case> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/lower_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/lower_case>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-lower-case";
     fno:name "lower-case".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:lower-case_fn:lower-case> a fno:Mapping;
@@ -547,6 +528,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:string;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:lower-case_xs:string?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_lower-case> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg>).
@@ -554,14 +536,14 @@
     fnom:method-name "fn:lower-case".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:lower-case_fn:lower-case> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:lower-case>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:lower-case> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/xpath_lower-case> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:lower-case>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:lower-case> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:lower-case>.
 <https://fno.io/hub/data/resource/Function/xpath_lower-case> dcterms:description "Converts a string to lower case".
 <https://fno.io/hub/data/resource/Function/sql_lower> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/lower_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/lower_case>;
     fno:name "LOWER".
 <https://fno.io/hub/data/resource/Mapping/sql_LOWER_LOWER> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_lower>;
@@ -571,6 +553,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_LOWER_variable_string> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_string>;
+    fno:type xsd:string;
     rdfs:label "string".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_LOWER_variable_string> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_LOWER_variable_string>.
 <https://fno.io/hub/data/resource/Function/sql_lower> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_LOWER_variable_string>).
@@ -585,12 +568,8 @@
 <https://fno.io/hub/data/resource/Function/sql_lower> dcterms:description "Converts a string to all lowercase characters.".
 <https://fno.io/hub/data/resource/Problem/minutes> a fno:Problem;
     fno:name "minutes".
-<https://fno.io/hub/data/resource/Function/minutes> a fno:Function;
-    fno:name "minutes";
-    fno:solves <https://fno.io/hub/data/resource/Problem/minutes>.
 <https://fno.io/hub/data/resource/Function/grel_datePart> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/minutes>;
-    skos:broader <https://fno.io/hub/data/resource/Function/minutes>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit";
     fno:name "datePart".
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> a fno:Mapping;
@@ -601,6 +580,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:dateTime;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_date_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d>.
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"minutes\">.
@@ -608,6 +588,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"minutes\"> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_\"minutes\">;
+    fno:type xsd:string;
     rdfs:label "\"minutes\"".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"minutes\"> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"minutes\">.
 <https://fno.io/hub/data/resource/Function/grel_datePart> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"minutes\">).
@@ -622,7 +603,6 @@
 <https://fno.io/hub/data/resource/Function/grel_datePart> dcterms:description "Returns part of a date. Data type returned depends on the unit. Units supported are:".
 <https://fno.io/hub/data/resource/Function/sparql_minutes> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/minutes>;
-    skos:broader <https://fno.io/hub/data/resource/Function/minutes>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-minutes";
     fno:name "minutes".
 <https://fno.io/hub/data/resource/Mapping/sparql_minutes_MINUTES> a fno:Mapping;
@@ -633,6 +613,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_minutes_xsd:dateTime_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:dateTime;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_minutes_xsd:dateTime_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_minutes_xsd:dateTime_arg>.
 <https://fno.io/hub/data/resource/Function/sparql_minutes> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_minutes_xsd:dateTime_arg>).
@@ -640,14 +621,14 @@
     fnom:method-name "MINUTES".
 <https://fno.io/hub/data/resource/Mapping/sparql_minutes_MINUTES> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_MINUTES>.
 <https://fno.io/hub/data/resource/Output/sparql_MINUTES> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_minutes> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_MINUTES>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_MINUTES> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_MINUTES>.
 <https://fno.io/hub/data/resource/Function/sparql_minutes> dcterms:description "Returns the minutes part of the lexical form of arg. The value is as given in the lexical form of the XSD dateTime.\n\nThis function corresponds to fn:minutes-from-dateTime.".
 <https://fno.io/hub/data/resource/Function/xpath_minutes-from-dateTime> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/minutes>;
-    skos:broader <https://fno.io/hub/data/resource/Function/minutes>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-minutes-from-dateTime";
     fno:name "minutes-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:minutes-from-dateTime_fn:minutes-from-dateTime> a fno:Mapping;
@@ -658,6 +639,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:dateTime;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:minutes-from-dateTime_xs:dateTime?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_minutes-from-dateTime> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>).
@@ -665,14 +647,14 @@
     fnom:method-name "fn:minutes-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:minutes-from-dateTime_fn:minutes-from-dateTime> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:minutes-from-dateTime>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:minutes-from-dateTime> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_minutes-from-dateTime> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:minutes-from-dateTime>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:minutes-from-dateTime> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:minutes-from-dateTime>.
 <https://fno.io/hub/data/resource/Function/xpath_minutes-from-dateTime> dcterms:description "Returns the minute component of an xs:dateTime.".
 <https://fno.io/hub/data/resource/Function/sql_extract> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/minutes>;
-    skos:broader <https://fno.io/hub/data/resource/Function/minutes>;
     fno:name "EXTRACT".
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_extract>;
@@ -682,6 +664,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MINUTE> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_MINUTE>;
+    fno:type xsd:string;
     rdfs:label "MINUTE".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_constant_MINUTE> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MINUTE>.
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression>.
@@ -689,6 +672,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_extract> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MINUTE> <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>).
@@ -703,12 +687,8 @@
 <https://fno.io/hub/data/resource/Function/sql_extract> dcterms:description "".
 <https://fno.io/hub/data/resource/Problem/month> a fno:Problem;
     fno:name "month".
-<https://fno.io/hub/data/resource/Function/month> a fno:Function;
-    fno:name "month";
-    fno:solves <https://fno.io/hub/data/resource/Problem/month>.
 <https://fno.io/hub/data/resource/Function/grel_datePart> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/month>;
-    skos:broader <https://fno.io/hub/data/resource/Function/month>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit";
     fno:name "datePart".
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> a fno:Mapping;
@@ -719,6 +699,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:dateTime;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_date_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d>.
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"months\">.
@@ -726,6 +707,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"months\"> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_\"months\">;
+    fno:type xsd:string;
     rdfs:label "\"months\"".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"months\"> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"months\">.
 <https://fno.io/hub/data/resource/Function/grel_datePart> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"months\">).
@@ -740,7 +722,6 @@
 <https://fno.io/hub/data/resource/Function/grel_datePart> dcterms:description "Returns part of a date. Data type returned depends on the unit. Units supported are:".
 <https://fno.io/hub/data/resource/Function/sparql_month> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/month>;
-    skos:broader <https://fno.io/hub/data/resource/Function/month>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-month";
     fno:name "month".
 <https://fno.io/hub/data/resource/Mapping/sparql_month_MONTH> a fno:Mapping;
@@ -751,6 +732,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_month_xsd:dateTime_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:dateTime;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_month_xsd:dateTime_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_month_xsd:dateTime_arg>.
 <https://fno.io/hub/data/resource/Function/sparql_month> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_month_xsd:dateTime_arg>).
@@ -758,14 +740,14 @@
     fnom:method-name "MONTH".
 <https://fno.io/hub/data/resource/Mapping/sparql_month_MONTH> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_MONTH>.
 <https://fno.io/hub/data/resource/Output/sparql_MONTH> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_month> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_MONTH>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_MONTH> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_MONTH>.
 <https://fno.io/hub/data/resource/Function/sparql_month> dcterms:description "Returns the month part of arg as an integer.\n\nThis function corresponds to fn:month-from-dateTime.".
 <https://fno.io/hub/data/resource/Function/xpath_month-from-dateTime> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/month>;
-    skos:broader <https://fno.io/hub/data/resource/Function/month>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-month-from-dateTime";
     fno:name "month-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:month-from-dateTime_fn:month-from-dateTime> a fno:Mapping;
@@ -776,6 +758,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:dateTime;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:month-from-dateTime_xs:dateTime?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_month-from-dateTime> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>).
@@ -783,14 +766,14 @@
     fnom:method-name "fn:month-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:month-from-dateTime_fn:month-from-dateTime> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:month-from-dateTime>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:month-from-dateTime> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_month-from-dateTime> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:month-from-dateTime>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:month-from-dateTime> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:month-from-dateTime>.
 <https://fno.io/hub/data/resource/Function/xpath_month-from-dateTime> dcterms:description "Returns the month component of an xs:dateTime.".
 <https://fno.io/hub/data/resource/Function/sql_extract> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/month>;
-    skos:broader <https://fno.io/hub/data/resource/Function/month>;
     fno:name "EXTRACT".
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_extract>;
@@ -800,6 +783,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MONTH> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_MONTH>;
+    fno:type xsd:string;
     rdfs:label "MONTH".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_constant_MONTH> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MONTH>.
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression>.
@@ -807,6 +791,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_extract> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_MONTH> <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>).
@@ -821,12 +806,8 @@
 <https://fno.io/hub/data/resource/Function/sql_extract> dcterms:description "".
 <https://fno.io/hub/data/resource/Problem/replace> a fno:Problem;
     fno:name "replace".
-<https://fno.io/hub/data/resource/Function/replace> a fno:Function;
-    fno:name "replace";
-    fno:solves <https://fno.io/hub/data/resource/Problem/replace>.
 <https://fno.io/hub/data/resource/Function/grel_replace> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/replace>;
-    skos:broader <https://fno.io/hub/data/resource/Function/replace>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#replacestring-s-string-f-string-r";
     fno:name "replace".
 <https://fno.io/hub/data/resource/Mapping/grel_replace_replace> a fno:Mapping;
@@ -837,6 +818,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_replace_string_s> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_s>;
+    fno:type xsd:string;
     rdfs:label "s".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_replace_string_s> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_replace_string_s>.
 <https://fno.io/hub/data/resource/Mapping/grel_replace_replace> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_replace_string_f>.
@@ -844,6 +826,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_replace_string_f> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_f>;
+    fno:type xsd:string;
     rdfs:label "f".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_replace_string_f> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_replace_string_f>.
 <https://fno.io/hub/data/resource/Mapping/grel_replace_replace> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_replace_string_r>.
@@ -851,6 +834,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_replace_string_r> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_r>;
+    fno:type xsd:string;
     rdfs:label "r".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_replace_string_r> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_replace_string_r>.
 <https://fno.io/hub/data/resource/Function/grel_replace> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_replace_string_s> <https://fno.io/hub/data/resource/Parameter/grel_replace_string_f> <https://fno.io/hub/data/resource/Parameter/grel_replace_string_r>).
@@ -865,7 +849,6 @@
 <https://fno.io/hub/data/resource/Function/grel_replace> dcterms:description "Returns the string obtained by replacing f with r in s. f can be a regular expression, in which case r can also contain capture groups declared in f.\n\nFor a simple example, replace(\"The cow jumps over the moon and moos\", \"oo\", \"ee\") returns the string The cow jumps over the meen and mees.\n\nMore info on Regex".
 <https://fno.io/hub/data/resource/Function/sparql_REPLACE> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/replace>;
-    skos:broader <https://fno.io/hub/data/resource/Function/replace>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-replace";
     fno:name "REPLACE".
 <https://fno.io/hub/data/resource/Mapping/sparql_REPLACE_REPLACE> a fno:Mapping;
@@ -876,6 +859,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:string;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_REPLACE_string_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_arg>.
 <https://fno.io/hub/data/resource/Mapping/sparql_REPLACE_REPLACE> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sparql_REPLACE_string_pattern>.
@@ -883,6 +867,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_pattern> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_pattern>;
+    fno:type xsd:string;
     rdfs:label "pattern".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_REPLACE_string_pattern> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_pattern>.
 <https://fno.io/hub/data/resource/Mapping/sparql_REPLACE_REPLACE> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sparql_REPLACE_string_replacement>.
@@ -890,6 +875,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_replacement> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_replacement>;
+    fno:type xsd:string;
     rdfs:label "replacement".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_REPLACE_string_replacement> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_replacement>.
 <https://fno.io/hub/data/resource/Function/sparql_REPLACE> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_arg> <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_pattern> <https://fno.io/hub/data/resource/Parameter/sparql_REPLACE_string_replacement>).
@@ -897,14 +883,14 @@
     fnom:method-name "REPLACE".
 <https://fno.io/hub/data/resource/Mapping/sparql_REPLACE_REPLACE> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_REPLACE>.
 <https://fno.io/hub/data/resource/Output/sparql_REPLACE> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/sparql_REPLACE> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_REPLACE>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_REPLACE> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_REPLACE>.
 <https://fno.io/hub/data/resource/Function/sparql_REPLACE> dcterms:description "The REPLACE function corresponds to the XPath fn:replace function. It replaces each non-overlapping occurrence of the regular expression pattern with the replacement string. Regular expession matching may involve modifier flags. See REGEX.".
 <https://fno.io/hub/data/resource/Function/xpath_replace> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/replace>;
-    skos:broader <https://fno.io/hub/data/resource/Function/replace>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-replace";
     fno:name "replace".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:replace_fn:replace> a fno:Mapping;
@@ -915,6 +901,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$input> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$input>;
+    fno:type xsd:string;
     rdfs:label "$input".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:replace_xs:string?_$input> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$input>.
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:replace_fn:replace> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:replace_xs:string_$pattern>.
@@ -922,6 +909,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$pattern> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$pattern>;
+    fno:type xsd:string;
     rdfs:label "$pattern".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:replace_xs:string_$pattern> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$pattern>.
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:replace_fn:replace> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:replace_xs:string_$replacement>.
@@ -929,6 +917,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$replacement> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$replacement>;
+    fno:type xsd:string;
     rdfs:label "$replacement".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:replace_xs:string_$replacement> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$replacement>.
 <https://fno.io/hub/data/resource/Function/xpath_replace> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$input> <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$pattern> <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string_$replacement>).
@@ -936,14 +925,14 @@
     fnom:method-name "fn:replace".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:replace_fn:replace> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:replace>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:replace> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/xpath_replace> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:replace>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:replace> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:replace>.
 <https://fno.io/hub/data/resource/Function/xpath_replace> dcterms:description "Returns a string produced from the input string by replacing any substrings that match a given regular expression with a supplied replacement string.".
 <https://fno.io/hub/data/resource/Function/sql_overlay> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/replace>;
-    skos:broader <https://fno.io/hub/data/resource/Function/replace>;
     fno:name "OVERLAY".
 <https://fno.io/hub/data/resource/Mapping/sql_OVERLAY_OVERLAY> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_overlay>;
@@ -953,6 +942,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_string> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_string>;
+    fno:type xsd:string;
     rdfs:label "string".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_string> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_string>.
 <https://fno.io/hub/data/resource/Mapping/sql_OVERLAY_OVERLAY> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_embedded_string>.
@@ -960,6 +950,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_embedded_string> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_embedded_string>;
+    fno:type xsd:string;
     rdfs:label "embedded_string".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_embedded_string> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_embedded_string>.
 <https://fno.io/hub/data/resource/Mapping/sql_OVERLAY_OVERLAY> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_start>.
@@ -967,6 +958,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_start> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_start>;
+    fno:type xsd:integer;
     rdfs:label "start".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_start> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_start>.
 <https://fno.io/hub/data/resource/Mapping/sql_OVERLAY_OVERLAY> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_length>.
@@ -974,6 +966,7 @@
     fnom:implementationParameterPosition "3"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_length> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_length>;
+    fno:type xsd:integer;
     rdfs:label "length".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_OVERLAY_variable_length> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_length>.
 <https://fno.io/hub/data/resource/Function/sql_overlay> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_string> <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_embedded_string> <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_start> <https://fno.io/hub/data/resource/Parameter/sql_OVERLAY_variable_length>).
@@ -988,17 +981,10 @@
 <https://fno.io/hub/data/resource/Function/sql_overlay> dcterms:description "Returns the result of replacing a substring of one string with another.".
 <https://fno.io/hub/data/resource/Problem/round> a fno:Problem;
     fno:name "round".
-<https://fno.io/hub/data/resource/Function/round> a fno:Function;
-    fno:name "round";
-    fno:solves <https://fno.io/hub/data/resource/Problem/round>.
 <https://fno.io/hub/data/resource/Problem/seconds> a fno:Problem;
     fno:name "seconds".
-<https://fno.io/hub/data/resource/Function/seconds> a fno:Function;
-    fno:name "seconds";
-    fno:solves <https://fno.io/hub/data/resource/Problem/seconds>.
 <https://fno.io/hub/data/resource/Function/grel_datePart> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/seconds>;
-    skos:broader <https://fno.io/hub/data/resource/Function/seconds>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit";
     fno:name "datePart".
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> a fno:Mapping;
@@ -1009,6 +995,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:dateTime;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_date_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d>.
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"seconds\">.
@@ -1016,6 +1003,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"seconds\"> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_\"seconds\">;
+    fno:type xsd:string;
     rdfs:label "\"seconds\"".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"seconds\"> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"seconds\">.
 <https://fno.io/hub/data/resource/Function/grel_datePart> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"seconds\">).
@@ -1030,7 +1018,6 @@
 <https://fno.io/hub/data/resource/Function/grel_datePart> dcterms:description "Returns part of a date. Data type returned depends on the unit. Units supported are:".
 <https://fno.io/hub/data/resource/Function/sparql_seconds> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/seconds>;
-    skos:broader <https://fno.io/hub/data/resource/Function/seconds>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-timezone";
     fno:name "seconds".
 <https://fno.io/hub/data/resource/Mapping/sparql_seconds_SECONDS> a fno:Mapping;
@@ -1041,6 +1028,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_seconds_xsd:dateTime_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:dateTime;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_seconds_xsd:dateTime_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_seconds_xsd:dateTime_arg>.
 <https://fno.io/hub/data/resource/Function/sparql_seconds> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_seconds_xsd:dateTime_arg>).
@@ -1048,14 +1036,14 @@
     fnom:method-name "SECONDS".
 <https://fno.io/hub/data/resource/Mapping/sparql_seconds_SECONDS> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_SECONDS>.
 <https://fno.io/hub/data/resource/Output/sparql_SECONDS> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:decimal>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:decimal>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_seconds> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_SECONDS>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_SECONDS> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_SECONDS>.
 <https://fno.io/hub/data/resource/Function/sparql_seconds> dcterms:description "Returns the seconds part of the lexical form of arg.\n\nThis function corresponds to fn:seconds-from-dateTime.".
 <https://fno.io/hub/data/resource/Function/xpath_seconds-from-dateTime> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/seconds>;
-    skos:broader <https://fno.io/hub/data/resource/Function/seconds>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-seconds-from-dateTime";
     fno:name "seconds-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:seconds-from-dateTime_fn:seconds-from-dateTime> a fno:Mapping;
@@ -1066,6 +1054,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:dateTime;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:seconds-from-dateTime_xs:dateTime?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_seconds-from-dateTime> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>).
@@ -1073,14 +1062,14 @@
     fnom:method-name "fn:seconds-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:seconds-from-dateTime_fn:seconds-from-dateTime> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:seconds-from-dateTime>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:seconds-from-dateTime> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:decimal?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:decimal?>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/xpath_seconds-from-dateTime> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:seconds-from-dateTime>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:seconds-from-dateTime> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:seconds-from-dateTime>.
 <https://fno.io/hub/data/resource/Function/xpath_seconds-from-dateTime> dcterms:description "Returns the seconds component of an xs:dateTime.".
 <https://fno.io/hub/data/resource/Function/sql_extract> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/seconds>;
-    skos:broader <https://fno.io/hub/data/resource/Function/seconds>;
     fno:name "EXTRACT".
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_extract>;
@@ -1090,6 +1079,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_SECOND> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_SECOND>;
+    fno:type xsd:string;
     rdfs:label "SECOND".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_constant_SECOND> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_SECOND>.
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression>.
@@ -1097,6 +1087,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_extract> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_SECOND> <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>).
@@ -1111,17 +1102,10 @@
 <https://fno.io/hub/data/resource/Function/sql_extract> dcterms:description "".
 <https://fno.io/hub/data/resource/Problem/starts_with> a fno:Problem;
     fno:name "starts_with".
-<https://fno.io/hub/data/resource/Function/starts_with> a fno:Function;
-    fno:name "starts_with";
-    fno:solves <https://fno.io/hub/data/resource/Problem/starts_with>.
 <https://fno.io/hub/data/resource/Problem/string_length> a fno:Problem;
     fno:name "string_length".
-<https://fno.io/hub/data/resource/Function/string_length> a fno:Function;
-    fno:name "string_length";
-    fno:solves <https://fno.io/hub/data/resource/Problem/string_length>.
 <https://fno.io/hub/data/resource/Function/grel_length> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/string_length>;
-    skos:broader <https://fno.io/hub/data/resource/Function/string_length>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#lengthstring-s";
     fno:name "length".
 <https://fno.io/hub/data/resource/Mapping/grel_length_length> a fno:Mapping;
@@ -1132,6 +1116,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_length_string_s> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_s>;
+    fno:type xsd:string;
     rdfs:label "s".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_length_string_s> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_length_string_s>.
 <https://fno.io/hub/data/resource/Function/grel_length> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_length_string_s>).
@@ -1146,7 +1131,6 @@
 <https://fno.io/hub/data/resource/Function/grel_length> dcterms:description "Returns the length of s as a number.".
 <https://fno.io/hub/data/resource/Function/sparql_STRLEN> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/string_length>;
-    skos:broader <https://fno.io/hub/data/resource/Function/string_length>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-strlen";
     fno:name "STRLEN".
 <https://fno.io/hub/data/resource/Mapping/sparql_STRLEN_STRLEN> a fno:Mapping;
@@ -1157,6 +1141,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_STRLEN_string_str> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_str>;
+    fno:type xsd:string;
     rdfs:label "str".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_STRLEN_string_str> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_STRLEN_string_str>.
 <https://fno.io/hub/data/resource/Function/sparql_STRLEN> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_STRLEN_string_str>).
@@ -1164,14 +1149,14 @@
     fnom:method-name "STRLEN".
 <https://fno.io/hub/data/resource/Mapping/sparql_STRLEN_STRLEN> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_STRLEN>.
 <https://fno.io/hub/data/resource/Output/sparql_STRLEN> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_STRLEN> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_STRLEN>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_STRLEN> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_STRLEN>.
 <https://fno.io/hub/data/resource/Function/sparql_STRLEN> dcterms:description "The strlen function corresponds to the XPath fn:string-length function and returns an xsd:integer equal to the length in characters of the lexical form of the literal.".
 <https://fno.io/hub/data/resource/Function/xpath_:string-length> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/string_length>;
-    skos:broader <https://fno.io/hub/data/resource/Function/string_length>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-string-length";
     fno:name ":string-length".
 <https://fno.io/hub/data/resource/Mapping/xpath_fno:string-length_fn:string-length> a fno:Mapping;
@@ -1182,14 +1167,14 @@
     fnom:method-name "fn:string-length".
 <https://fno.io/hub/data/resource/Mapping/xpath_fno:string-length_fn:string-length> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:string-length>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:string-length> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_:string-length> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:string-length>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:string-length> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:string-length>.
 <https://fno.io/hub/data/resource/Function/xpath_:string-length> dcterms:description "Returns the number of �characters� in a string.".
 <https://fno.io/hub/data/resource/Function/sql_char_length> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/string_length>;
-    skos:broader <https://fno.io/hub/data/resource/Function/string_length>;
     fno:name "CHAR_LENGTH".
 <https://fno.io/hub/data/resource/Mapping/sql_CHAR_LENGTH_CHAR_LENGTH> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_char_length>;
@@ -1199,6 +1184,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_CHAR_LENGTH_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_CHAR_LENGTH_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_CHAR_LENGTH_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_char_length> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_CHAR_LENGTH_variable_expression>).
@@ -1213,12 +1199,8 @@
 <https://fno.io/hub/data/resource/Function/sql_char_length> dcterms:description "Returns an integer value representing the number of characters in a string expression.".
 <https://fno.io/hub/data/resource/Problem/substring> a fno:Problem;
     fno:name "substring".
-<https://fno.io/hub/data/resource/Function/substring> a fno:Function;
-    fno:name "substring";
-    fno:solves <https://fno.io/hub/data/resource/Problem/substring>.
 <https://fno.io/hub/data/resource/Function/grel_substring> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/substring>;
-    skos:broader <https://fno.io/hub/data/resource/Function/substring>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#substrings-number-from-optional-number-to";
     fno:name "substring".
 <https://fno.io/hub/data/resource/Mapping/grel_substring_substring> a fno:Mapping;
@@ -1229,6 +1211,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_substring_string_s> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_s>;
+    fno:type xsd:string;
     rdfs:label "s".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_substring_string_s> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_substring_string_s>.
 <https://fno.io/hub/data/resource/Mapping/grel_substring_substring> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_substring_number_from>.
@@ -1236,6 +1219,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_substring_number_from> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_from>;
+    fno:type xsd:decimal;
     rdfs:label "from".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_substring_number_from> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_substring_number_from>.
 <https://fno.io/hub/data/resource/Mapping/grel_substring_substring> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_substring_number_to>.
@@ -1243,6 +1227,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_substring_number_to> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_to>;
+    fno:type xsd:decimal;
     rdfs:label "to".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_substring_number_to> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_substring_number_to>.
 <https://fno.io/hub/data/resource/Function/grel_substring> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_substring_string_s> <https://fno.io/hub/data/resource/Parameter/grel_substring_number_from> <https://fno.io/hub/data/resource/Parameter/grel_substring_number_to>).
@@ -1257,7 +1242,6 @@
 <https://fno.io/hub/data/resource/Function/grel_substring> dcterms:description "Returns the substring of s starting from character index from and upto character index to. If to is omitted, it's understood as the end of the string s. For example, substring(\"profound\", 3) returns the string found, and substring(\"profound\", 2, 4) returns the string of.\n\nCharacter indexes start from zero. Negative character indexes are understood as counting from the end of the string. For example, substring(\"profound\", 1, -1) returns the string rofoun.".
 <https://fno.io/hub/data/resource/Function/sparql_SUBSTR> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/substring>;
-    skos:broader <https://fno.io/hub/data/resource/Function/substring>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-substr";
     fno:name "SUBSTR".
 <https://fno.io/hub/data/resource/Mapping/sparql_SUBSTR_SUBSTR> a fno:Mapping;
@@ -1268,6 +1252,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_string_source> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_source>;
+    fno:type xsd:string;
     rdfs:label "source".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_SUBSTR_string_source> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_string_source>.
 <https://fno.io/hub/data/resource/Mapping/sparql_SUBSTR_SUBSTR> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sparql_SUBSTR_xsd:integer_startingLoc>.
@@ -1275,6 +1260,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_xsd:integer_startingLoc> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_startingLoc>;
+    fno:type xsd:integer;
     rdfs:label "startingLoc".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_SUBSTR_xsd:integer_startingLoc> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_xsd:integer_startingLoc>.
 <https://fno.io/hub/data/resource/Function/sparql_SUBSTR> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_string_source> <https://fno.io/hub/data/resource/Parameter/sparql_SUBSTR_xsd:integer_startingLoc>).
@@ -1282,14 +1268,14 @@
     fnom:method-name "SUBSTR".
 <https://fno.io/hub/data/resource/Mapping/sparql_SUBSTR_SUBSTR> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_SUBSTR>.
 <https://fno.io/hub/data/resource/Output/sparql_SUBSTR> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/sparql_SUBSTR> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_SUBSTR>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_SUBSTR> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_SUBSTR>.
 <https://fno.io/hub/data/resource/Function/sparql_SUBSTR> dcterms:description "The substr function corresponds to the XPath fn:substring function and returns a literal of the same kind (simple literal, literal with language tag, xsd:string typed literal) as the source input parameter but with a lexical form formed from the substring of the lexcial form of the source.\n\nThe arguments startingLoc and length may be derived types of xsd:integer.\n\nThe index of the first character in a strings is 1.".
 <https://fno.io/hub/data/resource/Function/xpath_substring> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/substring>;
-    skos:broader <https://fno.io/hub/data/resource/Function/substring>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-substring";
     fno:name "substring".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:substring_fn:substring> a fno:Mapping;
@@ -1300,6 +1286,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$sourceString> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$sourceString>;
+    fno:type xsd:string;
     rdfs:label "$sourceString".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:substring_xs:string?_$sourceString> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$sourceString>.
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:substring_fn:substring> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:substring_xs:double_$start>.
@@ -1307,6 +1294,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:double_$start> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$start>;
+    fno:type xsd:decimal;
     rdfs:label "$start".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:substring_xs:double_$start> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:double_$start>.
 <https://fno.io/hub/data/resource/Function/xpath_substring> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$sourceString> <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:double_$start>).
@@ -1314,14 +1302,14 @@
     fnom:method-name "fn:substring".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:substring_fn:substring> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:substring>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:substring> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/xpath_substring> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:substring>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:substring> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:substring>.
 <https://fno.io/hub/data/resource/Function/xpath_substring> dcterms:description "Returns the portion of the value of $sourceString beginning at the position indicated by the value of $start and continuing for the number of �characters� indicated by the value of $length.".
 <https://fno.io/hub/data/resource/Function/sql_substring> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/substring>;
-    skos:broader <https://fno.io/hub/data/resource/Function/substring>;
     fno:name "SUBSTRING".
 <https://fno.io/hub/data/resource/Mapping/sql_SUBSTRING_SUBSTRING> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_substring>;
@@ -1331,6 +1319,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_extraction_string> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_extraction_string>;
+    fno:type xsd:string;
     rdfs:label "extraction_string".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_extraction_string> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_extraction_string>.
 <https://fno.io/hub/data/resource/Mapping/sql_SUBSTRING_SUBSTRING> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_starting_position>.
@@ -1338,6 +1327,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_starting_position> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_starting_position>;
+    fno:type xsd:integer;
     rdfs:label "starting_position".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_starting_position> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_starting_position>.
 <https://fno.io/hub/data/resource/Mapping/sql_SUBSTRING_SUBSTRING> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_length>.
@@ -1345,6 +1335,7 @@
     fnom:implementationParameterPosition "2"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_length> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_length>;
+    fno:type xsd:integer;
     rdfs:label "length".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_length> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_length>.
 <https://fno.io/hub/data/resource/Mapping/sql_SUBSTRING_SUBSTRING> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_collation_name>.
@@ -1352,6 +1343,7 @@
     fnom:implementationParameterPosition "3"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_collation_name> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_collation_name>;
+    fno:type xsd:string;
     rdfs:label "collation_name".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_SUBSTRING_variable_collation_name> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_collation_name>.
 <https://fno.io/hub/data/resource/Function/sql_substring> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_extraction_string> <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_starting_position> <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_length> <https://fno.io/hub/data/resource/Parameter/sql_SUBSTRING_variable_collation_name>).
@@ -1366,27 +1358,14 @@
 <https://fno.io/hub/data/resource/Function/sql_substring> dcterms:description "Returns a portion of a string.".
 <https://fno.io/hub/data/resource/Problem/substring_after> a fno:Problem;
     fno:name "substring_after".
-<https://fno.io/hub/data/resource/Function/substring_after> a fno:Function;
-    fno:name "substring_after";
-    fno:solves <https://fno.io/hub/data/resource/Problem/substring_after>.
 <https://fno.io/hub/data/resource/Problem/substring_before> a fno:Problem;
     fno:name "substring_before".
-<https://fno.io/hub/data/resource/Function/substring_before> a fno:Function;
-    fno:name "substring_before";
-    fno:solves <https://fno.io/hub/data/resource/Problem/substring_before>.
 <https://fno.io/hub/data/resource/Problem/timezone> a fno:Problem;
     fno:name "timezone".
-<https://fno.io/hub/data/resource/Function/timezone> a fno:Function;
-    fno:name "timezone";
-    fno:solves <https://fno.io/hub/data/resource/Problem/timezone>.
 <https://fno.io/hub/data/resource/Problem/upper_case> a fno:Problem;
     fno:name "upper_case".
-<https://fno.io/hub/data/resource/Function/upper_case> a fno:Function;
-    fno:name "upper_case";
-    fno:solves <https://fno.io/hub/data/resource/Problem/upper_case>.
 <https://fno.io/hub/data/resource/Function/grel_toUpperCase(s)> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/upper_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/upper_case>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#tolowercasestring-s";
     fno:name "toUpperCase(s)".
 <https://fno.io/hub/data/resource/Mapping/grel_toUpperCase(s)_toLowercase> a fno:Mapping;
@@ -1397,6 +1376,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_toUpperCase(s)_string_s> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_s>;
+    fno:type xsd:string;
     rdfs:label "s".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_toUpperCase(s)_string_s> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_toUpperCase(s)_string_s>.
 <https://fno.io/hub/data/resource/Function/grel_toUpperCase(s)> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_toUpperCase(s)_string_s>).
@@ -1411,7 +1391,6 @@
 <https://fno.io/hub/data/resource/Function/grel_toUpperCase(s)> dcterms:description "Returns s converted to lowercase.".
 <https://fno.io/hub/data/resource/Function/sparql_UCASE> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/upper_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/upper_case>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-ucase";
     fno:name "UCASE".
 <https://fno.io/hub/data/resource/Mapping/sparql_UCASE_UCASE> a fno:Mapping;
@@ -1422,6 +1401,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_UCASE_string_str> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_str>;
+    fno:type xsd:string;
     rdfs:label "str".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_UCASE_string_str> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_UCASE_string_str>.
 <https://fno.io/hub/data/resource/Function/sparql_UCASE> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_UCASE_string_str>).
@@ -1429,14 +1409,14 @@
     fnom:method-name "UCASE".
 <https://fno.io/hub/data/resource/Mapping/sparql_UCASE_UCASE> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_UCASE>.
 <https://fno.io/hub/data/resource/Output/sparql_UCASE> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/sparql_UCASE> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_UCASE>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_UCASE> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_UCASE>.
 <https://fno.io/hub/data/resource/Function/sparql_UCASE> dcterms:description "The UCASE function corresponds to the XPath fn:upper-case function. It returns a string literal whose lexical form is the upper case of the lexcial form of the argument.".
 <https://fno.io/hub/data/resource/Function/xpath_upper-case> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/upper_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/upper_case>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-upper-case";
     fno:name "upper-case".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:upper-case_fn:upper-case> a fno:Mapping;
@@ -1447,6 +1427,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:string;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:upper-case_xs:string?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_upper-case> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:string?_$arg>).
@@ -1454,14 +1435,14 @@
     fnom:method-name "fn:upper-case".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:upper-case_fn:upper-case> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:upper-case>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:upper-case> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:string>;
+    fno:type xsd:string.
 <https://fno.io/hub/data/resource/Function/xpath_upper-case> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:upper-case>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:upper-case> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:upper-case>.
 <https://fno.io/hub/data/resource/Function/xpath_upper-case> dcterms:description "Converts a string to upper case.".
 <https://fno.io/hub/data/resource/Function/sql_upper> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/upper_case>;
-    skos:broader <https://fno.io/hub/data/resource/Function/upper_case>;
     fno:name "UPPER".
 <https://fno.io/hub/data/resource/Mapping/sql_UPPER_UPPER> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_upper>;
@@ -1471,6 +1452,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_UPPER_variable_string> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_string>;
+    fno:type xsd:string;
     rdfs:label "string".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_UPPER_variable_string> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_UPPER_variable_string>.
 <https://fno.io/hub/data/resource/Function/sql_upper> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_UPPER_variable_string>).
@@ -1485,12 +1467,8 @@
 <https://fno.io/hub/data/resource/Function/sql_upper> dcterms:description "Converts a string to all uppercase characters.".
 <https://fno.io/hub/data/resource/Problem/year> a fno:Problem;
     fno:name "year".
-<https://fno.io/hub/data/resource/Function/year> a fno:Function;
-    fno:name "year";
-    fno:solves <https://fno.io/hub/data/resource/Problem/year>.
 <https://fno.io/hub/data/resource/Function/grel_datePart> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/year>;
-    skos:broader <https://fno.io/hub/data/resource/Function/year>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit";
     fno:name "datePart".
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> a fno:Mapping;
@@ -1501,6 +1479,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d>;
+    fno:type xsd:dateTime;
     rdfs:label "d".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_date_d> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d>.
 <https://fno.io/hub/data/resource/Mapping/grel_datePart_datePart> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"years\">.
@@ -1508,6 +1487,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"years\"> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_\"years\">;
+    fno:type xsd:string;
     rdfs:label "\"years\"".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_datePart_string_\"years\"> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"years\">.
 <https://fno.io/hub/data/resource/Function/grel_datePart> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_datePart_date_d> <https://fno.io/hub/data/resource/Parameter/grel_datePart_string_\"years\">).
@@ -1522,7 +1502,6 @@
 <https://fno.io/hub/data/resource/Function/grel_datePart> dcterms:description "Returns part of a date. Data type returned depends on the unit. Units supported are:".
 <https://fno.io/hub/data/resource/Function/sparql_year> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/year>;
-    skos:broader <https://fno.io/hub/data/resource/Function/year>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#func-year";
     fno:name "year".
 <https://fno.io/hub/data/resource/Mapping/sparql_year_YEAR> a fno:Mapping;
@@ -1533,6 +1512,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_year_xsd:dateTime_arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_arg>;
+    fno:type xsd:dateTime;
     rdfs:label "arg".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_year_xsd:dateTime_arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_year_xsd:dateTime_arg>.
 <https://fno.io/hub/data/resource/Function/sparql_year> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_year_xsd:dateTime_arg>).
@@ -1540,14 +1520,14 @@
     fnom:method-name "YEAR".
 <https://fno.io/hub/data/resource/Mapping/sparql_year_YEAR> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_YEAR>.
 <https://fno.io/hub/data/resource/Output/sparql_YEAR> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_year> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_YEAR>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_YEAR> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_YEAR>.
 <https://fno.io/hub/data/resource/Function/sparql_year> dcterms:description "Returns the year part of arg as an integer.\n\nThis function corresponds to fn:year-from-dateTime.".
 <https://fno.io/hub/data/resource/Function/xpath_year-from-dateTime> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/year>;
-    skos:broader <https://fno.io/hub/data/resource/Function/year>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-year-from-dateTime";
     fno:name "year-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:year-from-dateTime_fn:year-from-dateTime> a fno:Mapping;
@@ -1558,6 +1538,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:dateTime;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:year-from-dateTime_xs:dateTime?_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_year-from-dateTime> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:dateTime?_$arg>).
@@ -1565,14 +1546,14 @@
     fnom:method-name "fn:year-from-dateTime".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:year-from-dateTime_fn:year-from-dateTime> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:year-from-dateTime>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:year-from-dateTime> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer?>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_year-from-dateTime> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:year-from-dateTime>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:year-from-dateTime> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:year-from-dateTime>.
 <https://fno.io/hub/data/resource/Function/xpath_year-from-dateTime> dcterms:description "Returns the year component of an xs:dateTime.".
 <https://fno.io/hub/data/resource/Function/sql_extract> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/year>;
-    skos:broader <https://fno.io/hub/data/resource/Function/year>;
     fno:name "EXTRACT".
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_extract>;
@@ -1582,6 +1563,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_YEAR> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_YEAR>;
+    fno:type xsd:string;
     rdfs:label "YEAR".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_constant_YEAR> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_YEAR>.
 <https://fno.io/hub/data/resource/Mapping/sql_EXTRACT_EXTRACT> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression>.
@@ -1589,6 +1571,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_EXTRACT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_extract> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_constant_YEAR> <https://fno.io/hub/data/resource/Parameter/sql_EXTRACT_variable_expression>).
@@ -1603,18 +1586,13 @@
 <https://fno.io/hub/data/resource/Function/sql_extract> dcterms:description "".
 <https://fno.io/hub/data/resource/Problem/avg> a fno:Problem;
     fno:name "avg".
-<https://fno.io/hub/data/resource/Function/avg> a fno:Function;
-    fno:name "avg";
-    fno:solves <https://fno.io/hub/data/resource/Problem/avg>.
 <https://fno.io/hub/data/resource/Function/grel_sum/length> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/avg>;
-    skos:broader <https://fno.io/hub/data/resource/Function/avg>;
     rdfs:seeAlso "";
     fno:name "sum/length";
     dcterms:description "".
 <https://fno.io/hub/data/resource/Function/sparql_Avg> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/avg>;
-    skos:broader <https://fno.io/hub/data/resource/Function/avg>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#defn_aggAvg";
     fno:name "Avg".
 <https://fno.io/hub/data/resource/Mapping/sparql_Avg_Avg> a fno:Mapping;
@@ -1625,6 +1603,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_Avg_list_M> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_M>;
+    fno:type rdf:List;
     rdfs:label "M".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_Avg_list_M> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_Avg_list_M>.
 <https://fno.io/hub/data/resource/Function/sparql_Avg> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_Avg_list_M>).
@@ -1632,14 +1611,14 @@
     fnom:method-name "Avg".
 <https://fno.io/hub/data/resource/Mapping/sparql_Avg_Avg> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_Avg>.
 <https://fno.io/hub/data/resource/Output/sparql_Avg> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_Avg> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_Avg>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_Avg> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_Avg>.
 <https://fno.io/hub/data/resource/Function/sparql_Avg> dcterms:description "The Avg set function calculates the average value for an expression over a group. It is defined in terms of Sum and Count.".
 <https://fno.io/hub/data/resource/Function/xpath_avg> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/avg>;
-    skos:broader <https://fno.io/hub/data/resource/Function/avg>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-avg";
     fno:name "avg".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:avg_fn:avg> a fno:Mapping;
@@ -1650,6 +1629,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:avg_xs:anyAtomicType*_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_avg> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>).
@@ -1657,14 +1637,14 @@
     fnom:method-name "fn:avg".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:avg_fn:avg> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:avg>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:avg> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>;
+    fno:type xsd:anyAtomicType.
 <https://fno.io/hub/data/resource/Function/xpath_avg> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:avg>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:avg> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:avg>.
 <https://fno.io/hub/data/resource/Function/xpath_avg> dcterms:description "Returns the average of the values in the input sequence $arg, that is, the sum of the values divided by the number of values.".
 <https://fno.io/hub/data/resource/Function/sql_avg> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/avg>;
-    skos:broader <https://fno.io/hub/data/resource/Function/avg>;
     fno:name "AVG".
 <https://fno.io/hub/data/resource/Mapping/sql_AVG_AVG> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_avg>;
@@ -1674,6 +1654,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_AVG_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_AVG_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_AVG_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_avg> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_AVG_variable_expression>).
@@ -1688,12 +1669,8 @@
 <https://fno.io/hub/data/resource/Function/sql_avg> dcterms:description "Computes the average value of a column given by expression.".
 <https://fno.io/hub/data/resource/Problem/count> a fno:Problem;
     fno:name "count".
-<https://fno.io/hub/data/resource/Function/count> a fno:Function;
-    fno:name "count";
-    fno:solves <https://fno.io/hub/data/resource/Problem/count>.
 <https://fno.io/hub/data/resource/Function/grel_length> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/count>;
-    skos:broader <https://fno.io/hub/data/resource/Function/count>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#lengtharray-a";
     fno:name "length".
 <https://fno.io/hub/data/resource/Mapping/grel_length_length> a fno:Mapping;
@@ -1704,6 +1681,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_length_array_a> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_a>;
+    fno:type rdf:List;
     rdfs:label "a".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_length_array_a> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_length_array_a>.
 <https://fno.io/hub/data/resource/Function/grel_length> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_length_array_a>).
@@ -1718,7 +1696,6 @@
 <https://fno.io/hub/data/resource/Function/grel_length> dcterms:description "Returns the length of array a.".
 <https://fno.io/hub/data/resource/Function/sparql_Count> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/count>;
-    skos:broader <https://fno.io/hub/data/resource/Function/count>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#defn_aggCount";
     fno:name "Count".
 <https://fno.io/hub/data/resource/Mapping/sparql_Count_Count> a fno:Mapping;
@@ -1729,6 +1706,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_Count_list_M> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_M>;
+    fno:type rdf:List;
     rdfs:label "M".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_Count_list_M> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_Count_list_M>.
 <https://fno.io/hub/data/resource/Function/sparql_Count> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_Count_list_M>).
@@ -1736,14 +1714,14 @@
     fnom:method-name "Count".
 <https://fno.io/hub/data/resource/Mapping/sparql_Count_Count> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_Count>.
 <https://fno.io/hub/data/resource/Output/sparql_Count> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_xsd:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/sparql_Count> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_Count>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_Count> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_Count>.
 <https://fno.io/hub/data/resource/Function/sparql_Count> dcterms:description "Count is a SPARQL set function which counts the number of times a given expression has a bound, and non-error value within the aggregate group.".
 <https://fno.io/hub/data/resource/Function/xpath_count> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/count>;
-    skos:broader <https://fno.io/hub/data/resource/Function/count>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-count";
     fno:name "count".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:count_fn:count> a fno:Mapping;
@@ -1754,6 +1732,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_item[]_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type rdf:List;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:count_item[]_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_item[]_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_count> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_item[]_$arg>).
@@ -1761,14 +1740,14 @@
     fnom:method-name "fn:count".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:count_fn:count> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:count>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:count> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:integer>;
+    fno:type xsd:integer.
 <https://fno.io/hub/data/resource/Function/xpath_count> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:count>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:count> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:count>.
 <https://fno.io/hub/data/resource/Function/xpath_count> dcterms:description "Returns the number of items in a sequence.".
 <https://fno.io/hub/data/resource/Function/sql_count> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/count>;
-    skos:broader <https://fno.io/hub/data/resource/Function/count>;
     fno:name "COUNT".
 <https://fno.io/hub/data/resource/Mapping/sql_COUNT_COUNT> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_count>;
@@ -1778,6 +1757,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_COUNT_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_COUNT_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_COUNT_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_count> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_COUNT_variable_expression>).
@@ -1792,17 +1772,10 @@
 <https://fno.io/hub/data/resource/Function/sql_count> dcterms:description "Counts the rows defined by the expression.\nCounts all rows in the specified table or view.".
 <https://fno.io/hub/data/resource/Problem/matches> a fno:Problem;
     fno:name "matches".
-<https://fno.io/hub/data/resource/Function/matches> a fno:Function;
-    fno:name "matches";
-    fno:solves <https://fno.io/hub/data/resource/Problem/matches>.
 <https://fno.io/hub/data/resource/Problem/min> a fno:Problem;
     fno:name "min".
-<https://fno.io/hub/data/resource/Function/min> a fno:Function;
-    fno:name "min";
-    fno:solves <https://fno.io/hub/data/resource/Problem/min>.
 <https://fno.io/hub/data/resource/Function/grel_min> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/min>;
-    skos:broader <https://fno.io/hub/data/resource/Function/min>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#minnumber-d1-number-d2";
     fno:name "min".
 <https://fno.io/hub/data/resource/Mapping/grel_min_min> a fno:Mapping;
@@ -1813,6 +1786,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_min_number_d1> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d1>;
+    fno:type xsd:decimal;
     rdfs:label "d1".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_min_number_d1> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_min_number_d1>.
 <https://fno.io/hub/data/resource/Mapping/grel_min_min> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_min_number_d2>.
@@ -1820,6 +1794,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_min_number_d2> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d2>;
+    fno:type xsd:decimal;
     rdfs:label "d2".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_min_number_d2> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_min_number_d2>.
 <https://fno.io/hub/data/resource/Function/grel_min> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_min_number_d1> <https://fno.io/hub/data/resource/Parameter/grel_min_number_d2>).
@@ -1834,7 +1809,6 @@
 <https://fno.io/hub/data/resource/Function/grel_min> dcterms:description "Returns the smaller of two numbers.".
 <https://fno.io/hub/data/resource/Function/sparql_Min> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/min>;
-    skos:broader <https://fno.io/hub/data/resource/Function/min>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#defn_aggMin";
     fno:name "Min".
 <https://fno.io/hub/data/resource/Mapping/sparql_Min_Min> a fno:Mapping;
@@ -1845,6 +1819,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_Min_list_M> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_M>;
+    fno:type rdf:List;
     rdfs:label "M".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_Min_list_M> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_Min_list_M>.
 <https://fno.io/hub/data/resource/Function/sparql_Min> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_Min_list_M>).
@@ -1852,14 +1827,14 @@
     fnom:method-name "Min".
 <https://fno.io/hub/data/resource/Mapping/sparql_Min_Min> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_Min>.
 <https://fno.io/hub/data/resource/Output/sparql_Min> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_Min> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_Min>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_Min> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_Min>.
 <https://fno.io/hub/data/resource/Function/sparql_Min> dcterms:description "Min is a SPARQL set functions that returns the minimum value from a group respectively.\n\nIt makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.".
 <https://fno.io/hub/data/resource/Function/xpath_min> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/min>;
-    skos:broader <https://fno.io/hub/data/resource/Function/min>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-min";
     fno:name "min".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:min_fn:min> a fno:Mapping;
@@ -1870,6 +1845,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:min_xs:anyAtomicType*_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_min> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>).
@@ -1877,14 +1853,14 @@
     fnom:method-name "fn:min".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:min_fn:min> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:min>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:min> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>;
+    fno:type xsd:anyAtomicType.
 <https://fno.io/hub/data/resource/Function/xpath_min> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:min>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:min> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:min>.
 <https://fno.io/hub/data/resource/Function/xpath_min> dcterms:description "Returns a value that is equal to the lowest value appearing in the input sequence.".
 <https://fno.io/hub/data/resource/Function/sql_min> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/min>;
-    skos:broader <https://fno.io/hub/data/resource/Function/min>;
     fno:name "MIN".
 <https://fno.io/hub/data/resource/Mapping/sql_MIN_MIN> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_min>;
@@ -1894,6 +1870,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_MIN_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_MIN_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_MIN_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_min> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_MIN_variable_expression>).
@@ -1908,12 +1885,8 @@
 <https://fno.io/hub/data/resource/Function/sql_min> dcterms:description "Finds the minimum value in a column given by expression.".
 <https://fno.io/hub/data/resource/Problem/sum> a fno:Problem;
     fno:name "sum".
-<https://fno.io/hub/data/resource/Function/sum> a fno:Function;
-    fno:name "sum";
-    fno:solves <https://fno.io/hub/data/resource/Problem/sum>.
 <https://fno.io/hub/data/resource/Function/grel_sum> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/sum>;
-    skos:broader <https://fno.io/hub/data/resource/Function/sum>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#sumarray-a";
     fno:name "sum".
 <https://fno.io/hub/data/resource/Mapping/grel_sum_sum> a fno:Mapping;
@@ -1924,6 +1897,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_sum_array_a> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_a>;
+    fno:type rdf:List;
     rdfs:label "a".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_sum_array_a> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_sum_array_a>.
 <https://fno.io/hub/data/resource/Function/grel_sum> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_sum_array_a>).
@@ -1938,7 +1912,6 @@
 <https://fno.io/hub/data/resource/Function/grel_sum> dcterms:description "Returns the sum of numbers in a.".
 <https://fno.io/hub/data/resource/Function/sparql_Sum> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/sum>;
-    skos:broader <https://fno.io/hub/data/resource/Function/sum>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#defn_aggSum";
     fno:name "Sum".
 <https://fno.io/hub/data/resource/Mapping/sparql_Sum_Sum> a fno:Mapping;
@@ -1949,6 +1922,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_Sum_list_M> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_M>;
+    fno:type rdf:List;
     rdfs:label "M".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_Sum_list_M> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_Sum_list_M>.
 <https://fno.io/hub/data/resource/Function/sparql_Sum> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_Sum_list_M>).
@@ -1956,14 +1930,14 @@
     fnom:method-name "Sum".
 <https://fno.io/hub/data/resource/Mapping/sparql_Sum_Sum> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_Sum>.
 <https://fno.io/hub/data/resource/Output/sparql_Sum> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_Sum> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_Sum>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_Sum> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_Sum>.
 <https://fno.io/hub/data/resource/Function/sparql_Sum> dcterms:description "Sum is a SPARQL set function that will return the numeric value obtained by summing the values within the aggregate group. Type promotion happens as per the op:numeric-add function, applied transitively, (see definition below) so the value of SUM(?x), in an aggregate group where ?x has values 1 (integer), 2.0e0 (float), and 3.0 (decimal) will be 6.0 (float).".
 <https://fno.io/hub/data/resource/Function/xpath_sum> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/sum>;
-    skos:broader <https://fno.io/hub/data/resource/Function/sum>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#func-min";
     fno:name "sum".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:sum_fn:sum> a fno:Mapping;
@@ -1974,6 +1948,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:sum_xs:anyAtomicType*_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_sum> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>).
@@ -1981,14 +1956,14 @@
     fnom:method-name "fn:sum".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:sum_fn:sum> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:sum>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:sum> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType>;
+    fno:type xsd:anyAtomicType.
 <https://fno.io/hub/data/resource/Function/xpath_sum> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:sum>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:sum> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:sum>.
 <https://fno.io/hub/data/resource/Function/xpath_sum> dcterms:description "Returns a value obtained by adding together the values in $arg.".
 <https://fno.io/hub/data/resource/Function/sql_sum> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/sum>;
-    skos:broader <https://fno.io/hub/data/resource/Function/sum>;
     fno:name "SUM".
 <https://fno.io/hub/data/resource/Mapping/sql_SUM_SUM> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_sum>;
@@ -1998,6 +1973,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_SUM_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_SUM_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_SUM_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_sum> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_SUM_variable_expression>).
@@ -2012,12 +1988,8 @@
 <https://fno.io/hub/data/resource/Function/sql_sum> dcterms:description "Computes the sum of column values given by expression.".
 <https://fno.io/hub/data/resource/Problem/max> a fno:Problem;
     fno:name "max".
-<https://fno.io/hub/data/resource/Function/max> a fno:Function;
-    fno:name "max";
-    fno:solves <https://fno.io/hub/data/resource/Problem/max>.
 <https://fno.io/hub/data/resource/Function/grel_max> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/max>;
-    skos:broader <https://fno.io/hub/data/resource/Function/max>;
     rdfs:seeAlso "https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#maxnumber-d1-number-d2";
     fno:name "max".
 <https://fno.io/hub/data/resource/Mapping/grel_max_max> a fno:Mapping;
@@ -2028,6 +2000,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_max_number_d1> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d1>;
+    fno:type xsd:decimal;
     rdfs:label "d1".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_max_number_d1> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_max_number_d1>.
 <https://fno.io/hub/data/resource/Mapping/grel_max_max> fno:parameterMapping <https://fno.io/hub/data/resource/ParameterMapping/grel_max_number_d2>.
@@ -2035,6 +2008,7 @@
     fnom:implementationParameterPosition "1"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/grel_max_number_d2> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/grel_d2>;
+    fno:type xsd:decimal;
     rdfs:label "d2".
 <https://fno.io/hub/data/resource/ParameterMapping/grel_max_number_d2> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/grel_max_number_d2>.
 <https://fno.io/hub/data/resource/Function/grel_max> fno:expects (<https://fno.io/hub/data/resource/Parameter/grel_max_number_d1> <https://fno.io/hub/data/resource/Parameter/grel_max_number_d2>).
@@ -2049,7 +2023,6 @@
 <https://fno.io/hub/data/resource/Function/grel_max> dcterms:description "Returns the larger of two numbers.".
 <https://fno.io/hub/data/resource/Function/sparql_Max> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/max>;
-    skos:broader <https://fno.io/hub/data/resource/Function/max>;
     rdfs:seeAlso "https://www.w3.org/TR/sparql11-query/#defn_aggMax";
     fno:name "Max".
 <https://fno.io/hub/data/resource/Mapping/sparql_Max_Max> a fno:Mapping;
@@ -2060,6 +2033,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sparql_Max_list_M> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_M>;
+    fno:type rdf:List;
     rdfs:label "M".
 <https://fno.io/hub/data/resource/ParameterMapping/sparql_Max_list_M> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sparql_Max_list_M>.
 <https://fno.io/hub/data/resource/Function/sparql_Max> fno:expects (<https://fno.io/hub/data/resource/Parameter/sparql_Max_list_M>).
@@ -2067,14 +2041,14 @@
     fnom:method-name "Max".
 <https://fno.io/hub/data/resource/Mapping/sparql_Max_Max> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/sparql_Max>.
 <https://fno.io/hub/data/resource/Output/sparql_Max> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/sparql_out_numeric>;
+    fno:type xsd:decimal.
 <https://fno.io/hub/data/resource/Function/sparql_Max> fno:returns (<https://fno.io/hub/data/resource/Output/sparql_Max>).
 <https://fno.io/hub/data/resource/ReturnMapping/sparql_Max> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/sparql_Max>.
 <https://fno.io/hub/data/resource/Function/sparql_Max> dcterms:description "Max is a SPARQL set function that return the maximum value from a group respectively.\n\nIt makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.".
 <https://fno.io/hub/data/resource/Function/xpath_max> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/max>;
-    skos:broader <https://fno.io/hub/data/resource/Function/max>;
     rdfs:seeAlso "http://www.w3.org/TR/xpath-functions/#max";
     fno:name "max".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:max_fn:max> a fno:Mapping;
@@ -2085,6 +2059,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_$arg>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "$arg".
 <https://fno.io/hub/data/resource/ParameterMapping/xpath_fn:max_xs:anyAtomicType*_$arg> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>.
 <https://fno.io/hub/data/resource/Function/xpath_max> fno:expects (<https://fno.io/hub/data/resource/Parameter/xpath_undefined_xs:anyAtomicType*_$arg>).
@@ -2092,14 +2067,14 @@
     fnom:method-name "fn:max".
 <https://fno.io/hub/data/resource/Mapping/xpath_fn:max_fn:max> fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/xpath_fn:max>.
 <https://fno.io/hub/data/resource/Output/xpath_fn:max> a fno:Output;
-    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>.
+    fno:predicate <https://fno.io/hub/data/resource/Predicate/xpath_out_xs:anyAtomicType?>;
+    fno:type xsd:anyAtomicType.
 <https://fno.io/hub/data/resource/Function/xpath_max> fno:returns (<https://fno.io/hub/data/resource/Output/xpath_fn:max>).
 <https://fno.io/hub/data/resource/ReturnMapping/xpath_fn:max> a fno:ReturnMapping, fnom:DefaultReturnMapping;
     fnom:functionOutput <https://fno.io/hub/data/resource/Output/xpath_fn:max>.
 <https://fno.io/hub/data/resource/Function/xpath_max> dcterms:description "Returns a value that is equal to the highest value appearing in the input sequence.".
 <https://fno.io/hub/data/resource/Function/sql_max> a fno:Function;
     fno:solves <https://fno.io/hub/data/resource/Problem/max>;
-    skos:broader <https://fno.io/hub/data/resource/Function/max>;
     fno:name "MAX".
 <https://fno.io/hub/data/resource/Mapping/sql_MAX_MAX> a fno:Mapping;
     fno:function <https://fno.io/hub/data/resource/Function/sql_max>;
@@ -2109,6 +2084,7 @@
     fnom:implementationParameterPosition "0"^^xsd:integer.
 <https://fno.io/hub/data/resource/Parameter/sql_MAX_variable_expression> a fno:Parameter;
     fno:predicate <https://fno.io/hub/data/resource/Predicate/sql_expression>;
+    fno:type xsd:anyAtomicType;
     rdfs:label "expression".
 <https://fno.io/hub/data/resource/ParameterMapping/sql_MAX_variable_expression> fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/sql_MAX_variable_expression>.
 <https://fno.io/hub/data/resource/Function/sql_max> fno:expects (<https://fno.io/hub/data/resource/Parameter/sql_MAX_variable_expression>).
@@ -2123,11 +2099,5 @@
 <https://fno.io/hub/data/resource/Function/sql_max> dcterms:description "Finds the maximum value in a column given by expression.".
 <https://fno.io/hub/data/resource/Problem/group_concat> a fno:Problem;
     fno:name "group_concat".
-<https://fno.io/hub/data/resource/Function/group_concat> a fno:Function;
-    fno:name "group_concat";
-    fno:solves <https://fno.io/hub/data/resource/Problem/group_concat>.
 <https://fno.io/hub/data/resource/Problem/sample> a fno:Problem;
     fno:name "sample".
-<https://fno.io/hub/data/resource/Function/sample> a fno:Function;
-    fno:name "sample";
-    fno:solves <https://fno.io/hub/data/resource/Problem/sample>.

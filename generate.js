@@ -136,19 +136,19 @@ function createAlignment(jsonObj, store) {
     store.addQuad(problem, nodes.a, nodes.problem);
     store.addQuad(problem, nodes.name, literal(o.function));
 
-    const broadFn = node('fns', `Function/${o.function}`);
-    store.addQuad(broadFn, nodes.a, nodes.fno);
-    store.addQuad(broadFn, nodes.name, literal(o.function));
-    store.addQuad(broadFn, nodes.solves, problem);
+    // const broadFn = node('fns', `Function/${o.function}`);
+    // store.addQuad(broadFn, nodes.a, nodes.fno);
+    // store.addQuad(broadFn, nodes.name, literal(o.function));
+    // store.addQuad(broadFn, nodes.solves, problem);
 
     if (!(o.GREL && o.SPARQL && o.XPath && o.SQL)) {
       return;
     }
 
-    doGrel(o, store, problem, broadFn, GrelImplementation);
-    doSparql(o, store, problem, broadFn, SPARQLImplementation);
-    doXpath(o, store, problem, broadFn, XPathImplementation);
-    doSql(o, store, problem, broadFn, SQLImplementation);
+    doGrel(o, store, problem, null, GrelImplementation);
+    doSparql(o, store, problem, null, SPARQLImplementation);
+    doXpath(o, store, problem, null, XPathImplementation);
+    doSql(o, store, problem, null, SQLImplementation);
   });
 }
 
@@ -158,7 +158,7 @@ function doGrel(o, store, problem, broadFn, implementation) {
   const fn = node('fns', `Function/grel_${o.GREL}`);
   store.addQuad(fn, nodes.a, nodes.fno);
   store.addQuad(fn, nodes.solves, problem);
-  store.addQuad(fn, nodes.skosBroader, broadFn);
+  // store.addQuad(fn, nodes.skosBroader, broadFn);
   store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.GREL_iri));
   store.addQuad(fn, nodes.name, literal(o.GREL));
   try {
@@ -177,8 +177,8 @@ function doGrel(o, store, problem, broadFn, implementation) {
       const param = node('fns', `Parameter/grel_${o.GREL}_${p.type}_${p.argument}`);
       store.addQuad(param, nodes.a, node('fno', 'Parameter'));
       store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/grel_${p.argument}`));
+      store.addQuad(param, node('fno', 'type'), typeToRealType(p.type));
       store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
-      // TODO type
       parameters.push(param);
       store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
       // TODO required
@@ -212,7 +212,7 @@ function doSparql(o, store, problem, broadFn, implementation) {
   const fn = node('fns', `Function/sparql_${o.SPARQL}`);
   store.addQuad(fn, nodes.a, nodes.fno);
   store.addQuad(fn, nodes.solves, problem);
-  store.addQuad(fn, nodes.skosBroader, broadFn);
+  // store.addQuad(fn, nodes.skosBroader, broadFn);
   store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.SPARQL_iri));
   store.addQuad(fn, nodes.name, literal(o.SPARQL));
   try {
@@ -231,8 +231,8 @@ function doSparql(o, store, problem, broadFn, implementation) {
       const param = node('fns', `Parameter/sparql_${o.SPARQL}_${p.type}_${p.argument}`);
       store.addQuad(param, nodes.a, node('fno', 'Parameter'));
       store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sparql_${p.argument}`));
+      store.addQuad(param, node('fno', 'type'), typeToRealType(p.type));
       store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
-      // TODO type
       parameters.push(param);
       store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
       // TODO required
@@ -246,7 +246,7 @@ function doSparql(o, store, problem, broadFn, implementation) {
     const output = node('fns', `Output/sparql_${fnObj.function}`);
     store.addQuad(output, nodes.a, node('fno', 'Output'));
     store.addQuad(output, nodes.predicate, node('fns', `Predicate/sparql_out_${fnObj.output}`));
-    // TODO outputType ?
+    store.addQuad(output, nodes.type, typeToRealType(fnObj.output));
     const outputs = [];
     outputs.push(output);
     store.addQuad(fn, nodes.returns, store.list(outputs));
@@ -266,7 +266,7 @@ function doXpath(o, store, problem, broadFn, implementation) {
   const fn = node('fns', `Function/xpath_${o.XPath.slice(3)}`);
   store.addQuad(fn, nodes.a, nodes.fno);
   store.addQuad(fn, nodes.solves, problem);
-  store.addQuad(fn, nodes.skosBroader, broadFn);
+  // store.addQuad(fn, nodes.skosBroader, broadFn);
   store.addQuad(fn, node('rdfs', 'seeAlso'), literal(o.XPath_iri));
   store.addQuad(fn, nodes.name, literal(o.XPath.slice(3)));
   try {
@@ -285,8 +285,8 @@ function doXpath(o, store, problem, broadFn, implementation) {
       const param = node('fns', `Parameter/xpath_${o.XPATH}_${p.type}_${p.argument}`);
       store.addQuad(param, nodes.a, node('fno', 'Parameter'));
       store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/xpath_${p.argument}`));
+      store.addQuad(param, node('fno', 'type'), typeToRealType(p.type));
       store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
-      // TODO type
       parameters.push(param);
       store.addQuad(paramMapping, node('fnom', 'functionParameter'), param);
       // TODO required
@@ -300,7 +300,7 @@ function doXpath(o, store, problem, broadFn, implementation) {
     const output = node('fns', `Output/xpath_${fnObj.function}`);
     store.addQuad(output, nodes.a, node('fno', 'Output'));
     store.addQuad(output, nodes.predicate, node('fns', `Predicate/xpath_out_${fnObj.output}`));
-    // TODO outputType ?
+    store.addQuad(output, nodes.type, typeToRealType(fnObj.output));
     const outputs = [];
     outputs.push(output);
     store.addQuad(fn, nodes.returns, store.list(outputs));
@@ -326,7 +326,7 @@ function doSql(o, store, problem, broadFn, implementation) {
   const fn = node('fns', `Function/sql_${sqlName}`);
   store.addQuad(fn, nodes.a, nodes.fno);
   store.addQuad(fn, nodes.solves, problem);
-  store.addQuad(fn, nodes.skosBroader, broadFn);
+  // store.addQuad(fn, nodes.skosBroader, broadFn);
   if (o.SQL.split(' or ').length > 1) {
     o.SQL.split(' or ').forEach(s => {
       store.addQuad(fn, nodes.name, literal(s));
@@ -350,6 +350,7 @@ function doSql(o, store, problem, broadFn, implementation) {
       const param = node('fns', `Parameter/sql_${encodeURIComponent(o.SQL)}_${p.type}_${p.argument}`);
       store.addQuad(param, nodes.a, node('fno', 'Parameter'));
       store.addQuad(param, node('fno', 'predicate'), node('fns', `Predicate/sql_${p.argument}`));
+      store.addQuad(param, node('fno', 'type'), typeToRealType(`${p.argument}`));
       store.addQuad(param, node('rdfs', 'label'), literal(p.argument));
       // TODO type
       parameters.push(param);
@@ -379,6 +380,56 @@ function doSql(o, store, problem, broadFn, implementation) {
   }
   store.addQuad(fn, nodes.description, literal(o.SQL_description));
   // TODO categories
+}
+
+function typeToRealType(type) {
+  switch (type) {
+    case 'number':
+    case 'numeric':
+    case 'xs:numeric?':
+    case 'xs:double?':
+    case 'xs:double':
+    case 'xsd:decimal':
+    case 'xs:decimal?':
+    case 'xs:decimal':
+      return node('xsd', 'decimal');
+    case 'array':
+    case 'list':
+    case 'item[]':
+      return node('rdf', 'List');
+    case 'str':
+    case 'string':
+    case 'HOUR':
+    case 'MINUTE':
+    case 'MONTH':
+    case 'SECOND':
+    case 'YEAR':
+    case 'collation_name':
+    case 'embedded_string':
+    case 'extraction_string':
+    case 'xs:string?':
+    case 'xs:string':
+      return node ('xsd', 'string');
+    case 'date':
+    case 'xsd:dateTime':
+    case 'xs:dateTime?':
+      return node ('xsd', 'dateTime');
+    case 'xsd:integer':
+    case 'xs:integer?':
+    case 'xs:integer':
+    case 'start':
+    case 'length':
+    case 'starting_position':
+      return node ('xsd', 'integer');
+    case 'expression':
+    case 'xs:anyAtomicType*':
+    case 'xs:anyAtomicType?':
+    case 'xs:anyAtomicType':
+      return node ('xsd', 'anyAtomicType');
+    default:
+      console.error('Cannot do ' + type);
+      return node('fns', '_genericType');
+  }
 }
 
 async function createProblems(functionsPath, store) {
