@@ -2,80 +2,65 @@ function,GREL,GREL_iri,GREL_signature,GREL_description,GREL_category,GREL_catego
 abs,,,,,,,,abs,https://www.w3.org/TR/sparql11-query/#func-abs,numeric  ABS (numeric term),"Returns the absolute value of arg. An error is raised if arg is not a numeric value.
 
 This function is the same as fn:numeric-abs for terms with a datatype from XDM. ",Numerics,fn:abs,,http://www.w3.org/TR/xpath-functions/#func-abs,fn:abs($arg as xs:numeric?) as xs:numeric?,Returns the absolute value of $arg,Numerics,Numeric values,,ABS,,ABS( expression ),Returns the absolute value of a number.,Numeric Scalar,
-,,,,,,,,,,,,,fn:accumulator-after,XSLT 3.0 only,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:accumulator-before,XSLT 3.0 only,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:adjust-dateTime-to-timezone,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:available-system-properties,XSLT 3.0 only,,,,,,,,,,,,
+avg,sum/length,,sum(array a)/length(array a),,,,,Avg,https://www.w3.org/TR/sparql11-query/#defn_aggAvg,numeric Avg(list M),The Avg set function calculates the average value for an expression over a group. It is defined in terms of Sum and Count.,Set,fn:avg,XForms 1.1,http://www.w3.org/TR/xpath-functions/#func-avg,fn:avg($arg as xs:anyAtomicType*) as xs:anyAtomicType?,"Returns the average of the values in the input sequence $arg, that is, the sum of the values divided by the number of values.",Aggregate,,,AVG,,AVG(expression),Computes the average value of a column given by expression.,Aggregate,
 ceil,ceil,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#ceilnumber-d,ceil(number d),"Returns the ceiling of a number. For example, ceil(3.7) returns 4 and ceil(-3.7) returns -3.",Math,,,ceil,https://www.w3.org/TR/sparql11-query/#func-round,numeric  CEIL (numeric term),"Returns the smallest (closest to negative infinity) number with no fractional part that is not less than the value of arg. An error is raised if arg is not a numeric value.
 
 This function is the same as fn:numeric-ceil for terms with a datatype from XDM. ",Numerics,fn:ceiling,,http://www.w3.org/TR/xpath-functions/#func-ceiling,fn:ceiling($arg as xs:numeric?) as xs:numeric?,Rounds $arg upwards to a whole number. ,Numerics,Numeric values,,CEIL or CEILING,,"CEIL( expression )
 CEILING ( expression )",Rounds a noninteger value upwards to the next greatest integer. Returns an integer value unchanged.,Numeric Scalar,
-,,,,,,,,,,,,,fn:boolean-from-string,XForms 1.1,,,,,,,,,,,,
-concat,join,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#joinarray-a-string-sep,"join(array a, string sep)","Returns the string obtained by joining the array a with the separator sep. For example, join([ ""foo"", ""bar"", ""baz"" ], "";"") returns the string foo;bar;baz.",Array,,,CONCAT,https://www.w3.org/TR/sparql11-query/#func-concat,string CONCAT(string ltrl1 ... string ltrln),"The CONCAT function corresponds to the XPath fn:concat function. The function accepts string literals as arguments.
+concat,join,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#joinarray-a-string-sep,"join(array a, string """")","Returns the string obtained by joining the array a with the separator sep. For example, join([ ""foo"", ""bar"", ""baz"" ], "";"") returns the string foo;bar;baz.",Array,,,CONCAT,https://www.w3.org/TR/sparql11-query/#func-concat,string CONCAT(string ltrl1 ... string ltrln),"The CONCAT function corresponds to the XPath fn:concat function. The function accepts string literals as arguments.
 
 The lexical form of the returned literal is obtained by concatenating the lexical forms of its inputs. If all input literals are typed literals of type xsd:string, then the returned literal is also of type xsd:string, if all input literals are plain literals with identical language tag, then the returned literal is a plain literal with the same language tag, in all other cases, the returned literal is a simple literal.",Strings,fn:concat,,http://www.w3.org/TR/xpath-functions/#func-concat,"fn:concat(  $arg1   as xs:anyAtomicType?,
 $arg2   as xs:anyAtomicType?,
 ...  ) as xs:string",Returns the concatenation of the string values of the arguments.,Strings,String values,||,CONCAT,,"CONCAT(str1, ... strn)",joins two distinct strings into one string value.,String,||
-,,,,,,,,,,,,,fn:choose,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:collation-key,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:compare,XForms 1.1,,,,,,,,,,,,
-contains,contains,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#containsstring-s-string-sub,"contains(string s, string sub)","Returns boolean indicating whether s contains sub. For example, contains(""food"", ""oo"") returns true whereas contains(""food"", ""ee"") returns false. You could also write the first case as ""food"".contains(""oo""). ",String,Testing String characteristics,,CONTAINS,https://www.w3.org/TR/sparql11-query/#func-contains,"xsd:boolean  CONTAINS(string literal arg1, string literal arg2)",The CONTAINS function corresponds to the XPath fn:contains. The arguments must be argument compatible otherwise an error is raised.,Strings,fn:contains,,http://www.w3.org/TR/xpath-functions/#func-contains,"fn:contains($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
+contains,contains,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#containsstring-s-string-sub,"contains(string s, string sub)","Returns boolean indicating whether s contains sub. For example, contains(""food"", ""oo"") returns true whereas contains(""food"", ""ee"") returns false. You could also write the first case as ""food"".contains(""oo""). ",String,Testing String characteristics,,CONTAINS,https://www.w3.org/TR/sparql11-query/#func-contains,"xsd:boolean  CONTAINS(string arg1, string arg2)",The CONTAINS function corresponds to the XPath fn:contains. The arguments must be argument compatible otherwise an error is raised.,Strings,fn:contains,,http://www.w3.org/TR/xpath-functions/#func-contains,"fn:contains($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
 fn:contains(  $arg1   as xs:string?,
 $arg2   as xs:string?,
 $collation   as xs:string) as xs:boolean","Returns true if the string $arg1 contains $arg2 as a substring, taking collations into account. ",Strings,Substring matching,,,,,,,
+count,length,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#lengtharray-a,length(array a),Returns the length of array a.,Array,,,Count,https://www.w3.org/TR/sparql11-query/#defn_aggCount,xsd:integer Count(list M),"Count is a SPARQL set function which counts the number of times a given expression has a bound, and non-error value within the aggregate group.",Set,fn:count,,http://www.w3.org/TR/xpath-functions/#func-count,fn:count($arg as item[]) as xs:integer,Returns the number of items in a sequence.,Aggregate,,,COUNT,,"COUNT(expression)
+COUNT(*)","Counts the rows defined by the expression.
+Counts all rows in the specified table or view.",Aggregate,
 day,,,,,,,,day,https://www.w3.org/TR/sparql11-query/#func-day,xsd:integer  DAY (xsd:dateTime arg),"Returns the day part of arg as an integer.
 
 This function corresponds to fn:day-from-dateTime.",Dates and Times,fn:day-from-dateTime,,http://www.w3.org/TR/xpath-functions/#func-day-from-dateTime,fn:day-from-dateTime($arg as xs:dateTime?) as xs:integer?,Returns the day component of an xs:dateTime. ,Dates and times,Component extraction functions on dates and times,,EXTRACT,,EXTRACT( DAY FROM expression ),,Numeric Scalar,
-,,,,,,,,,,,,,fn:context,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:copy-of,XSLT 3.0 only,,,,,,,,,,,,
-encode_for_uri,escape,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#escapestring-s-string-mode,"escape(string s, string mode)","Escapes s in the given escaping mode: html, xml, csv, url, javascript. ",String,Encoding and Hashing,,ENCODE_FOR_URI,https://www.w3.org/TR/sparql11-query/#func-encode,simple literal  ENCODE_FOR_URI(string literal ltrl),The ENCODE_FOR_URI function corresponds to the XPath fn:encode-for-uri function. It returns a simple literal with the lexical form obtained from the lexical form of its input after translating reserved characters according to the fn:encode-for-uri function.,Strings,fn:encode-for-uri,,http://www.w3.org/TR/xpath-functions/#func-encode-for-uri,fn:encode-for-uri($uri-part as xs:string?) as xs:string,Encodes reserved characters in a string that is intended to be used in the path segment of a URI.,URIs,,,,,,,,
-,,,,,,,,,,,,,fn:count-non-empty,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current,"XForms 1.1,XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current-group,XSLT 2.0 and 3.0,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current-grouping-key,XSLT 2.0 and 3.0,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current-merge-group,XSLT 3.0 only,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current-merge-key,XSLT 3.0 only,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:current-output-uri,XSLT 3.0 only,,,,,,,,,,,,
-ends_with,endsWith,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#endswithstring-s-string-sub,"endsWith(string s, string sub)","Returns boolean indicating whether s ends with sub. For example, endsWith(""food"", ""ood"") returns true, whereas endsWith(""food"", ""odd"") returns false. You could also write the first case as ""food"".endsWith(""ood""). ",String,Testing String characteristics,,STRENDS,https://www.w3.org/TR/sparql11-query/#func-strends,"xsd:boolean  STRENDS(string literal arg1, string literal arg2)","The STRENDS function corresponds to the XPath fn:ends-with function. The arguments must be argument compatible otherwise an error is raised.
+encode_for_uri,escape,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#escapestring-s-string-mode,"escape(string s, string mode)","Escapes s in the given escaping mode: html, xml, csv, url, javascript. ",String,Encoding and Hashing,,ENCODE_FOR_URI,https://www.w3.org/TR/sparql11-query/#func-encode,simple literal  ENCODE_FOR_URI(string ltrl),The ENCODE_FOR_URI function corresponds to the XPath fn:encode-for-uri function. It returns a simple literal with the lexical form obtained from the lexical form of its input after translating reserved characters according to the fn:encode-for-uri function.,Strings,fn:encode-for-uri,,http://www.w3.org/TR/xpath-functions/#func-encode-for-uri,fn:encode-for-uri($uri-part as xs:string?) as xs:string,Encodes reserved characters in a string that is intended to be used in the path segment of a URI.,URIs,,,,,,,,
+ends_with,endsWith,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#endswithstring-s-string-sub,"endsWith(string s, string sub)","Returns boolean indicating whether s ends with sub. For example, endsWith(""food"", ""ood"") returns true, whereas endsWith(""food"", ""odd"") returns false. You could also write the first case as ""food"".endsWith(""ood""). ",String,Testing String characteristics,,STRENDS,https://www.w3.org/TR/sparql11-query/#func-strends,"xsd:boolean  STRENDS(string arg1, string arg2)","The STRENDS function corresponds to the XPath fn:ends-with function. The arguments must be argument compatible otherwise an error is raised.
 
 For such input pairs, the function returns true if the lexical form of arg1 ends with the lexical form of arg2, otherwise it returns false.",Strings,fn:ends-with,,http://www.w3.org/TR/xpath-functions/#func-ends-with,"fn:ends-with($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
 fn:ends-with(  $arg1   as xs:string?,
 $arg2   as xs:string?,
 $collation   as xs:string) as xs:boolean","Returns true if the string $arg1 contains $arg2 as a trailing substring, taking collations into account.",Strings,Substring matching,,,,,,,
-,,,,,,,,,,,,,fn:days-from-date,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:days-to-date,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:digest,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:document,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
-,,,,,,,,,,,,,fn:element-available,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
 floor,floor,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#floornumber-d,floor(number d),"Returns the floor of a number. For example, floor(3.7) returns 3 and floor(-3.7) returns -4.",Math,,,floor,https://www.w3.org/TR/sparql11-query/#func-floor,numeric  FLOOR (numeric term),"Returns the largest (closest to positive infinity) number with no fractional part that is not greater than the value of arg. An error is raised if arg is not a numeric value.
 
 This function is the same as fn:numeric-floor for terms with a datatype from XDM. ",Numerics,fn:floor,,http://www.w3.org/TR/xpath-functions/#func-floor,fn:floor($arg as xs:numeric?) as xs:numeric?,Rounds $arg downwards to a whole number.,Numerics,Numeric values,,FLOOR,,FLOOR( expression ),Rounds a noninteger value downwards to the next least integer. Returns an integer value unchanged.,Numeric Scalar,
+group_concat,join,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#joinarray-a-string-sep,"join(array a, string sep)","Returns the string obtained by joining the array a with the separator sep. For example, join([ ""foo"", ""bar"", ""baz"" ], "";"") returns the string foo;bar;baz.",Array,,,GroupConcat,https://www.w3.org/TR/sparql11-query/#defn_aggGroupConcat,"GroupConcat(M, scalarvals)",GroupConcat is a set function which performs a string concatenation across the values of an expression with a group. The order of the strings is not specified. The separator character used in the concatenation may be given with the scalar argument SEPARATOR.,Set,,,,,,,,,GROUP_CONCAT,,,NOT ANSI!,,
 hours,datePart,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit,"datePart(date d, string ""hours"")
 datePart(date d, string ""hour"")",Returns part of a date. Data type returned depends on the unit. Units supported are:,Date,,,hours,https://www.w3.org/TR/sparql11-query/#func-hours,xsd:integer  HOURS (xsd:dateTime arg),"Returns the hours part of arg as an integer. The value is as given in the lexical form of the XSD dateTime.
 
 This function corresponds to fn:hours-from-dateTime.",Dates and Times,fn:hours-from-dateTime,,http://www.w3.org/TR/xpath-functions/#func-hours-from-dateTime,fn:hours-from-dateTime($arg as xs:dateTime?) as xs:integer?,Returns the hours component of an xs:dateTime. ,Dates and times,Component extraction functions on dates and times,,EXTRACT,,EXTRACT( HOUR FROM expression ),,Numeric Scalar,
-,,,,,,,,,,,,,fn:event,XForms 1.1,,,,,,,,,,,,
 lower_case,toLowercase,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#tolowercasestring-s,toLowercase(string s),Returns s converted to lowercase.,String,Basic String modification,Case Conversion,LCASE,https://www.w3.org/TR/sparql11-query/#func-lcase,string LCASE(string str),The LCASE function corresponds to the XPath fn:lower-case function. It returns a string literal whose lexical form is the lower case of the lexcial form of the argument.,Strings,fn:lower-case,,http://www.w3.org/TR/xpath-functions/#func-lower-case,fn:lower-case($arg as xs:string?) as xs:string,Converts a string to lower case,Strings,String values,,LOWER,,LOWER(string),Converts a string to all lowercase characters.,String,
-,,,,,,,,,,,,,fn:format-date,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:format-dateTime,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:format-number,XSLT 1.0 and 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:format-time,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:function-available,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
-,,,,,,,,,,,,,fn:generate-id,XSLT 1.0 and 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:hmac,XForms 1.1,,,,,,,,,,,,
+matches,isNotNull(match),https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#matchstring-s-regexp-p,"isNotNull(match(string s, regexp p))","Attempts to match the string s in its entirety against the regex pattern p and returns an array of capture groups. For example, match(""230.22398, 12.3480"", /.*(\d\d\d\d)/) returns an array of 1 string: 3480. match(""230.22398, 12.3480"", /.*\.(\d+).*\.(\d+)/) returns an array of 2 strings: 22398 and 3480.
+
+Another match() example:
+
+isNotNull(value.match(/(a.c)/))
+
+returns True or False if value is like abc or azc , etc but would not match a value of ac. ",String,Basic String modification,Find and Replace,REGEX,https://www.w3.org/TR/sparql11-query/#func-regex,"xsd:boolean  REGEX (string text, string pattern)
+xsd:boolean  REGEX (string text, string pattern, string flags)",Invokes the XPath fn:matches function to match text against a regular expression pattern. The regular expression language is defined in XQuery 1.0 and XPath 2.0 Functions and Operators section 7.6.1 Regular Expression Syntax [FUNCOP].,Strings,fn:matches,,http://www.w3.org/TR/xpath-functions/#func-matches,"fn:matches($input as xs:string?, $pattern as xs:string) as xs:boolean
+fn:matches(  $input   as xs:string?,
+$pattern   as xs:string,
+$flags   as xs:string) as xs:boolean",Returns true if the supplied string matches a given regular expression.,Strings,Regular expressions,,,,,,,
+max,max,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#maxnumber-d1-number-d2,"max(number d1, number d2)",Returns the larger of two numbers.,Math,,,Max,https://www.w3.org/TR/sparql11-query/#defn_aggMax,numeric Max(list M),"Max is a SPARQL set function that return the maximum value from a group respectively.
+
+It makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.",Set,fn:max,XForms 1.1,http://www.w3.org/TR/xpath-functions/#max,"fn:max($arg as xs:anyAtomicType*) as xs:anyAtomicType?
+fn:max($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?",Returns a value that is equal to the highest value appearing in the input sequence.,Aggregate,,,MAX,,MAX(expression),Finds the maximum value in a column given by expression.,Aggregate,
+min,min,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#minnumber-d1-number-d2,"min(number d1, number d2)",Returns the smaller of two numbers.,Math,,,Min,https://www.w3.org/TR/sparql11-query/#defn_aggMin,numeric Min(list M),"Min is a SPARQL set functions that returns the minimum value from a group respectively.
+
+It makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.",Set,fn:min,XForms 1.1,http://www.w3.org/TR/xpath-functions/#func-min,"fn:min($arg as xs:anyAtomicType*) as xs:anyAtomicType?
+fn:min($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?",Returns a value that is equal to the lowest value appearing in the input sequence.,Aggregate,,,MIN,,MIN(expression),Finds the minimum value in a column given by expression.,Aggregate,
 minutes,datePart,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit,"datePart(date d, string ""minutes"")
 datePart(date d, string ""minute"")",Returns part of a date. Data type returned depends on the unit. Units supported are:,Date,,,minutes,https://www.w3.org/TR/sparql11-query/#func-minutes,xsd:integer  MINUTES (xsd:dateTime arg),"Returns the minutes part of the lexical form of arg. The value is as given in the lexical form of the XSD dateTime.
 
 This function corresponds to fn:minutes-from-dateTime.",Dates and Times,fn:minutes-from-dateTime,,http://www.w3.org/TR/xpath-functions/#func-minutes-from-dateTime,fn:minutes-from-dateTime($arg as xs:dateTime?) as xs:integer?,Returns the minute component of an xs:dateTime. ,Dates and times,Component extraction functions on dates and times,,EXTRACT,,EXTRACT( MINUTE FROM expression ),,Numeric Scalar,
-,,,,,,,,,,,,,fn:id,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:if,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:index,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:instance,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:is-card-number,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:json-to-xml,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:key,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
-,,,,,,,,,,,,,fn:local-date,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:local-dateTime,XForms 1.1,,,,,,,,,,,,
 month,datePart,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit,"datePart(date d, string ""months"")
 datePart(date d, string ""month"")",Returns part of a date. Data type returned depends on the unit. Units supported are:,Date,,,month,https://www.w3.org/TR/sparql11-query/#func-month,xsd:integer  MONTH (xsd:dateTime arg),"Returns the month part of arg as an integer.
 
@@ -95,11 +80,12 @@ $flags   as xs:string) as xs:string",Returns a string produced from the input st
 round,,,,,,,,round,https://www.w3.org/TR/sparql11-query/#func-ceil,numeric  ROUND (numeric term),"Returns the number with no fractional part that is closest to the argument. If there are two such numbers, then the one that is closest to positive infinity is returned. An error is raised if arg is not a numeric value.
 
 This function is the same as fn:numeric-round for terms with a datatype from XDM. ",Numerics,fn:round,,http://www.w3.org/TR/xpath-functions/#func-round,,,,,,,,,,,
+sample,,,,,,,,Sample,https://www.w3.org/TR/sparql11-query/#defn_aggSample,Sample(M),Sample is a set function which returns an arbitrary value from the multiset passed to it.,Set,,,,,,,,,SAMPLE,,,,,
 seconds,datePart,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit,"datePart(date d, string ""seconds"")
 datePart(date d, string ""second"")",Returns part of a date. Data type returned depends on the unit. Units supported are:,Date,,,seconds,https://www.w3.org/TR/sparql11-query/#func-timezone,xsd:decimal  SECONDS (xsd:dateTime arg),"Returns the seconds part of the lexical form of arg.
 
 This function corresponds to fn:seconds-from-dateTime.",Dates and Times,fn:seconds-from-dateTime,XForms 1.1,http://www.w3.org/TR/xpath-functions/#func-seconds-from-dateTime,fn:seconds-from-dateTime($arg as xs:dateTime?) as xs:decimal?,Returns the seconds component of an xs:dateTime.,Dates and times,Component extraction functions on dates and times,,EXTRACT,,EXTRACT( SECOND FROM expression ),,Numeric Scalar,
-starts_with,startsWith,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#startswithstring-s-string-sub,"startsWith(string s, string sub)","Returns boolean indicating whether s starts with sub. For example, startsWith(""food"", ""foo"") returns true, whereas startsWith(""food"", ""bar"") returns false. You could also write the first case as ""food"".startsWith(""foo""). ",String,Basic,,STRSTARTS,https://www.w3.org/TR/sparql11-query/#func-strstarts,"xsd:boolean  STRSTARTS(string literal arg1, string literal arg2)","The STRSTARTS function corresponds to the XPath fn:starts-with function. The arguments must be argument compatible otherwise an error is raised.
+starts_with,startsWith,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#startswithstring-s-string-sub,"startsWith(string s, string sub)","Returns boolean indicating whether s starts with sub. For example, startsWith(""food"", ""foo"") returns true, whereas startsWith(""food"", ""bar"") returns false. You could also write the first case as ""food"".startsWith(""foo""). ",String,Basic,,STRSTARTS,https://www.w3.org/TR/sparql11-query/#func-strstarts,"xsd:boolean  STRSTARTS(string arg1, string arg2)","The STRSTARTS function corresponds to the XPath fn:starts-with function. The arguments must be argument compatible otherwise an error is raised.
 
 For such input pairs, the function returns true if the lexical form of arg1 starts with the lexical form of arg2, otherwise it returns false.",Strings,fn:starts-with,,http://www.w3.org/TR/xpath-functions/#func-starts-with,"fn:starts-with($arg1 as xs:string?, $arg2 as xs:string?) as xs:boolean
 fn:starts-with(  $arg1   as xs:string?,
@@ -107,13 +93,6 @@ $arg2   as xs:string?,
 $collation   as xs:string) as xs:boolean","Returns true if the string $arg1 contains $arg2 as a leading substring, taking collations into account.",Strings,Substring matching,,,,,,,
 string_length,length,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#lengthstring-s,length(string s),Returns the length of s as a number.,String,Basic,,STRLEN,https://www.w3.org/TR/sparql11-query/#func-strlen,xsd:integer  STRLEN(string str),The strlen function corresponds to the XPath fn:string-length function and returns an xsd:integer equal to the length in characters of the lexical form of the literal. ,Strings,fno:string-length,,http://www.w3.org/TR/xpath-functions/#func-string-length,"fn:string-length() as xs:integer
 fn:string-length($arg as xs:string?) as xs:integer",Returns the number of ·characters· in a string.,Strings,String values,,CHAR_LENGTH,,CHAR_LENGTH( expression ),Returns an integer value representing the number of characters in a string expression.,String,
-,,,,,,,,,,,,,fn:months,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:now,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:power,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:property,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:put,XQuery Update 1.0,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:random,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:regex-group,XSLT 2.0 and 3.0,,,,,,,,,,,,
 substring,substring,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#substrings-number-from-optional-number-to,"substring(string s, number from, optional number to)","Returns the substring of s starting from character index from and upto character index to. If to is omitted, it's understood as the end of the string s. For example, substring(""profound"", 3) returns the string found, and substring(""profound"", 2, 4) returns the string of.
 
 Character indexes start from zero. Negative character indexes are understood as counting from the end of the string. For example, substring(""profound"", 1, -1) returns the string rofoun. ",String,Substring,,SUBSTR,https://www.w3.org/TR/sparql11-query/#func-substr,"string SUBSTR(string source, xsd:integer startingLoc)
@@ -125,7 +104,7 @@ The index of the first character in a strings is 1.",Strings,fn:substring,,http:
 fn:substring(  $sourceString   as xs:string?,
 $start   as xs:double,
 $length   as xs:double) as xs:string",Returns the portion of the value of $sourceString beginning at the position indicated by the value of $start and continuing for the number of ·characters· indicated by the value of $length. ,Strings,String values,,SUBSTRING,,SUBSTRING(extraction_string FROM starting_position [FOR length] [COLLATE collation_name]),Returns a portion of a string.,String,
-substring_after,,,,,,,,STRAFTER,https://www.w3.org/TR/sparql11-query/#func-strafter,"literal  STRAFTER(string literal arg1, string literal arg2)","The STRAFTER function corresponds to the XPath fn:substring-after function. The arguments must be argument compatible otherwise an error is raised.
+substring_after,,,,,,,,STRAFTER,https://www.w3.org/TR/sparql11-query/#func-strafter,"literal  STRAFTER(string arg1, string arg2)","The STRAFTER function corresponds to the XPath fn:substring-after function. The arguments must be argument compatible otherwise an error is raised.
 
 For compatible arguments, if the lexical part of the second argument occurs as a substring of the lexical part of the first argument, the function returns a literal of the same kind as the first argument arg1 (simple literal, plain literal same language tag, xsd:string). The lexical form of the result is the substring of the lexcial form of arg1 that follows the first occurrence of the lexical form of arg2. If the lexical form of arg2 is the empty string, this is considered to be a match and the lexical form of the result is the lexical form of arg1.
 
@@ -133,8 +112,7 @@ If there is no such occurrence, an empty simple literal is returned. ",Strings,f
 fn:substring-after(  $arg1   as xs:string?,
 $arg2   as xs:string?,
 $collation   as xs:string) as xs:string","Returns the part of $arg1 that follows the first occurrence of $arg2, taking collations into account. ",Strings,Substring matching,,,,,,,
-,,,,,,,,,,,,,fn:seconds,XForms 1.1,,,,,,,,,,,,
-substring_before,,,,,,,,STRBEFORE,https://www.w3.org/TR/sparql11-query/#func-strbefore,"literal  STRBEFORE(string literal arg1, string literal arg2)","The STRBEFORE function corresponds to the XPath fn:substring-before function. The arguments must be argument compatible otherwise an error is raised.
+substring_before,,,,,,,,STRBEFORE,https://www.w3.org/TR/sparql11-query/#func-strbefore,"literal  STRBEFORE(string arg1, string arg2)","The STRBEFORE function corresponds to the XPath fn:substring-before function. The arguments must be argument compatible otherwise an error is raised.
 
 For compatible arguments, if the lexical part of the second argument occurs as a substring of the lexical part of the first argument, the function returns a literal of the same kind as the first argument arg1 (simple literal, plain literal same language tag, xsd:string). The lexical form of the result is the substring of the lexical form of arg1 that precedes the first occurrence of the lexical form of arg2. If the lexical form of arg2 is the empty string, this is considered to be a match and the lexical form of the result is the empty string.
 
@@ -142,49 +120,73 @@ If there is no such occurrence, an empty simple literal is returned. ",Strings,f
 fn:substring-before(  $arg1   as xs:string?,
 $arg2   as xs:string?,
 $collation   as xs:string) as xs:string","Returns the part of $arg1 that precedes the first occurrence of $arg2, taking collations into account",Strings,Substring matching,,,,,,,
-,,,,,,,,,,,,,fn:seconds-to-dateTime,XForms 1.1,,,,,,,,,,,,
-,,,,,,,,,,,,,fn:snapshot,XSLT 3.0 only,,,,,,,,,,,,
+sum,sum,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#sumarray-a,sum(array a),Returns the sum of numbers in a.,Math,,,Sum,https://www.w3.org/TR/sparql11-query/#defn_aggSum,numeric Sum(list M),"Sum is a SPARQL set function that will return the numeric value obtained by summing the values within the aggregate group. Type promotion happens as per the op:numeric-add function, applied transitively, (see definition below) so the value of SUM(?x), in an aggregate group where ?x has values 1 (integer), 2.0e0 (float), and 3.0 (decimal) will be 6.0 (float).",Set,fn:sum,,http://www.w3.org/TR/xpath-functions/#func-min,"fn:sum($arg as xs:anyAtomicType*) as xs:anyAtomicType
+fn:sum(  $arg   as xs:anyAtomicType*,
+$zero   as xs:anyAtomicType?) as xs:anyAtomicType?",Returns a value obtained by adding together the values in $arg. ,Aggregate,,,SUM,,SUM(expression),Computes the sum of column values given by expression.,Aggregate,
 timezone,,,,,,,,timezone,https://www.w3.org/TR/sparql11-query/#func-seconds,xsd:dayTimeDuration  TIMEZONE (xsd:dateTime arg),"Returns the timezone part of arg as an xsd:dayTimeDuration. Raises an error if there is no timezone.
 
 This function corresponds to fn:timezone-from-dateTime except for the treatment of literals with no timezone.",Dates and Times,fn:timezone-from-dateTime,,http://www.w3.org/TR/xpath-functions/#func-timezone-from-dateTime,,,,,,,,,,,
-,,,,,,,,,,,,,fn:stream-available,XSLT 3.0 only,,,,,,,,,,,,
-upper_case,toUpperCase(s),https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#tolowercasestring-s,toLowercase(string s),Returns s converted to lowercase. ,String,Basic String modification,Case Conversion,UCASE,https://www.w3.org/TR/sparql11-query/#func-ucase,string UCASE(string str),The UCASE function corresponds to the XPath fn:upper-case function. It returns a string literal whose lexical form is the upper case of the lexcial form of the argument.,Strings,fn:upper-case,,http://www.w3.org/TR/xpath-functions/#func-upper-case,fn:upper-case($arg as xs:string?) as xs:string,Converts a string to upper case.,Strings,String values,,UPPER,,UPPER(string),Converts a string to all uppercase characters.,String,
+upper_case,toUpperCase,https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#touppercasestring-s,toUpperCase(string s),Returns s converted to uppercase ,String,Basic String modification,Case Conversion,UCASE,https://www.w3.org/TR/sparql11-query/#func-ucase,string UCASE(string str),The UCASE function corresponds to the XPath fn:upper-case function. It returns a string literal whose lexical form is the upper case of the lexcial form of the argument.,Strings,fn:upper-case,,http://www.w3.org/TR/xpath-functions/#func-upper-case,fn:upper-case($arg as xs:string?) as xs:string,Converts a string to upper case.,Strings,String values,,UPPER,,UPPER(string),Converts a string to all uppercase characters.,String,
 year,datePart,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Date-Functions#datepartdate-d-string-unit,"datePart(date d, string ""years"")
 datePart(date d, string ""year"")",Returns part of a date. Data type returned depends on the unit. Units supported are:,Date,,,year,https://www.w3.org/TR/sparql11-query/#func-year,xsd:integer  YEAR (xsd:dateTime arg),"Returns the year part of arg as an integer.
 
 This function corresponds to fn:year-from-dateTime.",Dates and Times,fn:year-from-dateTime,,http://www.w3.org/TR/xpath-functions/#func-year-from-dateTime,fn:year-from-dateTime($arg as xs:dateTime?) as xs:integer?,Returns the year component of an xs:dateTime.,Dates and times,Component extraction functions on dates and times,,EXTRACT,,EXTRACT( YEAR FROM expression ),,Numeric Scalar,
-avg,sum/length,,sum(array a)/length(array a),,,,,Avg,https://www.w3.org/TR/sparql11-query/#defn_aggAvg,numeric Avg(list M),The Avg set function calculates the average value for an expression over a group. It is defined in terms of Sum and Count.,Set,fn:avg,XForms 1.1,http://www.w3.org/TR/xpath-functions/#func-avg,fn:avg($arg as xs:anyAtomicType*) as xs:anyAtomicType?,"Returns the average of the values in the input sequence $arg, that is, the sum of the values divided by the number of values.",Aggregate,,,AVG,,AVG(expression),Computes the average value of a column given by expression.,Aggregate,
-count,length,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#lengtharray-a,length(array a),Returns the length of array a.,Array,,,Count,https://www.w3.org/TR/sparql11-query/#defn_aggCount,xsd:integer Count(list M),"Count is a SPARQL set function which counts the number of times a given expression has a bound, and non-error value within the aggregate group.",Set,fn:count,,http://www.w3.org/TR/xpath-functions/#func-count,fn:count($arg as item[]) as xs:integer,Returns the number of items in a sequence.,Aggregate,,,COUNT,,"COUNT(expression)
-COUNT(*)","Counts the rows defined by the expression.
-Counts all rows in the specified table or view.",Aggregate,
+,,,,,,,,,,,,,fn:accumulator-after,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:accumulator-before,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:adjust-dateTime-to-timezone,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:available-system-properties,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:boolean-from-string,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:choose,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:collation-key,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:compare,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:context,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:copy-of,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:count-non-empty,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current,"XForms 1.1,XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current-group,XSLT 2.0 and 3.0,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current-grouping-key,XSLT 2.0 and 3.0,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current-merge-group,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current-merge-key,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:current-output-uri,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:days-from-date,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:days-to-date,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:digest,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:document,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
+,,,,,,,,,,,,,fn:element-available,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
+,,,,,,,,,,,,,fn:event,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:format-date,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:format-dateTime,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:format-number,XSLT 1.0 and 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:format-time,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:function-available,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
+,,,,,,,,,,,,,fn:generate-id,XSLT 1.0 and 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:hmac,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:id,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:if,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:index,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:instance,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:is-card-number,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:json-to-xml,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:key,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
+,,,,,,,,,,,,,fn:local-date,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:local-dateTime,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:months,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:now,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:power,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:property,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:put,XQuery Update 1.0,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:random,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:regex-group,XSLT 2.0 and 3.0,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:seconds,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:seconds-to-dateTime,XForms 1.1,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:snapshot,XSLT 3.0 only,,,,,,,,,,,,
+,,,,,,,,,,,,,fn:stream-available,XSLT 3.0 only,,,,,,,,,,,,
 ,,,,,,,,,,,,,fn:system-property,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
-matches,isNotNull(match),https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#matchstring-s-regexp-p,"isNotNull(match(string s, regexp p))","Attempts to match the string s in its entirety against the regex pattern p and returns an array of capture groups. For example, match(""230.22398, 12.3480"", /.*(\d\d\d\d)/) returns an array of 1 string: 3480. match(""230.22398, 12.3480"", /.*\.(\d+).*\.(\d+)/) returns an array of 2 strings: 22398 and 3480.
-
-Another match() example:
-
-isNotNull(value.match(/(a.c)/))
-
-returns True or False if value is like abc or azc , etc but would not match a value of ac. ",String,Basic String modification,Find and Replace,REGEX,https://www.w3.org/TR/sparql11-query/#func-regex,"xsd:boolean  REGEX (string literal text, simple literal pattern)
-xsd:boolean  REGEX (string literal text, simple literal pattern, simple literal flags)",Invokes the XPath fn:matches function to match text against a regular expression pattern. The regular expression language is defined in XQuery 1.0 and XPath 2.0 Functions and Operators section 7.6.1 Regular Expression Syntax [FUNCOP].,Strings,fn:matches,,http://www.w3.org/TR/xpath-functions/#func-matches,"fn:matches($input as xs:string?, $pattern as xs:string) as xs:boolean
-fn:matches(  $input   as xs:string?,
-$pattern   as xs:string,
-$flags   as xs:string) as xs:boolean",Returns true if the supplied string matches a given regular expression.,Strings,Regular expressions,,,,,,,
 ,,,,,,,,,,,,,fn:type-available,XSLT 2.0 and 3.0,,,,,,,,,,,,
 ,,,,,,,,,,,,,fn:unparsed-entity-public-id,XSLT 2.0 and 3.0,,,,,,,,,,,,
 ,,,,,,,,,,,,,fn:unparsed-entity-uri,"XSLT 1.0, 2.0, and 3.0",,,,,,,,,,,,
 ,,,,,,,,,,,,,fn:unparsed-text,XSLT 2.0; migrated to XPath 3.0 and 3.1,,,,,,,,,,,,
-min,min,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#minnumber-d1-number-d2,"min(number d1, number d2)",Returns the smaller of two numbers.,Math,,,Min,https://www.w3.org/TR/sparql11-query/#defn_aggMin,numeric Min(list M),"Min is a SPARQL set functions that returns the minimum value from a group respectively.
-
-It makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.",Set,fn:min,XForms 1.1,http://www.w3.org/TR/xpath-functions/#func-min,"fn:min($arg as xs:anyAtomicType*) as xs:anyAtomicType?
-fn:min($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?",Returns a value that is equal to the lowest value appearing in the input sequence.,Aggregate,,,MIN,,MIN(expression),Finds the minimum value in a column given by expression.,Aggregate,
 ,,,,,,,,,,,,,fn:xml-to-json,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
-sum,sum,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#sumarray-a,sum(array a),Returns the sum of numbers in a.,Math,,,Sum,https://www.w3.org/TR/sparql11-query/#defn_aggSum,numeric Sum(list M),"Sum is a SPARQL set function that will return the numeric value obtained by summing the values within the aggregate group. Type promotion happens as per the op:numeric-add function, applied transitively, (see definition below) so the value of SUM(?x), in an aggregate group where ?x has values 1 (integer), 2.0e0 (float), and 3.0 (decimal) will be 6.0 (float).",Set,fn:sum,,http://www.w3.org/TR/xpath-functions/#func-min,"fn:sum($arg as xs:anyAtomicType*) as xs:anyAtomicType
-fn:sum(  $arg   as xs:anyAtomicType*,
-$zero   as xs:anyAtomicType?) as xs:anyAtomicType?",Returns a value obtained by adding together the values in $arg. ,Aggregate,,,SUM,,SUM(expression),Computes the sum of column values given by expression.,Aggregate,
-max,max,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Math-Functions#maxnumber-d1-number-d2,"max(number d1, number d2)",Returns the larger of two numbers.,Math,,,Max,https://www.w3.org/TR/sparql11-query/#defn_aggMax,numeric Max(list M),"Max is a SPARQL set function that return the maximum value from a group respectively.
-
-It makes use of the SPARQL ORDER BY ordering definition, to allow ordering over arbitrarily typed expressions.",Set,fn:max,XForms 1.1,http://www.w3.org/TR/xpath-functions/#max,"fn:max($arg as xs:anyAtomicType*) as xs:anyAtomicType?
-fn:max($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?",Returns a value that is equal to the highest value appearing in the input sequence.,Aggregate,,,MAX,,MAX(expression),Finds the maximum value in a column given by expression.,Aggregate,
 ,,,,,,,,,,,,,map:contains,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
 ,,,,,,,,,,,,,map:entry,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
 ,,,,,,,,,,,,,map:find,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
@@ -195,5 +197,3 @@ fn:max($arg as xs:anyAtomicType*, $collation as xs:string) as xs:anyAtomicType?"
 ,,,,,,,,,,,,,map:put,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
 ,,,,,,,,,,,,,map:remove,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
 ,,,,,,,,,,,,,map:size,Common to XSLT 3.0 and XPath 3.1,,,,,,,,,,,,
-group_concat,join,https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions#joinarray-a-string-sep,"join(array a, string sep)","Returns the string obtained by joining the array a with the separator sep. For example, join([ ""foo"", ""bar"", ""baz"" ], "";"") returns the string foo;bar;baz.",Array,,,GroupConcat,https://www.w3.org/TR/sparql11-query/#defn_aggGroupConcat,"GroupConcat(M, scalarvals)",GroupConcat is a set function which performs a string concatenation across the values of an expression with a group. The order of the strings is not specified. The separator character used in the concatenation may be given with the scalar argument SEPARATOR.,Set,,,,,,,,,GROUP_CONCAT,,,NOT ANSI!,,
-sample,,,,,,,,Sample,https://www.w3.org/TR/sparql11-query/#defn_aggSample,Sample(M),Sample is a set function which returns an arbitrary value from the multiset passed to it.,Set,,,,,,,,,SAMPLE,,,,,
