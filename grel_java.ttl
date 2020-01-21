@@ -48,6 +48,8 @@ grel:prob_array
     fno:name            "The array problem"^^xsd:string ;
     dcterms:description ""^^xsd:string .
 
+#CONCAT
+
 grel:prob_concat
     a        fno:Problem ;
     fno:name "The concat problem"^^xsd:string ;
@@ -64,8 +66,8 @@ grel:array_join
     fno:name            "join" ;
     dcterms:description "join" ;
     fno:solves          grel:prob_array_join ;
-    fno:expects         ( grel:param_a grel:param_sep ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:param_a grel:param_string_sep ) ;
+    fno:returns         ( grel:stringOut ) .
 
 grel:param_a
     a             fno:Parameter ;
@@ -75,7 +77,7 @@ grel:param_a
     fno:type      rdf:List ;
     fno:required  "true"^^xsd:boolean .
 
-grel:param_sep
+grel:param_string_sep
     a             fno:Parameter ;
     fno:name      "sep" ;
     rdfs:label    "sep" ;
@@ -83,17 +85,19 @@ grel:param_sep
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
 
-grel:output_string
+grel:stringOut
     a             fno:Output ;
-    fno:name      "string" ;
-    rdfs:label    "string" ;
-    fno:predicate grel:o_string ;
+    fno:name      "output string" ;
+    rdfs:label    "output string" ;
+    fno:predicate grel:stringOutput ;
     fno:type      xsd:string .
 
 grel:prob_bool
     a                   fno:Problem ;
     fno:name            "The bool problem"^^xsd:string ;
     dcterms:description ""^^xsd:string .
+
+#AND
 
 grel:prob_and
     a                   fno:Problem ;
@@ -123,6 +127,8 @@ grel:output_bool
     fno:predicate grel:o_bool ;
     fno:type      xsd:boolean .
 
+#OR
+
 grel:prob_or
     a                   fno:Problem ;
     fno:name            "The or problem"^^xsd:string ;
@@ -135,6 +141,8 @@ grel:boolean_or
     fno:solves          grel:prob_or ;
     fno:expects         ( grel:bool_array_b ) ;
     fno:returns         ( grel:output_bool ) .
+
+#NOT
 
 grel:prob_not
     a                   fno:Problem ;
@@ -157,12 +165,16 @@ grel:param_b
     fno:type      xsd:boolean ;
     fno:required  "true"^^xsd:boolean .
 
+#XOR
+
 grel:boolean_xor
     a                   fno:Function ;
     fno:name            "xor" ;
     dcterms:description "xor" ;
     fno:expects         ( grel:bool_array_b ) ;
     fno:returns         ( grel:output_bool ) .
+
+#IFTHENELSE
 
 grel:prob_if
     a                   fno:Problem ;
@@ -198,6 +210,8 @@ grel:prob_string
     fno:name            "The string problem"^^xsd:string ;
     dcterms:description ""^^xsd:string .
 
+#STRING_LENGTH
+
 grel:prob_strlen
     a                   fno:Problem ;
     fno:name            "The strlen problem"^^xsd:string ;
@@ -208,14 +222,14 @@ grel:string_length
     fno:name            "length" ;
     dcterms:description "length" ;
     fno:solves          grel:prob_strlen ;
-    fno:expects         ( grel:param_s ) ;
+    fno:expects         ( grel:valueParam ) ;
     fno:returns         ( grel:output_number ) .
 
-grel:param_s
+grel:valueParam
     a             fno:Parameter ;
-    fno:name      "s" ;
-    rdfs:label    "s" ;
-    fno:predicate grel:string_s ;
+    fno:name      "input value" ;
+    rdfs:label    "input value" ;
+    fno:predicate grel:valueParameter ;
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
 
@@ -228,6 +242,8 @@ grel:output_number
 
 #TODO toStringValue
 
+#STARTSWITH
+
 grel:prob_strstarts
     a                   fno:Problem ;
     fno:name            "The strstarts problem"^^xsd:string ;
@@ -238,16 +254,18 @@ grel:string_startsWith
     fno:name            "startsWith" ;
     dcterms:description "startsWith" ;
     fno:solves          grel:prob_strstarts ;
-    fno:expects         ( grel:param_s grel:param_sub ) ;
+    fno:expects         ( grel:valueParam grel:param_string_sub ) ;
     fno:returns         ( grel:output_bool ) .
 
-grel:param_sub
+grel:param_string_sub
     a             fno:Parameter ;
     fno:name      "sub" ;
     rdfs:label    "sub" ;
     fno:predicate grel:string_sub ;
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
+
+#ENDSWITH
 
 grel:prob_strends
     a                   fno:Problem ;
@@ -259,8 +277,10 @@ grel:string_endsWith
     fno:name            "endsWith" ;
     dcterms:description "endsWith" ;
     fno:solves          grel:prob_strends ;
-    fno:expects         ( grel:param_s grel:param_sub ) ;
+    fno:expects         ( grel:valueParam grel:param_string_sub ) ;
     fno:returns         ( grel:output_bool ) .
+
+#CONTAINS
 
 grel:prob_contains
     a                   fno:Problem ;
@@ -272,7 +292,7 @@ grel:string_contains
     fno:name            "contains" ;
     dcterms:description "contains" ;
     fno:solves          grel:prob_contains ;
-    fno:expects         ( grel:param_s grel:param_sub ) ;
+    fno:expects         ( grel:valueParam grel:param_string_sub ) ;
     fno:returns         ( grel:output_bool ) .
 
 #TODO indexOf
@@ -281,41 +301,47 @@ grel:string_indexOf
     a                   fno:Function ;
     fno:name            "indexOf" ;
     dcterms:description "indexOf" ;
-    fno:expects         ( grel:param_s grel:param_sub ) ;
+    fno:expects         ( grel:valueParam grel:param_string_sub ) ;
     fno:returns         ( grel:output_number ) .
 
-grel:string_indexOf
-    a                   fno:Function ;
-    fno:name            "indexOf" ;
-    dcterms:description "indexOf" ;
-    fno:expects         ( ) ;
-    fno:returns         ( grel:output_number ) .
+#grel:string_indexOf
+#    a                   fno:Function ;
+#    fno:name            "indexOf" ;
+#    dcterms:description "indexOf" ;
+#    fno:expects         ( ) ;
+#    fno:returns         ( grel:output_number ) .
+
+#TOLOWERCASE
 
 grel:prob_lcase
     a                   fno:Problem ;
     fno:name            "The lcase problem"^^xsd:string ;
     dcterms:description "Converting a string to lower case characters."^^xsd:string .
 
-grel:string_toLowercase
+grel:toLowerCase
     a                   fno:Function ;
-    fno:name            "toLowercase" ;
-    dcterms:description "toLowercase" ;
+    fno:name            "to Lowercase" ;
+    rdfs:label          "to Lowercase" ;
+    dcterms:description "Returns the input with all letters in lower case." ;
     fno:solves          grel:prob_lcase ;
-    fno:expects         ( grel:param_s ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam ) ;
+    fno:returns         ( grel:stringOut ) .
+
+#TOUPPERCASE
 
 grel:prob_ucase
     a                   fno:Problem ;
     fno:name            "The ucase problem"^^xsd:string ;
     dcterms:description "Converting a string to upper case characters."^^xsd:string .
 
-grel:string_toUppercase
+grel:toUpperCase
     a                   fno:Function ;
-    fno:name            "toUppercase" ;
-    dcterms:description "toUppercase" ;
+    fno:name            "to Uppercase" ;
+    rdfs:label          "to Uppercase" ;
+    dcterms:description "Returns the input with all letters in upper case." ;
     fno:solves          grel:prob_ucase ;
-    fno:expects         ( grel:param_s ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam ) ;
+    fno:returns         ( grel:stringOut ) .
 
 #TODO toTitleCase
 
@@ -323,8 +349,10 @@ grel:string_toTitlecase
     a                   fno:Function ;
     fno:name            "toTitlecase" ;
     dcterms:description "toTitlecase" ;
-    fno:expects         ( grel:param_s ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam ) ;
+    fno:returns         ( grel:stringOut ) .
+
+#TRIM
 
 #TODO Problem trim
 
@@ -332,17 +360,17 @@ grel:string_trim
     a                   fno:Function ;
     fno:name            "trim" ;
     dcterms:description "trim" ;
-    fno:expects         ( grel:param_s ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam ) ;
+    fno:returns         ( grel:stringOut ) .
 
 #TODO strip sameAs trim
 
-#grel:param_strip
+#grel:valueParamtrip
 #    a                   fno:Function ;
 #    fno:name            "strip" ;
 #    dcterms:description "strip" ;
-#    fno:expects         ( grel:param_s ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO chomp
 
@@ -350,23 +378,23 @@ grel:string_chomp
     a                   fno:Function ;
     fno:name            "chomp" ;
     dcterms:description "chomp" ;
-    fno:expects         ( grel:param_s grel:param_sep ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam grel:param_string_sep ) ;
+    fno:returns         ( grel:stringOut ) .
 
-# TODO substring
+#SUBSTRING
 
 grel:prob_substr
     a                   fno:Problem ;
     fno:name            "The substr problem"^^xsd:string ;
     dcterms:description "Getting the sub-string of a given string"^^xsd:string .
 
-#grel:string_substring
-#    a                   fno:Function ;
-#    fno:name            "substring" ;
-#    dcterms:description "substring" ;
-#    fno:solves          grel:prob_substr ;
-#    fno:expects         ( grel:param_s grel:p_int_i_from grel:p_int_i_opt_to ) ;
-#    fno:returns         ( grel:output_string ) .
+grel:string_substring
+    a                   fno:Function ;
+    fno:name            "substring" ;
+    dcterms:description "substring" ;
+    fno:solves          grel:prob_substr ;
+    fno:expects         ( grel:valueParam grel:p_int_i_from grel:p_int_i_opt_to ) ;
+    fno:returns         ( grel:stringOut ) .
 
 grel:p_int_i_from
     a             fno:Parameter ;
@@ -386,12 +414,12 @@ grel:p_int_i_opt_to
 
 # TODO slice sameAs substring
 
-#grel:param_slice
+#grel:valueParamlice
 #    a                   fno:Function ;
 #    fno:name            "slice" ;
 #    dcterms:description "slice" ;
-#    fno:expects         ( grel:param_s grel:p_int_i_from grel:p_int_i_opt_to ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:p_int_i_from grel:p_int_i_opt_to ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 # TODO get sameAs substring
 
@@ -399,8 +427,8 @@ grel:p_int_i_opt_to
 #    a                   fno:Function ;
 #    fno:name            "get" ;
 #    dcterms:description "get" ;
-#    fno:expects         ( grel:param_s grel:p_int_i_from grel:p_int_i_opt_to ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:p_int_i_from grel:p_int_i_opt_to ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 # TODO lastIndexOf
 
@@ -408,7 +436,7 @@ grel:p_int_i_opt_to
 #    a                   fno:Function ;
 #    fno:name            "lastIndexOf" ;
 #    dcterms:description "lastIndexOf" ;
-#    fno:expects         ( grel:param_s grel:param_sub ) ;
+#    fno:expects         ( grel:valueParam grel:param_string_sub ) ;
 #    fno:returns         ( grel:output_number ) .
 
 # TODO replace
@@ -424,8 +452,8 @@ grel:prob_replace
 #    fno:name            "replace" ;
 #    dcterms:description "replace" ;
 #    fno:solves          grel:prob_replace ;
-#    fno:expects         ( grel:param_s grel:param_find grel:param_replace ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:param_find grel:param_replace ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 grel:param_find
     a             fno:Parameter ;
@@ -449,8 +477,8 @@ grel:param_replace
 #    a                   fno:Function ;
 #    fno:name            "replaceChars" ;
 #    dcterms:description "replaceChars" ;
-#    fno:expects         ( grel:param_s grel:param_find grel:param_replace ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:param_find grel:param_replace ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO match
 
@@ -464,7 +492,7 @@ grel:prob_regex
 #    a                   fno:Function ;
 #    fno:name            "match" ;
 #    dcterms:description "match" ;
-#    fno:expects         ( grel:param_s grel:param_regex ) ;
+#    fno:expects         ( grel:valueParam grel:param_regex ) ;
 #    fno:returns         ( grel:output_array ) .
 
 grel:output_array
@@ -488,7 +516,7 @@ grel:param_regex
 #    a                   fno:Function ;
 #    fno:name            "find" ;
 #    dcterms:description "find" ;
-#    fno:expects         ( grel:param_s grel:param_regex ) ;
+#    fno:expects         ( grel:valueParam grel:param_regex ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO toNumber
@@ -508,11 +536,13 @@ grel:param_any_e
     fno:type      xsd:any ;
     fno:required  "true"^^xsd:boolean .
 
+#SPLIT
+
 grel:string_split
     a                   fno:Function ;
     fno:name            "split" ;
     dcterms:description "split" ;
-    fno:expects         ( grel:param_s grel:param_sep ) ;
+    fno:expects         ( grel:valueParam grel:param_string_sep ) ;
     fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#splitbylengthsstring-s-number-n1-number-n2-
@@ -521,7 +551,7 @@ grel:string_split
 #    a                   fno:Function ;
 #    fno:name            "splitByLengths" ;
 #    dcterms:description "splitByLengths" ;
-#    fno:expects         ( grel:param_s grel:param_int_i grel:param_int_i2 grel:param_int_rep_i ) ;
+#    fno:expects         ( grel:valueParam grel:param_int_i grel:param_int_i2 grel:param_int_rep_i ) ;
 #    fno:returns         ( grel:output_array ) .
 
 grel:param_int_i
@@ -550,11 +580,11 @@ grel:param_int_rep_i
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#smartsplitstring-s-optional-string-sep
 
-#grel:param_smartSplit
+#grel:valueParammartSplit
 #    a                   fno:Function ;
 #    fno:name            "smartSplit" ;
 #    dcterms:description "smartSplit" ;
-#    fno:expects         ( grel:param_s grel:param_opt_sep ) ;
+#    fno:expects         ( grel:valueParam grel:param_opt_sep ) ;
 #    fno:returns         ( grel:output_array ) .
 
 grel:param_opt_sep
@@ -567,11 +597,11 @@ grel:param_opt_sep
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#splitbychartypes
 
-#grel:param_splitByCharType
+#grel:valueParamplitByCharType
 #    a                   fno:Function ;
 #    fno:name            "splitByCharType" ;
 #    dcterms:description "splitByCharType" ;
-#    fno:expects         ( grel:param_s ) ;
+#    fno:expects         ( grel:valueParam ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#partitionstring-s-string-or-regex-frag-optional-boolean-omitfragment
@@ -580,7 +610,7 @@ grel:param_opt_sep
 #    a                   fno:Function ;
 #    fno:name            "partition" ;
 #    dcterms:description "partition" ;
-#    fno:expects         ( grel:param_s grel:param_fragment grel:param_bool_opt_b ) ;
+#    fno:expects         ( grel:valueParam grel:param_fragment grel:param_bool_opt_b ) ;
 #    fno:returns         ( grel:output_array ) .
 
 grel:param_fragment
@@ -605,7 +635,7 @@ grel:param_bool_opt_b
 #    a                   fno:Function ;
 #    fno:name            "rpartition" ;
 #    dcterms:description "rpartition" ;
-#    fno:expects         ( grel:param_s grel:param_fragment grel:param_bool_opt_b ) ;
+#    fno:expects         ( grel:valueParam grel:param_fragment grel:param_bool_opt_b ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#diffo1-o2-optional-string-timeunit
@@ -614,36 +644,39 @@ grel:param_bool_opt_b
 #    a                   fno:Function ;
 #    fno:name            "diff" ;
 #    dcterms:description "diff" ;
-#    fno:expects         ( grel:param_s grel:param_s2 ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:valueParam2 ) ;
+#    fno:returns         ( grel:stringOut ) .
 
-grel:param_s2
+grel:valueParam2
     a             fno:Parameter ;
-    fno:name      "o2" ;
-    rdfs:label    "o2" ;
-    fno:predicate grel:string_s2 ;
+    fno:name      "input value 2" ;
+    rdfs:label    "input value 2" ;
+    fno:predicate grel:valueParameter2 ;
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
+
+#ESCAPE
 
 grel:prob_encode_for_uri
     a                   fno:Problem ;
     fno:name            "The encode_for_uri problem"^^xsd:string ;
     dcterms:description "encoding for a URI"^^xsd:string .
 
-grel:string_escape
+grel:escape
     a                   fno:Function ;
     fno:name            "escape" ;
-    dcterms:description "escape" ;
+    rdfs:label          "escape" ;
+    dcterms:description "Escapes a string, with a mode parameter." ;
     fno:solves          grel:prob_encode_for_uri ;
-    fno:expects         ( grel:param_s grel:param_mode ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParam grel:modeParam ) ;
+    fno:returns         ( grel:stringOut ) .
 
-grel:param_mode
+grel:modeParam
     a             fno:Parameter ;
-    fno:name      "mode" ;
-    rdfs:label    "mode" ;
-    fno:predicate grel:p_mode ;
+    fno:name      "mode value" ;
+    rdfs:label    "mode value" ;
     fno:type      xsd:string ;
+    fno:predicate grel:modeParameter ;
     fno:required  "true"^^xsd:boolean .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#unescapestring-s-string-mode
@@ -652,8 +685,8 @@ grel:param_mode
 #    a                   fno:Function ;
 #    fno:name            "unescape" ;
 #    dcterms:description "unescape" ;
-#    fno:expects         ( grel:param_s grel:param_mode ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:modeParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#md5string-s
 
@@ -672,8 +705,8 @@ grel:prob_md5
 #    fno:name            "md5" ;
 #    dcterms:description "md5" ;
 #    fno:solves          grel:prob_md5 ;
-#    fno:expects         ( grel:param_s ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#sha1string-s
 
@@ -687,8 +720,8 @@ grel:prob_sha1
 #    fno:name            "sha1" ;
 #    dcterms:description "sha1" ;
 #    fno:solves          grel:prob_sha1 ;
-#    fno:expects         ( grel:param_s ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#phoneticstring-s-string-encoding
 
@@ -696,10 +729,10 @@ grel:prob_sha1
 #    a                   fno:Function ;
 #    fno:name            "phonetic" ;
 #    dcterms:description "phonetic" ;
-#    fno:expects         ( grel:param_s grel:param_string_encoding ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:valueParamtring_encoding ) ;
+#    fno:returns         ( grel:stringOut ) .
 
-grel:param_string_encoding
+grel:valueParamtring_encoding
     a             fno:Parameter ;
     fno:name      "encoding" ;
     rdfs:label    "encoding" ;
@@ -713,10 +746,10 @@ grel:param_string_encoding
 #    a                   fno:Function ;
 #    fno:name            "reinterpret" ;
 #    dcterms:description "reinterpret" ;
-#    fno:expects         ( grel:param_s grel:param_string_encoder ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam grel:valueParamtring_encoder ) ;
+#    fno:returns         ( grel:stringOut ) .
 
-grel:param_string_encoder
+grel:valueParamtring_encoder
     a             fno:Parameter ;
     fno:name      "encoder" ;
     rdfs:label    "encoder" ;
@@ -730,8 +763,8 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "fingerprint" ;
 #    dcterms:description "fingerprint" ;
-#    fno:expects         ( grel:param_s ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#ngramstring-s-number-n
 
@@ -739,7 +772,7 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "ngram" ;
 #    dcterms:description "ngram" ;
-#    fno:expects         ( grel:param_s grel:param_int_i ) ;
+#    fno:expects         ( grel:valueParam grel:param_int_i ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#ngramfingerprintstring-s-number-n
@@ -748,7 +781,7 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "ngramFingerprint" ;
 #    dcterms:description "ngramFingerprint" ;
-#    fno:expects         ( grel:param_s grel:param_int_i ) ;
+#    fno:expects         ( grel:valueParam grel:param_int_i ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#unicodestring-s
@@ -757,7 +790,7 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "unicode" ;
 #    dcterms:description "unicode" ;
-#    fno:expects         ( grel:param_s ) ;
+#    fno:expects         ( grel:valueParam ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#unicodetypestring-s
@@ -766,7 +799,7 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "unicodeType" ;
 #    dcterms:description "unicodeType" ;
-#    fno:expects         ( grel:param_s ) ;
+#    fno:expects         ( grel:valueParam ) ;
 #    fno:returns         ( grel:output_array ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#mqlkeyquotestring-s
@@ -775,8 +808,8 @@ grel:param_string_encoder
 #    a                   fno:Function ;
 #    fno:name            "mqlKeyQuote" ;
 #    dcterms:description "mqlKeyQuote" ;
-#    fno:expects         ( grel:param_s ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:expects         ( grel:valueParam ) ;
+#    fno:returns         ( grel:stringOut ) .
 
 #TODO https://github.com/OpenRefine/OpenRefine/wiki/GREL-String-Functions#mqlkeyunquotestring-key
 
@@ -784,10 +817,10 @@ grel:string_mqlKeyUnquote
     a                   fno:Function ;
     fno:name            "mqlKeyUnquote" ;
     dcterms:description "mqlKeyUnquote" ;
-    fno:expects         ( grel:param_string_key ) ;
-    fno:returns         ( grel:output_string ) .
+    fno:expects         ( grel:valueParamtring_key ) ;
+    fno:returns         ( grel:stringOut ) .
 
-grel:param_string_key
+grel:valueParamtring_key
     a             fno:Parameter ;
     fno:name      "key" ;
     rdfs:label    "key" ;
@@ -1226,7 +1259,7 @@ grel:prob_coalesce
 #    fno:name            "toString" ;
 #    dcterms:description "toString" ;
 #    fno:expects         ( grel:date_d grel:string_format ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_hasField
 #    a                   fno:Function ;
@@ -1352,48 +1385,48 @@ grel:prob_coalesce
 #    fno:name            "htmlText" ;
 #    dcterms:description "htmlText" ;
 #    fno:expects         ( ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_innerHtml
 #    a                   fno:Function ;
 #    fno:name            "innerHtml" ;
 #    dcterms:description "innerHtml" ;
 #    fno:expects         ( ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_outerHtml
 #    a                   fno:Function ;
 #    fno:name            "outerHtml" ;
 #    dcterms:description "outerHtml" ;
 #    fno:expects         ( ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_ownText
 #    a                   fno:Function ;
 #    fno:name            "ownText" ;
 #    dcterms:description "ownText" ;
 #    fno:expects         ( ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_type
 #    a                   fno:Function ;
 #    fno:name            "type" ;
 #    dcterms:description "type" ;
 #    fno:expects         ( grel:param_any_e ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:other_parseHtml
 #    a                   fno:Function ;
 #    fno:name            "parseHtml" ;
 #    dcterms:description "parseHtml" ;
-#    fno:expects         ( grel:param_s ) ;
+#    fno:expects         ( grel:valueParam ) ;
 #    fno:returns         ( grel:output_element ) .
 
 #grel:other_parseJson
 #    a                   fno:Function ;
 #    fno:name            "parseJson" ;
 #    dcterms:description "parseJson" ;
-#    fno:expects         ( grel:param_s ) ;
+#    fno:expects         ( grel:valueParam ) ;
 #    fno:returns         ( grel:output_any ) .
 
 #grel:other_jsonize
@@ -1401,12 +1434,12 @@ grel:prob_coalesce
 #    fno:name            "jsonize" ;
 #    dcterms:description "jsonize" ;
 #    fno:expects         ( grel:param_any_e ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
 #grel:string_toString
 #    a                   fno:Function ;
 #    fno:name            "toString" ;
 #    dcterms:description "toString" ;
 #    fno:expects         ( grel:param_any_e ) ;
-#    fno:returns         ( grel:output_string ) .
+#    fno:returns         ( grel:stringOut ) .
 
