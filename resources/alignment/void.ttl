@@ -1,0 +1,40 @@
+@prefix fno: <http://w3id.org/function/ontology/0.4/#> .
+@prefix fns: <http://users.ugent.be/~bjdmeest/function/functions.ttl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+
+@prefix : <#> .
+
+<> a void:DatasetDescription;
+    dcterms:title "A VoID Description of the Function Alignments Dataset";
+    dcterms:creator [
+      rdf:type foaf:Person ;
+      foaf:mbox "mailto:Ben.DeMeester@UGent.be";
+      foaf:name "Ben De Meester"@en
+    ];
+    foaf:primaryTopic fns:dataset;
+    .
+
+fns:dataset a void:Dataset ;
+  foaf:homepage <http://users.ugent.be/~bjdmeest/function/> ;
+  dcterms:title "Function Alignments"@en ;
+  dcterms:description "The alignment of XPath, SPARQL, and SPIN functions using the Function Ontology";
+  dcterms:contributor [
+    rdf:type foaf:Person ;
+    foaf:mbox "mailto:Ben.DeMeester@UGent.be";
+    foaf:name "Ben De Meester"@en
+  ];
+  dcterms:modified "2016-06-16"^^xsd:date;
+  cc:license <http://creativecommons.org/license/by/3.0/> ;
+  dcterms:issued "2016-04-30"^^xsd:date ;
+  dcterms:rights "Copyright © Ghent University – iMinds – Data Science Lab"@en ;
+  dcterms:subject <http://dbpedia.org/resource/Function_(mathematics)> ;
+  dcterms:subject <http://dbpedia.org/resource/Function_model> ;
+  void:feature <http://www.w3.org/ns/formats/Turtle> ;
+  void:exampleResource fns:prob_date ; 
+  void:vocabulary <http://www.w3.org/2004/02/skos/core#> .

@@ -1,0 +1,2807 @@
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix fns: <https://fno.io/hub/data/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix grel: <http://semweb.mmlab.be/ns/grel#> .
+@prefix : <https://fno.io/hub/data/resource/#> .
+
+_:g0 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:bool_b ;
+	rdf:rest _:g1 .
+
+_:g1 rdf:type fno:Output ;
+	rdf:predicate :pred_duration ;
+	rdf:first grel:any_true ;
+	rdf:rest _:g2 .
+
+_:g2 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:any_false ;
+	rdf:rest rdf:nil .
+
+_:g3 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+_:g4 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_b ;
+	rdf:rest _:g5 .
+
+_:g5 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:bool_b2 ;
+	rdf:rest _:g6 .
+
+_:g6 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_rep_b ;
+	rdf:rest rdf:nil .
+
+_:g7 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g8 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_b ;
+	rdf:rest _:g9 .
+
+_:g9 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:bool_b2 ;
+	rdf:rest _:g10 .
+
+_:g10 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_rep_b ;
+	rdf:rest rdf:nil .
+
+_:g11 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g12 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_b ;
+	rdf:rest _:g13 .
+
+_:g13 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:bool_b2 ;
+	rdf:rest _:g14 .
+
+_:g14 rdf:type fno:Parameter ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:bool_rep_b ;
+	rdf:rest rdf:nil .
+
+_:g15 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g16 rdf:type fno:Output ;
+	rdf:predicate :pred_dateTime ;
+	rdf:first grel:date_d ;
+	rdf:rest _:g17 .
+
+_:g17 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:date_d2 ;
+	rdf:rest _:g18 .
+
+_:g18 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_time_unit ;
+	rdf:rest rdf:nil .
+
+_:g19 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+_:g20 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:date_d ;
+	rdf:rest _:g21 .
+
+_:g21 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:dec_n ;
+	rdf:rest _:g22 .
+
+_:g22 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_unit ;
+	rdf:rest rdf:nil .
+
+_:g23 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_date ;
+	rdf:rest rdf:nil .
+
+_:g24 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_number ;
+	rdf:rest rdf:nil .
+
+_:g25 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:dec_n ;
+	rdf:rest _:g26 .
+
+_:g26 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:dec_n_exp ;
+	rdf:rest rdf:nil .
+
+_:g27 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+_:g28 rdf:type fno:Output ;
+	rdf:predicate :pred_result ;
+	rdf:first grel:dec_n ;
+	rdf:rest _:g29 .
+
+_:g29 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:dec_n2 ;
+	rdf:rest rdf:nil .
+
+_:g30 rdf:type fno:Output ;
+	rdf:predicate :pred_result ;
+	rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+_:g31 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:dec_n ;
+	rdf:rest _:g32 .
+
+_:g32 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:dec_n2 ;
+	rdf:rest rdf:nil .
+
+_:g33 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+_:g34 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g35 .
+
+_:g35 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i ;
+	rdf:rest rdf:nil .
+
+_:g36 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g37 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g38 .
+
+_:g38 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i ;
+	rdf:rest rdf:nil .
+
+_:g39 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g40 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g41 .
+
+_:g41 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i ;
+	rdf:rest _:g42 .
+
+_:g42 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i2 ;
+	rdf:rest _:g43 .
+
+_:g43 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_rep_i ;
+	rdf:rest rdf:nil .
+
+_:g44 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g45 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:array_a ;
+	rdf:rest _:g46 .
+
+_:g46 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g47 .
+
+_:g47 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_opt_to ;
+	rdf:rest rdf:nil .
+
+_:g48 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g49 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:array_a ;
+	rdf:rest _:g50 .
+
+_:g50 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g51 .
+
+_:g51 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_opt_to ;
+	rdf:rest rdf:nil .
+
+_:g52 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g53 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g54 .
+
+_:g54 rdf:type fno:Parameter ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g55 .
+
+_:g55 rdf:type fno:Output ;
+	rdf:predicate :pred_number ;
+	rdf:first grel:int_i_opt_to ;
+	rdf:rest rdf:nil .
+
+_:g56 rdf:type fno:Parameter ;
+	rdf:predicate :pred_eval ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g57 rdf:type fno:Parameter ;
+	rdf:predicate :pred_true ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g58 .
+
+_:g58 rdf:type fno:Parameter ;
+	rdf:predicate :pred_false ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g59 .
+
+_:g59 rdf:type fno:Output ;
+	rdf:predicate :pred_result ;
+	rdf:first grel:int_i_opt_to ;
+	rdf:rest rdf:nil .
+
+_:g60 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g61 rdf:type fno:Output ;
+	rdf:predicate :pred_result ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g62 .
+
+_:g62 rdf:type fno:Parameter ;
+	rdf:predicate :pred_list ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g63 .
+
+_:g63 rdf:type fno:Output ;
+	rdf:predicate :pred_result ;
+	rdf:first grel:int_i_opt_to ;
+	rdf:rest rdf:nil .
+
+_:g64 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g65 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:int_i ;
+	rdf:rest _:g66 .
+
+_:g66 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:int_i2 ;
+	rdf:rest rdf:nil .
+
+_:g67 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+_:g68 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:int_i_from ;
+	rdf:rest _:g69 .
+
+_:g69 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:inti_i_to ;
+	rdf:rest _:g70 .
+
+_:g70 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:int_i_step ;
+	rdf:rest _:g71 .
+
+_:g71 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:uri_value ;
+	rdf:rest _:g72 .
+
+_:g72 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g73 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g74 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g75 .
+
+_:g75 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:string_encoder ;
+	rdf:rest rdf:nil .
+
+_:g76 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g77 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g78 .
+
+_:g78 rdf:type fno:Parameter ;
+	rdf:predicate :pred_graph ;
+	rdf:first grel:string_encoding ;
+	rdf:rest rdf:nil .
+
+_:g79 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g80 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:any_e ;
+	rdf:rest _:g81 .
+
+_:g81 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:string_field ;
+	rdf:rest rdf:nil .
+
+_:g82 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+_:g83 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:any_e ;
+	rdf:rest _:g84 .
+
+_:g84 rdf:type fno:Parameter ;
+	rdf:predicate :pred_iri ;
+	rdf:first grel:string_field ;
+	rdf:rest rdf:nil .
+
+_:g85 rdf:type fno:Output ;
+	rdf:predicate :pred_literal ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g86 rdf:type fno:Parameter ;
+	rdf:predicate :pred_literal ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g87 .
+
+_:g87 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:string_find ;
+	rdf:rest _:g88 .
+
+_:g88 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_replace ;
+	rdf:rest rdf:nil .
+
+_:g89 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g90 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g91 .
+
+_:g91 rdf:type fno:Output ;
+	rdf:predicate :pred_class ;
+	rdf:first grel:string_find ;
+	rdf:rest _:g92 .
+
+_:g92 rdf:type fno:Parameter ;
+	rdf:predicate :pred_class ;
+	rdf:first grel:string_replace ;
+	rdf:rest rdf:nil .
+
+_:g93 rdf:type fno:Parameter ;
+	rdf:predicate :pred_class ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g94 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:date_d ;
+	rdf:rest _:g95 .
+
+_:g95 rdf:type fno:Parameter ;
+	rdf:predicate :pred_property ;
+	rdf:first grel:string_format ;
+	rdf:rest rdf:nil .
+
+_:g96 rdf:type fno:Parameter ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g97 rdf:type fno:Output ;
+	rdf:predicate :pred_resource ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g98 .
+
+_:g98 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_fragment ;
+	rdf:rest _:g99 .
+
+_:g99 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:bool_opt_b ;
+	rdf:rest rdf:nil .
+
+_:g100 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g101 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g102 .
+
+_:g102 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_fragment ;
+	rdf:rest _:g103 .
+
+_:g103 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:bool_opt_b ;
+	rdf:rest rdf:nil .
+
+_:g104 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g105 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:output_date ;
+	rdf:rest rdf:nil .
+
+_:g106 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g107 .
+
+_:g107 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_mode ;
+	rdf:rest rdf:nil .
+
+_:g108 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g109 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g110 .
+
+_:g110 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_mode ;
+	rdf:rest rdf:nil .
+
+_:g111 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g112 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g113 .
+
+_:g113 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_opt_sep ;
+	rdf:rest rdf:nil .
+
+_:g114 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g115 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g116 .
+
+_:g116 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_regex ;
+	rdf:rest rdf:nil .
+
+_:g117 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g118 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g119 .
+
+_:g119 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_regex ;
+	rdf:rest rdf:nil .
+
+_:g120 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g121 rdf:type fno:Parameter ;
+	rdf:predicate :pred_input ;
+	rdf:first grel:any_e ;
+	rdf:rest _:g122 .
+
+_:g122 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_rep_format ;
+	rdf:rest rdf:nil .
+
+_:g123 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_date ;
+	rdf:rest rdf:nil .
+
+_:g124 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g125 .
+
+_:g125 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s2 ;
+	rdf:rest rdf:nil .
+
+_:g126 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g127 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:array_a ;
+	rdf:rest _:g128 .
+
+_:g128 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_sep ;
+	rdf:rest rdf:nil .
+
+_:g129 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g130 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g131 .
+
+_:g131 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_sep ;
+	rdf:rest rdf:nil .
+
+_:g132 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+_:g133 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g134 .
+
+_:g134 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_sep ;
+	rdf:rest rdf:nil .
+
+_:g135 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g136 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g137 .
+
+_:g137 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:string_sub ;
+	rdf:rest rdf:nil .
+
+_:g138 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g139 rdf:type fno:Parameter ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g140 .
+
+_:g140 rdf:type fno:Parameter ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:string_sub ;
+	rdf:rest rdf:nil .
+
+_:g141 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g142 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g143 .
+
+_:g143 rdf:type fno:Output ;
+	rdf:predicate :pred_integer ;
+	rdf:first grel:string_sub ;
+	rdf:rest rdf:nil .
+
+_:g144 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+_:g145 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g146 .
+
+_:g146 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_sub ;
+	rdf:rest rdf:nil .
+
+_:g147 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+_:g148 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_s ;
+	rdf:rest _:g149 .
+
+_:g149 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_sub ;
+	rdf:rest rdf:nil .
+
+_:g150 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+_:g151 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:date_d ;
+	rdf:rest _:g152 .
+
+_:g152 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:string_unit ;
+	rdf:rest rdf:nil .
+
+_:g153 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+_:g154 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:array_a ;
+	rdf:rest _:g155 .
+
+_:g155 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:uri_index ;
+	rdf:rest _:g156 .
+
+_:g156 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:uri_value ;
+	rdf:rest _:g157 .
+
+_:g157 rdf:type fno:Output ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g158 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g159 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:any_e ;
+	rdf:rest _:g160 .
+
+_:g160 rdf:type fno:Parameter ;
+	rdf:predicate :pred_string ;
+	rdf:first grel:uri_value ;
+	rdf:rest _:g161 .
+
+_:g161 rdf:type fno:Output ;
+	rdf:predicate :pred_bool ;
+	rdf:first grel:any_false ;
+	rdf:rest _:g162 .
+
+fns:void rdf:type void:DatasetDescription ;
+	dcterms:title "A VoID Description of the Function Alignments Dataset of GREL" ;
+	dcterms:creator <https://ben.de-meester.org/#me> ;
+	foaf:primaryTopic fns:dataset .
+
+<https://ben.de-meester.org/#me> rdf:type foaf:Person ;
+	foaf:mbox "mailto:Ben.DeMeester@UGent.be" ;
+	foaf:name "Ben De Meester"@en .
+
+fns:dataset rdf:type void:Dataset ;
+	foaf:homepage <https://fno.io/> ;
+	dcterms:title "Function Alignments"@en ;
+	dcterms:description "The alignment of XPath, SPARQL, SQL, SPIN, and GREL functions using the Function Ontology" ;
+	dcterms:contributor <https://ben.de-meester.org/#me> ;
+	dcterms:modified "2018-08-01"^^xsd:date ;
+	cc:license <http://creativecommons.org/license/by/3.0/> ;
+	dcterms:issued "2016-04-30"^^xsd:date ;
+	dcterms:rights "Copyright © Ghent University – imec – IDLab"@en ;
+	dcterms:subject <http://dbpedia.org/resource/Function_(mathematics)>, <http://dbpedia.org/resource/Function_model> ;
+	void:feature <http://www.w3.org/ns/formats/Turtle> ;
+	void:exampleResource fns:prob_date ;
+	void:vocabulary skos: .
+
+grel:prob_date rdf:type fno:Problem ;
+	dcterms:title "The date problem" ;
+	dcterms:description "" .
+
+grel:prob_timezone rdf:type fno:Problem ;
+	dcterms:title "The timezone problem" ;
+	dcterms:description "Getting the timezone of a string." ;
+	skos:broader :prob_date .
+
+grel:fn_timezone rdf:type fno:Function ;
+	fno:solves :prob_timezone ;
+	fno:parameter _:g0 ;
+	fno:output _:g1 .
+
+grel:fn_tz rdf:type fno:Function ;
+	fno:solves :prob_timezone ;
+	fno:parameter _:g2 ;
+	fno:output _:g3 .
+
+grel:prob_day rdf:type fno:Problem ;
+	dcterms:title "The day problem" ;
+	dcterms:description "Extracting the day from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_day rdf:type fno:Function ;
+	fno:solves :prob_day ;
+	fno:parameter _:g4 ;
+	fno:output _:g5 .
+
+grel:prob_month rdf:type fno:Problem ;
+	dcterms:title "The month problem" ;
+	dcterms:description "Extracting the month from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_month rdf:type fno:Function ;
+	fno:solves :prob_month ;
+	fno:parameter _:g6 ;
+	fno:output _:g7 .
+
+grel:prob_hours rdf:type fno:Problem ;
+	dcterms:title "The hours problem" ;
+	dcterms:description "Extracting the hours from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_hours rdf:type fno:Function ;
+	fno:solves :prob_hours ;
+	fno:parameter _:g8 ;
+	fno:output _:g9 .
+
+grel:prob_seconds rdf:type fno:Problem ;
+	dcterms:title "The seconds problem" ;
+	dcterms:description "Extracting the seconds from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_seconds rdf:type fno:Function ;
+	fno:solves :prob_seconds ;
+	fno:parameter _:g10 ;
+	fno:output _:g11 .
+
+grel:prob_minutes rdf:type fno:Problem ;
+	dcterms:title "The minutes problem" ;
+	dcterms:description "Extracting the minutes from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_minutes rdf:type fno:Function ;
+	fno:solves :prob_minutes ;
+	fno:parameter _:g12 ;
+	fno:output _:g13 .
+
+grel:prob_year rdf:type fno:Problem ;
+	dcterms:title "The year problem" ;
+	dcterms:description "Extracting the year from a date/time literal." ;
+	skos:broader :prob_date .
+
+grel:fn_year rdf:type fno:Function ;
+	fno:solves :prob_year ;
+	fno:parameter _:g14 ;
+	fno:output _:g15 .
+
+grel:prob_now rdf:type fno:Problem ;
+	dcterms:title "The now problem" ;
+	dcterms:description "Getting the current date and time." ;
+	skos:broader :prob_date .
+
+grel:fn_now rdf:type fno:Function ;
+	fno:solves :prob_now ;
+	fno:output _:g16 .
+
+grel:prob_crypto rdf:type fno:Problem ;
+	dcterms:title "The crypto problem" ;
+	dcterms:description "" .
+
+grel:prob_sha1 rdf:type fno:Problem ;
+	dcterms:title "The sha1 problem" ;
+	dcterms:description "Calculating the SHA1 checksum." ;
+	skos:broader :prob_crypto .
+
+grel:fn_sha1 rdf:type fno:Function ;
+	fno:solves :prob_sha1 ;
+	fno:parameter _:g17 ;
+	fno:output _:g18 .
+
+grel:prob_sha512 rdf:type fno:Problem ;
+	dcterms:title "The sha512 problem" ;
+	dcterms:description "Calculating the SHA512 checksum." ;
+	skos:broader :prob_crypto .
+
+grel:fn_sha512 rdf:type fno:Function ;
+	fno:solves :prob_sha512 ;
+	fno:parameter _:g19 ;
+	fno:output _:g20 .
+
+grel:prob_sha384 rdf:type fno:Problem ;
+	dcterms:title "The sha384 problem" ;
+	dcterms:description "Calculating the SHA384 checksum." ;
+	skos:broader :prob_crypto .
+
+grel:fn_sha384 rdf:type fno:Function ;
+	fno:solves :prob_sha384 ;
+	fno:parameter _:g21 ;
+	fno:output _:g22 .
+
+grel:prob_sha256 rdf:type fno:Problem ;
+	dcterms:title "The sha256 problem" ;
+	dcterms:description "Calculating the SHA256 checksum." ;
+	skos:broader :prob_crypto .
+
+grel:fn_sha256 rdf:type fno:Function ;
+	fno:solves :prob_sha256 ;
+	fno:parameter _:g23 ;
+	fno:output _:g24 .
+
+grel:prob_md5 rdf:type fno:Problem ;
+	dcterms:title "The md5 problem" ;
+	dcterms:description "Calculating the md5 checksum." ;
+	skos:broader :prob_crypto .
+
+grel:fn_md5 rdf:type fno:Function ;
+	fno:solves :prob_md5 ;
+	fno:parameter _:g25 ;
+	fno:output _:g26 .
+
+grel:prob_mathematical rdf:type fno:Problem ;
+	dcterms:title "The mathematical problem" ;
+	dcterms:description "" .
+
+grel:prob_floor rdf:type fno:Problem ;
+	dcterms:title "The floor problem" ;
+	dcterms:description "Returning the largest (closest to positive infinity) number with no fractional part that is not greater than the given value." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_floor rdf:type fno:Function ;
+	fno:solves :prob_floor ;
+	fno:parameter _:g27 ;
+	fno:output _:g28 .
+
+grel:prob_abs rdf:type fno:Problem ;
+	dcterms:title "The abs problem" ;
+	dcterms:description "Returning the absolute value of the given value." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_abs rdf:type fno:Function ;
+	fno:solves :prob_abs ;
+	fno:parameter _:g29 ;
+	fno:output _:g30 .
+
+grel:prob_add rdf:type fno:Problem ;
+	dcterms:title "The add problem" ;
+	dcterms:description "Returning the sum of the given values." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_add rdf:type fno:Function ;
+	fno:solves :prob_add ;
+	fno:parameter _:g31, _:g32 ;
+	fno:output _:g33 .
+
+grel:prob_unaryMinus rdf:type fno:Problem ;
+	dcterms:title "The unaryMinus problem" ;
+	dcterms:description "Returning the given value with the sign reversed." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_unaryMinus rdf:type fno:Function ;
+	fno:solves :prob_unaryMinus ;
+	fno:parameter _:g34 ;
+	fno:output _:g35 .
+
+grel:prob_sub rdf:type fno:Problem ;
+	dcterms:title "The sub problem" ;
+	dcterms:description "Returning the arithmetic difference of the given values." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_sub rdf:type fno:Function ;
+	fno:solves :prob_sub ;
+	fno:parameter _:g36, _:g37 ;
+	fno:output _:g38 .
+
+grel:prob_mul rdf:type fno:Problem ;
+	dcterms:title "The mul problem" ;
+	dcterms:description "Returning the arithmetic product of the given values." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_mul rdf:type fno:Function ;
+	fno:solves :prob_mul ;
+	fno:parameter _:g39, _:g40 ;
+	fno:output _:g41 .
+
+grel:prob_max rdf:type fno:Problem ;
+	dcterms:title "The max problem" ;
+	dcterms:description "Returning the largest value of the input." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_max rdf:type fno:Function ;
+	fno:solves :prob_max ;
+	fno:parameter _:g42, _:g43 ;
+	fno:output _:g44 .
+
+grel:prob_min rdf:type fno:Problem ;
+	dcterms:title "The min problem" ;
+	dcterms:description "Returning the smallest value of the input." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_min rdf:type fno:Function ;
+	fno:solves :prob_min ;
+	fno:parameter _:g45, _:g46 ;
+	fno:output _:g47 .
+
+grel:prob_divide rdf:type fno:Problem ;
+	dcterms:title "The divide problem" ;
+	dcterms:description "Returning the arithmetic quotient of the given values." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_divide rdf:type fno:Function ;
+	fno:solves :prob_divide ;
+	fno:parameter _:g48, _:g49 ;
+	fno:output _:g50 .
+
+grel:prob_rand rdf:type fno:Problem ;
+	dcterms:title "The rand problem" ;
+	dcterms:description "Returns a number between 0 (inclusive) and 1.0e0 (exclusive). Different numbers can be produced every time this function is invoked. Numbers should be produced with approximately equal probability." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_rand rdf:type fno:Function ;
+	fno:solves :prob_rand ;
+	fno:output _:g51 .
+
+grel:prob_round rdf:type fno:Problem ;
+	dcterms:title "The round problem" ;
+	dcterms:description "Returning the number with no fractional part that is closest to the argument. If there are two such numbers, then the one that is closest to positive infinity is returned." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_round rdf:type fno:Function ;
+	fno:solves :prob_round ;
+	fno:parameter _:g52 ;
+	fno:output _:g53 .
+
+grel:prob_ceil rdf:type fno:Problem ;
+	dcterms:title "The ceil problem" ;
+	dcterms:description "Returning the smallest (closest to negative infinity) number with no fractional part that is not less than the value of arg." ;
+	skos:broader :prob_mathematical .
+
+grel:fn_ceil rdf:type fno:Function ;
+	fno:solves :prob_ceil ;
+	fno:parameter _:g54 ;
+	fno:output _:g55 .
+
+grel:prob_composition rdf:type fno:Problem ;
+	dcterms:title "The composition problem" ;
+	dcterms:description "" .
+
+grel:prob_if rdf:type fno:Problem ;
+	dcterms:title "The if problem" ;
+	dcterms:description "Doing an if-statement." ;
+	skos:broader :prob_composition .
+
+grel:fn_if rdf:type fno:Function ;
+	fno:solves :prob_if ;
+	fno:parameter _:g56, _:g57, _:g58 ;
+	fno:output _:g59 .
+
+grel:prob_misc rdf:type fno:Problem ;
+	dcterms:title "The misc problem" ;
+	dcterms:description "" .
+
+grel:prob_eval rdf:type fno:Problem ;
+	dcterms:title "The eval problem" ;
+	dcterms:description "Evaluating a statement" ;
+	skos:broader :prob_misc .
+
+grel:fn_eval rdf:type fno:Function ;
+	fno:solves :prob_eval ;
+	fno:parameter _:g60 ;
+	fno:output _:g61 .
+
+grel:prob_coalesce rdf:type fno:Problem ;
+	dcterms:title "The coalesce problem" ;
+	dcterms:description "Returning the first bound argument." ;
+	skos:broader :prob_misc .
+
+grel:fn_coalesce rdf:type fno:Function ;
+	fno:solves :prob_coalesce ;
+	fno:parameter _:g62 ;
+	fno:output _:g63 .
+
+grel:prob_ontology rdf:type fno:Problem ;
+	dcterms:title "The ontology problem" ;
+	dcterms:description "" .
+
+grel:prob_subPropertyOf rdf:type fno:Problem ;
+	dcterms:title "The subPropertyOf problem" ;
+	dcterms:description "Checking whether a given property is a (transitive) sub-property of another property." ;
+	skos:broader :prob_ontology .
+
+grel:fn_subPropertyOf rdf:type fno:Function ;
+	fno:solves :prob_subPropertyOf ;
+	fno:parameter _:g64, _:g65 ;
+	fno:output _:g66 .
+
+grel:prob_objectCount rdf:type fno:Problem ;
+	dcterms:title "The objectCount problem" ;
+	dcterms:description "Getting the number of values of a given property (?arg2) at a given subject (?arg1). The result is the number of matches of (?arg1, ?arg2, ?object)." ;
+	skos:broader :prob_ontology .
+
+grel:fn_objectCount rdf:type fno:Function ;
+	fno:solves :prob_objectCount ;
+	fno:parameter _:g67, _:g68 ;
+	fno:output _:g69 .
+
+grel:prob_subjectCount rdf:type fno:Problem ;
+	dcterms:title "The subjectCount problem" ;
+	dcterms:description "Getting the number of values of a given property (?arg1) at a given object (?arg2). The result is the number of matches of (?subject, ?arg1, ?arg2)." ;
+	skos:broader :prob_ontology .
+
+grel:fn_subjectCount rdf:type fno:Function ;
+	fno:solves :prob_subjectCount ;
+	fno:parameter _:g70, _:g71 ;
+	fno:output _:g72 .
+
+grel:prob_object rdf:type fno:Problem ;
+	dcterms:title "The object problem" ;
+	dcterms:description "Getting the object of a given subject (?arg1) / predicate (?arg2) combination. Note that if multiple values are present then the result might be unpredictably random." ;
+	skos:broader :prob_ontology .
+
+grel:fn_object rdf:type fno:Function ;
+	fno:solves :prob_object ;
+	fno:parameter _:g73, _:g74 ;
+	fno:output _:g75 .
+
+grel:prob_objectInGraph rdf:type fno:Problem ;
+	dcterms:title "The objectInGraph problem" ;
+	dcterms:description "Gets the object of a given subject (?arg1) / predicate (?arg2) combination in a given graph ?arg3. Note that if multiple values are present then the result might be unpredictably random." ;
+	skos:broader :prob_ontology .
+
+grel:fn_objectInGraph rdf:type fno:Function ;
+	fno:solves :prob_objectInGraph ;
+	fno:parameter _:g76, _:g77, _:g78 ;
+	fno:output _:g79 ;
+	skos:broader :fn_object .
+
+grel:prob_objectSubProp rdf:type fno:Problem ;
+	dcterms:title "The objectSubProp problem" ;
+	dcterms:description "Getting the object of a given subject (?arg1) / predicate (?arg2) combination, also taking the sub-properties of ?arg2 into account. Note that if multiple values are present then the result might be unpredictably random." ;
+	skos:broader :prob_ontology .
+
+grel:fn_objectSubProp rdf:type fno:Function ;
+	fno:solves :prob_objectSubProp ;
+	fno:parameter _:g80, _:g81 ;
+	fno:output _:g82 .
+
+grel:prob_strdt rdf:type fno:Problem ;
+	dcterms:title "The strdt problem" ;
+	dcterms:description "Constructing a literal with lexical form and type as specified by the arguments." ;
+	skos:broader :prob_ontology .
+
+grel:fn_strdt rdf:type fno:Function ;
+	fno:solves :prob_strdt ;
+	fno:parameter _:g83, _:g84 ;
+	fno:output _:g85 .
+
+grel:prob_bnode rdf:type fno:Problem ;
+	dcterms:title "The bnode problem" ;
+	dcterms:description "Constructing a blank node that is distinct from all blank nodes in the dataset being queried and distinct from all blank nodes created by calls to this constructor for other query solutions. If the no argument form is used, every call results in a distinct blank node. If the form with a simple literal is used, every call results in distinct blank nodes for different simple literals, and the same blank node for calls with the same simple literal within expressions for one solution mapping." ;
+	skos:broader :prob_ontology .
+
+grel:fn_bnode rdf:type fno:Function ;
+	fno:solves :prob_bnode ;
+	fno:parameter _:g86 ;
+	fno:output _:g87 .
+
+grel:prob_IRI rdf:type fno:Problem ;
+	dcterms:title "The IRI problem" ;
+	dcterms:description "Creating a IRI resource (node) from a given IRI string" ;
+	skos:broader :prob_ontology .
+
+grel:fn_IRI rdf:type fno:Function ;
+	fno:solves :prob_IRI ;
+	fno:parameter _:g88 ;
+	fno:output _:g89 .
+
+grel:prob_datatype rdf:type fno:Problem ;
+	dcterms:title "The datatype problem" ;
+	dcterms:description "Returning the datatype IRI of argument ?arg1; returns xsd:string if the parameter is a simple literal." ;
+	skos:broader :prob_ontology .
+
+grel:fn_datatype rdf:type fno:Function ;
+	fno:solves :prob_datatype ;
+	fno:parameter _:g90 ;
+	fno:output _:g91 .
+
+grel:prob_subClassOf rdf:type fno:Problem ;
+	dcterms:title "The subClassOf problem" ;
+	dcterms:description "Checks whether a given class (?arg1) is a (transitive) sub-class of another class (?arg2)." ;
+	skos:broader :prob_ontology .
+
+grel:fn_subClassOf rdf:type fno:Function ;
+	fno:solves :prob_subClassOf ;
+	fno:parameter _:g92, _:g93 ;
+	fno:output _:g94 .
+
+grel:prob_subject rdf:type fno:Problem ;
+	dcterms:title "The subject problem" ;
+	dcterms:description "Gets the 'first' subject of a given predicate (?arg1)/object (?arg2) combination. Note that if multiple values are present then the result might be unpredictably random." ;
+	skos:broader :prob_ontology .
+
+grel:fn_subject rdf:type fno:Function ;
+	fno:solves :prob_subject ;
+	fno:parameter _:g95, _:g96 ;
+	fno:output _:g97 .
+
+grel:prob_bool rdf:type fno:Problem ;
+	dcterms:title "The bool problem" ;
+	dcterms:description "" .
+
+grel:prob_lt rdf:type fno:Problem ;
+	dcterms:title "The lt problem" ;
+	dcterms:description "Returning true if ?arg1 < ?arg2." ;
+	skos:broader :prob_bool .
+
+grel:fn_lt rdf:type fno:Function ;
+	fno:solves :prob_lt ;
+	fno:parameter _:g98, _:g99 ;
+	fno:output _:g100 .
+
+grel:prob_not rdf:type fno:Problem ;
+	dcterms:title "The not problem" ;
+	dcterms:description "Returning the boolean negation of the argument." ;
+	skos:broader :prob_bool .
+
+grel:fn_not rdf:type fno:Function ;
+	fno:solves :prob_not ;
+	fno:parameter _:g101 ;
+	fno:output _:g102 .
+
+grel:prob_ne rdf:type fno:Problem ;
+	dcterms:title "The ne problem" ;
+	dcterms:description "Returning true if ?arg1 != ?arg2." ;
+	skos:broader :prob_bool .
+
+grel:fn_ne rdf:type fno:Function ;
+	fno:solves :prob_ne ;
+	fno:parameter _:g103, _:g104 ;
+	fno:output _:g105 .
+
+grel:prob_le rdf:type fno:Problem ;
+	dcterms:title "The le problem" ;
+	dcterms:description "Returning true if ?arg1 <= ?arg2." ;
+	skos:broader :prob_bool .
+
+grel:fn_le rdf:type fno:Function ;
+	fno:solves :prob_le ;
+	fno:parameter _:g106, _:g107 ;
+	fno:output _:g108 .
+
+grel:prob_ge rdf:type fno:Problem ;
+	dcterms:title "The ge problem" ;
+	dcterms:description "Returning true if ?arg1 >= ?arg2." ;
+	skos:broader :prob_bool .
+
+grel:fn_ge rdf:type fno:Function ;
+	fno:solves :prob_ge ;
+	fno:parameter _:g109, _:g110 ;
+	fno:output _:g111 .
+
+grel:prob_isURI rdf:type fno:Problem ;
+	dcterms:title "The isURI problem" ;
+	dcterms:description "Checking whether a node is a URI." ;
+	skos:broader :prob_bool .
+
+grel:fn_isURI rdf:type fno:Function ;
+	fno:solves :prob_isURI ;
+	fno:parameter _:g112 ;
+	fno:output _:g113 .
+
+grel:prob_eq rdf:type fno:Problem ;
+	dcterms:title "The eq problem" ;
+	dcterms:description "Returning true if ?arg1 == ?arg2." ;
+	skos:broader :prob_bool .
+
+grel:fn_eq rdf:type fno:Function ;
+	fno:solves :prob_eq ;
+	fno:parameter _:g114, _:g115 ;
+	fno:output _:g116 .
+
+grel:prob_and rdf:type fno:Problem ;
+	dcterms:title "The and problem" ;
+	dcterms:description "Returning the logical AND between two (boolean) operands." ;
+	skos:broader :prob_bool .
+
+grel:fn_and rdf:type fno:Function ;
+	fno:solves :prob_and ;
+	fno:parameter _:g117, _:g118 ;
+	fno:output _:g119 .
+
+grel:prob_or rdf:type fno:Problem ;
+	dcterms:title "The or problem" ;
+	dcterms:description "Returning the logical OR between two (boolean) operands." ;
+	skos:broader :prob_bool .
+
+grel:fn_or rdf:type fno:Function ;
+	fno:solves :prob_or ;
+	fno:parameter _:g120, _:g121 ;
+	fno:output _:g122 .
+
+grel:prob_string rdf:type fno:Problem ;
+	dcterms:title "The string problem" ;
+	dcterms:description "" .
+
+grel:prob_encode_for_uri rdf:type fno:Problem ;
+	dcterms:title "The encode_for_uri problem" ;
+	dcterms:description "encoding for a URI" ;
+	skos:broader :prob_string .
+
+grel:fn_encode_for_uri rdf:type fno:Function ;
+	fno:solves :prob_encode_for_uri ;
+	fno:parameter _:g123 ;
+	fno:output _:g124 .
+
+grel:prob_contains rdf:type fno:Problem ;
+	dcterms:title "The contains problem" ;
+	dcterms:description "Whether a string contains another string" ;
+	skos:broader :prob_string .
+
+grel:fn_contains rdf:type fno:Function ;
+	fno:solves :prob_contains ;
+	fno:parameter _:g125, _:g126 ;
+	fno:output _:g127 .
+
+grel:prob_strends rdf:type fno:Problem ;
+	dcterms:title "The strends problem" ;
+	dcterms:description "Whether a string ends another string" ;
+	skos:broader :prob_string .
+
+grel:fn_strends rdf:type fno:Function ;
+	fno:solves :prob_strends ;
+	fno:parameter _:g128, _:g129 ;
+	fno:output _:g130 .
+
+grel:prob_ucase rdf:type fno:Problem ;
+	dcterms:title "The ucase problem" ;
+	dcterms:description "Converting a string to upper case characters." ;
+	skos:broader :prob_string .
+
+grel:fn_ucase rdf:type fno:Function ;
+	fno:solves :prob_ucase ;
+	fno:parameter _:g131 ;
+	fno:output _:g132 .
+
+grel:prob_lcase rdf:type fno:Problem ;
+	dcterms:title "The lcase problem" ;
+	dcterms:description "Converting a string to lower case characters." ;
+	skos:broader :prob_string .
+
+grel:fn_lcase rdf:type fno:Function ;
+	fno:solves :prob_lcase ;
+	fno:parameter _:g133 ;
+	fno:output _:g134 .
+
+grel:prob_strstarts rdf:type fno:Problem ;
+	dcterms:title "The strstarts problem" ;
+	dcterms:description "Whether a string starts another string" ;
+	skos:broader :prob_string .
+
+grel:fn_strstarts rdf:type fno:Function ;
+	fno:solves :prob_strstarts ;
+	fno:parameter _:g135, _:g136 ;
+	fno:output _:g137 .
+
+grel:prob_substr rdf:type fno:Problem ;
+	dcterms:title "The substr problem" ;
+	dcterms:description "Getting the sub-string of a given string" ;
+	skos:broader :prob_string .
+
+grel:fn_substr rdf:type fno:Function ;
+	fno:solves :prob_substr ;
+	fno:parameter _:g138, _:g139, _:g140 ;
+	fno:output _:g141 .
+
+grel:prob_strlen rdf:type fno:Problem ;
+	dcterms:title "The strlen problem" ;
+	dcterms:description "Computing the length of a given input string." ;
+	skos:broader :prob_string .
+
+grel:fn_strlen rdf:type fno:Function ;
+	fno:solves :prob_strlen ;
+	fno:parameter _:g142 ;
+	fno:output _:g143 .
+
+grel:prob_strafter rdf:type fno:Problem ;
+	dcterms:title "The strafter problem" ;
+	dcterms:description "Returning a literal of the same kind (simple literal, plain literal same language tag, xsd:string) as the first argument arg1. The lexical form of the result is the substring of the value of arg1 that proceeds in arg1 the first occurrence of the lexical form of arg2; otherwise the lexical form of the result is the empty string. If the lexical form of arg2 is the empty string, the lexical form of the result is the emprty string." ;
+	skos:broader :prob_string .
+
+grel:fn_strafter rdf:type fno:Function ;
+	fno:solves :prob_strafter ;
+	fno:parameter _:g144, _:g145 ;
+	fno:output _:g146 .
+
+grel:prob_replace rdf:type fno:Problem ;
+	dcterms:title "The replace problem" ;
+	dcterms:description "Replacing each non-overlapping occurrence of a regular expression pattern with a replacement string. Regular expession matching may involve modifier flags." ;
+	skos:broader :prob_string .
+
+grel:fn_replace rdf:type fno:Function ;
+	fno:solves :prob_replace ;
+	fno:parameter _:g147, _:g148, _:g149, _:g150 ;
+	fno:output _:g151 .
+
+grel:prob_strbefore rdf:type fno:Problem ;
+	dcterms:title "The strbefore problem" ;
+	dcterms:description "Returning a literal of the same kind (simple literal, plain literal same language tag, xsd:string) as the first argument arg1. The lexical form of the result is the substring of the value of arg1 that precedes in arg1 the first occurrence of the lexical form of arg2; otherwise the lexical form of the result is the empty string. If the lexical form of arg2 is the empty string, the lexical form of the result is the emprty string." ;
+	skos:broader :prob_string .
+
+grel:fn_strbefore rdf:type fno:Function ;
+	fno:solves :prob_strbefore ;
+	fno:parameter _:g152, _:g153 ;
+	fno:output _:g154 .
+
+grel:prob_concat rdf:type fno:Problem ;
+	dcterms:title "The concat problem" ;
+	dcterms:description "Creating a single string by concatenating all arguments from left to right. Note that if any one of the arguments is unbound (null) then the whole result string will be unbound." ;
+	skos:broader :prob_string .
+
+grel:fn_concat rdf:type fno:Function ;
+	fno:solves :prob_concat ;
+	fno:parameter _:g155, _:g156 ;
+	fno:output _:g157 .
+
+grel:prob_regex rdf:type fno:Problem ;
+	dcterms:title "The regex problem" ;
+	dcterms:description "Returning true if a string (?arg1) matches the regular expression supplied as a pattern (?arg2) as influenced by the value of flags (?arg3), otherwise returns false." ;
+	skos:broader :prob_string .
+
+grel:fn_regex rdf:type fno:Function ;
+	fno:solves :prob_regex ;
+	fno:parameter _:g158, _:g159, _:g160 ;
+	fno:output _:g161 .
+
+grel:prob_rdf rdf:type fno:Problem ;
+	dcterms:title "The rdf problem" ;
+	dcterms:description "" .
+
+grel:pred_string rdfs:range xsd:string .
+
+grel:pred_date rdfs:range xsd:dateTime .
+
+grel:pred_duration rdfs:range xsd:duration .
+
+grel:pred_integer rdfs:range xsd:integer .
+
+grel:pred_list rdfs:range rdf:List .
+
+grel:pred_error rdfs:range :Error .
+
+grel:pred_bool rdfs:range xsd:boolean .
+
+grel:pred_property rdfs:range rdf:Property .
+
+grel:pred_resource rdfs:range rdf:Resource .
+
+grel:pred_class rdfs:range rdf:Class .
+
+grel:prob_URI skos:broader :prob_IRI .
+
+<https://www.w3.org/TR/sparql11-query/#func-floor> skos:broader :fn_floor .
+
+<https://www.w3.org/TR/sparql11-query/#func-abs> skos:broader :fn_abs .
+
+<https://www.w3.org/TR/sparql11-query/#idp2130040> skos:broader :fn_rand .
+
+<https://www.w3.org/TR/sparql11-query/#func-round> skos:broader :fn_round .
+
+<https://www.w3.org/TR/sparql11-query/#func-ceil> skos:broader :fn_ceil .
+
+<https://www.w3.org/TR/sparql11-query/#func-strdt> skos:broader :fn_strdt .
+
+<https://www.w3.org/TR/sparql11-query/#func-bnode> skos:broader :fn_bnode .
+
+<https://www.w3.org/TR/sparql11-query/#func-sha1> skos:broader :fn_sha1 .
+
+<https://www.w3.org/TR/sparql11-query/#func-sha512> skos:broader :fn_sha512 .
+
+<https://www.w3.org/TR/sparql11-query/#func-sha384> skos:broader :fn_sha384 .
+
+<https://www.w3.org/TR/sparql11-query/#func-sha256> skos:broader :fn_sha256 .
+
+<https://www.w3.org/TR/sparql11-query/#func-md5> skos:broader :fn_md5 .
+
+<https://www.w3.org/TR/sparql11-query/#func-timezone> skos:broader :fn_timezone .
+
+<https://www.w3.org/TR/sparql11-query/#func-contains> skos:broader :fn_contains .
+
+<https://www.w3.org/TR/sparql11-query/#func-substr> skos:broader :fn_substr ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-substring> .
+
+<https://www.w3.org/TR/sparql11-query/#func-strends> skos:broader :fn_strends ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-ends-with> .
+
+<https://www.w3.org/TR/sparql11-query/#func-strstarts> skos:broader :fn_strstarts ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-starts-with> .
+
+<https://www.w3.org/TR/sparql11-query/#func-strafter> skos:broader :fn_strafter .
+
+<https://www.w3.org/TR/sparql11-query/#func-strbefore> skos:broader :fn_strbefore .
+
+<https://www.w3.org/TR/sparql11-query/#func-strlen> skos:broader :fn_strlen, <http://www.w3.org/TR/xpath-functions/#func-string-length> ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-string-length> .
+
+<https://www.w3.org/TR/sparql11-query/#func-replace> skos:broader :fn_replace .
+
+<https://www.w3.org/TR/sparql11-query/#func-regex> skos:broader :fn_regex .
+
+<https://www.w3.org/TR/sparql11-query/#func-ucase> skos:broader :fn_ucase ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-upper-case> .
+
+<https://www.w3.org/TR/sparql11-query/#func-lcase> skos:broader :fn_lcase ;
+	skos:related <http://www.w3.org/TR/xpath-functions/#func-lower-case> .
+
+<https://www.w3.org/TR/sparql11-query/#func-coalesce> skos:broader :fn_coalesce .
+
+<http://www.w3.org/TR/xpath-functions/#func-string-length> fno:solves :prob_strlen .
+
+<http://www.w3.org/TR/xpath-functions/#func-substring> fno:solves :prob_substr .
+
+<http://www.w3.org/TR/xpath-functions/#func-upper-case> fno:solves :prob_ucase .
+
+<http://www.w3.org/TR/xpath-functions/#func-lower-case> fno:solves :prob_lcase .
+
+<http://www.w3.org/TR/xpath-functions/#func-starts-with> fno:solves :prob_strstarts .
+
+<http://www.w3.org/TR/xpath-functions/#func-ends-with> fno:solves :prob_strends .
+
+grel:array_a rdf:type fno:Parameter ;
+	fno:name "a" ;
+	rdfs:label "a" ;
+	fno:predicate grel:param_a ;
+	fno:type rdf:List ;
+	fno:required "true"^^xsd:boolean .
+
+grel:bool_b rdf:type fno:Parameter ;
+	fno:name "b" ;
+	rdfs:label "b" ;
+	fno:predicate grel:param_b ;
+	fno:type xsd:boolean ;
+	fno:required "true"^^xsd:boolean .
+
+grel:bool_b2 rdf:type fno:Parameter ;
+	fno:name "b2" ;
+	rdfs:label "b2" ;
+	fno:predicate grel:param_b2 ;
+	fno:type xsd:boolean ;
+	fno:required "true"^^xsd:boolean .
+
+grel:bool_rep_b rdf:type fno:Parameter ;
+	fno:name "b3" ;
+	rdfs:label "b3" ;
+	fno:predicate grel:param_rep_b ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:date_d rdf:type fno:Parameter ;
+	fno:name "d" ;
+	rdfs:label "d" ;
+	fno:predicate grel:param_d ;
+	fno:type xsd:date ;
+	fno:required "true"^^xsd:boolean .
+
+grel:dec_n rdf:type fno:Parameter ;
+	fno:name "d" ;
+	rdfs:label "d" ;
+	fno:predicate grel:param_n ;
+	fno:type xsd:decimal ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i rdf:type fno:Parameter ;
+	fno:name "d1" ;
+	rdfs:label "d1" ;
+	fno:predicate grel:param_i ;
+	fno:type xsd:int ;
+	fno:required "true"^^xsd:boolean .
+
+grel:date_d2 rdf:type fno:Parameter ;
+	fno:name "d2" ;
+	rdfs:label "d2" ;
+	fno:predicate grel:param_d2 ;
+	fno:type xsd:date ;
+	fno:required "true"^^xsd:boolean .
+
+grel:dec_n2 rdf:type fno:Parameter ;
+	fno:name "d2" ;
+	rdfs:label "d2" ;
+	fno:predicate grel:param_n2 ;
+	fno:type xsd:decimal ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i2 rdf:type fno:Parameter ;
+	fno:name "d2" ;
+	rdfs:label "d2" ;
+	fno:predicate grel:param_i2 ;
+	fno:type xsd:int ;
+	fno:required "true"^^xsd:boolean .
+
+grel:any_e rdf:type fno:Parameter ;
+	fno:name "e" ;
+	rdfs:label "e" ;
+	fno:predicate grel:param_e ;
+	fno:type xsd:any ;
+	fno:required "true"^^xsd:boolean .
+
+grel:dec_n_exp rdf:type fno:Parameter ;
+	fno:name "e" ;
+	rdfs:label "e" ;
+	fno:predicate grel:param_exp ;
+	fno:type xsd:decimal ;
+	fno:required "true"^^xsd:boolean .
+
+grel:any_true rdf:type fno:Parameter ;
+	fno:name "eBlank" ;
+	rdfs:label "eBlank" ;
+	fno:predicate grel:param_true ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:any_false rdf:type fno:Parameter ;
+	fno:name "eFalse" ;
+	rdfs:label "eFalse" ;
+	fno:predicate grel:param_false ;
+	fno:type xsd:any ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_encoder rdf:type fno:Parameter ;
+	fno:name "encoder" ;
+	rdfs:label "encoder" ;
+	fno:predicate grel:param_encoder ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_encoding rdf:type fno:Parameter ;
+	fno:name "encoding" ;
+	rdfs:label "encoding" ;
+	fno:predicate grel:param_encoding ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_find rdf:type fno:Parameter, fno:Function ;
+	fno:name "f", "find" ;
+	rdfs:label "f" ;
+	fno:predicate grel:param_find ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean ;
+	dcterms:description "find" ;
+	fno:expects _:g115 ;
+	fno:returns _:g117 .
+
+grel:string_field rdf:type fno:Parameter ;
+	fno:name "field" ;
+	rdfs:label "field" ;
+	fno:predicate grel:param_field ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_format rdf:type fno:Parameter ;
+	fno:name "format" ;
+	rdfs:label "format" ;
+	fno:predicate grel:param_format ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_rep_format rdf:type fno:Parameter ;
+	fno:name "format1" ;
+	rdfs:label "format1" ;
+	fno:predicate grel:param_rep_format ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_fragment rdf:type fno:Parameter ;
+	fno:name "frag" ;
+	rdfs:label "frag" ;
+	fno:predicate grel:param_fragment ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i_from rdf:type fno:Parameter ;
+	fno:name "from" ;
+	rdfs:label "from" ;
+	fno:predicate grel:param_from ;
+	fno:type xsd:int ;
+	fno:required "true"^^xsd:boolean .
+
+grel:uri_index rdf:type fno:Parameter ;
+	fno:name "i" ;
+	rdfs:label "i" ;
+	fno:predicate grel:param_index ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_key rdf:type fno:Parameter ;
+	fno:name "key" ;
+	rdfs:label "key" ;
+	fno:predicate grel:param_key ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_mode rdf:type fno:Parameter ;
+	fno:name "mode" ;
+	rdfs:label "mode" ;
+	fno:predicate grel:param_mode ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_rep_i rdf:type fno:Parameter ;
+	fno:name "n3" ;
+	rdfs:label "n3" ;
+	fno:predicate grel:param_rep_I ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:any_rep_e rdf:type fno:Parameter ;
+	fno:name "o1" ;
+	rdfs:label "o1" ;
+	fno:predicate grel:param_rep_e ;
+	fno:type xsd:any ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_s rdf:type fno:Parameter ;
+	fno:name "o1" ;
+	rdfs:label "o1" ;
+	fno:predicate grel:param_s ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_s2 rdf:type fno:Parameter ;
+	fno:name "o2" ;
+	rdfs:label "o2" ;
+	fno:predicate grel:param_s2 ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:bool_opt_omit rdf:type fno:Parameter ;
+	fno:name "omitFragment" ;
+	rdfs:label "omitFragment" ;
+	fno:predicate grel:param_omit ;
+	fno:type xsd:string ;
+	fno:required "false"^^xsd:boolean .
+
+grel:string_regex rdf:type fno:Parameter ;
+	fno:name "p" ;
+	rdfs:label "p" ;
+	fno:predicate grel:param_regex ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_replace rdf:type fno:Parameter, fno:Function ;
+	fno:name "r", "replace" ;
+	rdfs:label "r" ;
+	fno:predicate grel:param_replace ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean ;
+	dcterms:description "replace" ;
+	fno:expects _:g86 ;
+	fno:returns _:g89 .
+
+grel:string_sep rdf:type fno:Parameter ;
+	fno:name "sep" ;
+	rdfs:label "sep" ;
+	fno:predicate grel:param_sep ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_opt_sep rdf:type fno:Parameter ;
+	fno:name "sep" ;
+	rdfs:label "sep" ;
+	fno:predicate grel:param_opt_sep ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i_step rdf:type fno:Parameter ;
+	fno:name "step" ;
+	rdfs:label "step" ;
+	fno:predicate grel:param_step ;
+	fno:type xsd:int ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_sub rdf:type fno:Parameter ;
+	fno:name "sub" ;
+	rdfs:label "sub" ;
+	fno:predicate grel:param_sub ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:string_time_unit rdf:type fno:Parameter ;
+	fno:name "timeUnit" ;
+	rdfs:label "timeUnit" ;
+	fno:predicate grel:param_time_unit ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i_to rdf:type fno:Parameter ;
+	fno:name "to" ;
+	rdfs:label "to" ;
+	fno:predicate grel:param_to ;
+	fno:type xsd:int ;
+	fno:required "true"^^xsd:boolean .
+
+grel:int_i_opt_to rdf:type fno:Parameter ;
+	fno:name "to" ;
+	rdfs:label "to" ;
+	fno:predicate grel:param_opt_to ;
+	fno:type xsd:string ;
+	fno:required "false"^^xsd:boolean .
+
+grel:string_unit rdf:type fno:Parameter ;
+	fno:name "unit" ;
+	rdfs:label "unit" ;
+	fno:predicate grel:param_unit ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:uri_value rdf:type fno:Parameter ;
+	fno:name "v" ;
+	rdfs:label "v" ;
+	fno:predicate grel:param_value ;
+	fno:type xsd:string ;
+	fno:required "true"^^xsd:boolean .
+
+grel:output_any rdf:type fno:Output ;
+	fno:predicate grel:out_any ;
+	fno:type xsd:any .
+
+grel:output_array rdf:type fno:Output ;
+	fno:predicate grel:out_array ;
+	fno:type rdf:List .
+
+grel:output_bool rdf:type fno:Output ;
+	fno:predicate grel:out_bool ;
+	fno:type xsd:boolean .
+
+grel:output_date rdf:type fno:Output ;
+	fno:predicate grel:out_date ;
+	fno:type xsd:date .
+
+grel:output_datetime rdf:type fno:Output ;
+	fno:predicate grel:out_datetime ;
+	fno:type xsd:dateTime .
+
+grel:output_decimal rdf:type fno:Output ;
+	fno:predicate grel:out_decimal ;
+	fno:type xsd:decimal .
+
+grel:output_element rdf:type fno:Output ;
+	fno:predicate grel:out_element ;
+	fno:type xsd:string .
+
+grel:output_int rdf:type fno:Output ;
+	fno:predicate grel:out_int ;
+	fno:type xsd:int .
+
+grel:output_string rdf:type fno:Output ;
+	fno:predicate grel:out_string ;
+	fno:type xsd:string .
+
+grel:controls_if rdf:type fno:Function ;
+	fno:name "if" ;
+	dcterms:description "if" ;
+	fno:expects _:g0 ;
+	fno:returns _:g3 .
+
+grel:boolean_and rdf:type fno:Function ;
+	fno:name "and" ;
+	dcterms:description "and" ;
+	fno:expects _:g4 ;
+	fno:returns _:g7 .
+
+grel:boolean_or rdf:type fno:Function ;
+	fno:name "or" ;
+	dcterms:description "or" ;
+	fno:expects _:g8 ;
+	fno:returns _:g11 .
+
+grel:boolean_xor rdf:type fno:Function ;
+	fno:name "xor" ;
+	dcterms:description "xor" ;
+	fno:expects _:g12 ;
+	fno:returns _:g15 .
+
+grel:date_diff rdf:type fno:Function ;
+	fno:name "diff" ;
+	dcterms:description "diff" ;
+	fno:expects _:g16 ;
+	fno:returns _:g19 .
+
+grel:date_inc rdf:type fno:Function ;
+	fno:name "inc" ;
+	dcterms:description "inc" ;
+	fno:expects _:g20 ;
+	fno:returns _:g23 .
+
+grel:array_sum rdf:type fno:Function ;
+	fno:name "sum" ;
+	dcterms:description "sum" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g24 .
+
+grel:math_pow rdf:type fno:Function ;
+	fno:name "pow" ;
+	dcterms:description "pow" ;
+	fno:expects _:g25 ;
+	fno:returns _:g27 .
+
+grel:math_max rdf:type fno:Function ;
+	fno:name "max" ;
+	dcterms:description "max" ;
+	fno:expects _:g28 ;
+	fno:returns _:g30 .
+
+grel:math_min rdf:type fno:Function ;
+	fno:name "min" ;
+	dcterms:description "min" ;
+	fno:expects _:g31 ;
+	fno:returns _:g33 .
+
+grel:string_ngram rdf:type fno:Function ;
+	fno:name "ngram" ;
+	dcterms:description "ngram" ;
+	fno:expects _:g34 ;
+	fno:returns _:g36 .
+
+grel:string_ngramFingerprint rdf:type fno:Function ;
+	fno:name "ngramFingerprint" ;
+	dcterms:description "ngramFingerprint" ;
+	fno:expects _:g37 ;
+	fno:returns _:g39 .
+
+grel:string_splitByLengths rdf:type fno:Function ;
+	fno:name "splitByLengths" ;
+	dcterms:description "splitByLengths" ;
+	fno:expects _:g40 ;
+	fno:returns _:g44 .
+
+grel:array_get rdf:type fno:Function ;
+	fno:name "get" ;
+	dcterms:description "get" ;
+	fno:expects _:g45 ;
+	fno:returns _:g48 .
+
+grel:array_slice rdf:type fno:Function ;
+	fno:name "slice" ;
+	dcterms:description "slice" ;
+	fno:expects _:g49 ;
+	fno:returns _:g52 .
+
+grel:string_get rdf:type fno:Function ;
+	fno:name "get" ;
+	dcterms:description "get" ;
+	fno:expects _:g53 ;
+	fno:returns _:g56 .
+
+grel:string_slice rdf:type fno:Function ;
+	fno:name "slice" ;
+	dcterms:description "slice" ;
+	fno:expects _:g57 ;
+	fno:returns _:g60 .
+
+grel:string_substring rdf:type fno:Function ;
+	fno:name "substring" ;
+	dcterms:description "substring" ;
+	fno:expects _:g61 ;
+	fno:returns _:g64 .
+
+grel:math_mod rdf:type fno:Function ;
+	fno:name "mod" ;
+	dcterms:description "mod" ;
+	fno:expects _:g65 ;
+	fno:returns _:g67 .
+
+grel:controls_forRange rdf:type fno:Function ;
+	fno:name "forRange" ;
+	dcterms:description "forRange" ;
+	fno:expects _:g68 ;
+	fno:returns _:g73 .
+
+grel:string_reinterpret rdf:type fno:Function ;
+	fno:name "reinterpret" ;
+	dcterms:description "reinterpret" ;
+	fno:expects _:g74 ;
+	fno:returns _:g76 .
+
+grel:string_phonetic rdf:type fno:Function ;
+	fno:name "phonetic" ;
+	dcterms:description "phonetic" ;
+	fno:expects _:g77 ;
+	fno:returns _:g79 .
+
+grel:other_get rdf:type fno:Function ;
+	fno:name "get" ;
+	dcterms:description "get" ;
+	fno:expects _:g80 ;
+	fno:returns _:g82 .
+
+grel:other_hasField rdf:type fno:Function ;
+	fno:name "hasField" ;
+	dcterms:description "hasField" ;
+	fno:expects _:g83 ;
+	fno:returns _:g85 .
+
+grel:string_replaceChars rdf:type fno:Function ;
+	fno:name "replaceChars" ;
+	dcterms:description "replaceChars" ;
+	fno:expects _:g90 ;
+	fno:returns _:g93 .
+
+grel:date_toString rdf:type fno:Function ;
+	fno:name "toString" ;
+	dcterms:description "toString" ;
+	fno:expects _:g94 ;
+	fno:returns _:g96 .
+
+grel:string_partition rdf:type fno:Function ;
+	fno:name "partition" ;
+	dcterms:description "partition" ;
+	fno:expects _:g97 ;
+	fno:returns _:g100 .
+
+grel:string_rpartition rdf:type fno:Function ;
+	fno:name "rpartition" ;
+	dcterms:description "rpartition" ;
+	fno:expects _:g101 ;
+	fno:returns _:g104 .
+
+grel:date_toDate rdf:type fno:Function ;
+	fno:name "toDate" ;
+	dcterms:description "toDate" ;
+	fno:expects rdf:nil, _:g121 ;
+	fno:returns _:g105, _:g123 .
+
+grel:string_escape rdf:type fno:Function ;
+	fno:name "escape" ;
+	dcterms:description "escape" ;
+	fno:expects _:g106 ;
+	fno:returns _:g108 .
+
+grel:string_unescape rdf:type fno:Function ;
+	fno:name "unescape" ;
+	dcterms:description "unescape" ;
+	fno:expects _:g109 ;
+	fno:returns _:g111 .
+
+grel:string_smartSplit rdf:type fno:Function ;
+	fno:name "smartSplit" ;
+	dcterms:description "smartSplit" ;
+	fno:expects _:g112 ;
+	fno:returns _:g114 .
+
+grel:string_match rdf:type fno:Function ;
+	fno:name "match" ;
+	dcterms:description "match" ;
+	fno:expects _:g118 ;
+	fno:returns _:g120 .
+
+grel:string_diff rdf:type fno:Function ;
+	fno:name "diff" ;
+	dcterms:description "diff" ;
+	fno:expects _:g124 ;
+	fno:returns _:g126 .
+
+grel:array_join rdf:type fno:Function ;
+	fno:name "join" ;
+	dcterms:description "join" ;
+	fno:expects _:g127 ;
+	fno:returns _:g129 .
+
+grel:string_chomp rdf:type fno:Function ;
+	fno:name "chomp" ;
+	dcterms:description "chomp" ;
+	fno:expects _:g130 ;
+	fno:returns _:g132 .
+
+grel:string_split rdf:type fno:Function ;
+	fno:name "split" ;
+	dcterms:description "split" ;
+	fno:expects _:g133 ;
+	fno:returns _:g135 .
+
+grel:string_contains rdf:type fno:Function ;
+	fno:name "contains" ;
+	dcterms:description "contains" ;
+	fno:expects _:g136 ;
+	fno:returns _:g138 .
+
+grel:string_endWith rdf:type fno:Function ;
+	fno:name "endWith" ;
+	dcterms:description "endWith" ;
+	fno:expects _:g139 ;
+	fno:returns _:g141 .
+
+grel:string_indexOf rdf:type fno:Function ;
+	fno:name "indexOf" ;
+	dcterms:description "indexOf" ;
+	fno:expects _:g142, rdf:nil ;
+	fno:returns _:g144, _:g208 .
+
+grel:string_lastIndexOf rdf:type fno:Function ;
+	fno:name "lastIndexOf" ;
+	dcterms:description "lastIndexOf" ;
+	fno:expects _:g145 ;
+	fno:returns _:g147 .
+
+grel:string_startsWith rdf:type fno:Function ;
+	fno:name "startsWith" ;
+	dcterms:description "startsWith" ;
+	fno:expects _:g148 ;
+	fno:returns _:g150 .
+
+grel:date_datePart rdf:type fno:Function ;
+	fno:name "datePart" ;
+	dcterms:description "datePart" ;
+	fno:expects _:g151 ;
+	fno:returns _:g153 .
+
+grel:controls_forEachIndex rdf:type fno:Function ;
+	fno:name "forEachIndex" ;
+	dcterms:description "forEachIndex" ;
+	fno:expects _:g154 ;
+	fno:returns _:g158 .
+
+grel:controls_forNonBlank rdf:type fno:Function ;
+	fno:name "forNonBlank" ;
+	dcterms:description "forNonBlank" ;
+	fno:expects _:g159 ;
+	fno:returns _:g163 .
+
+_:g162 rdf:first grel:any_true ;
+	rdf:rest rdf:nil .
+
+_:g163 rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+grel:controls_with rdf:type fno:Function ;
+	fno:name "with" ;
+	dcterms:description "with" ;
+	fno:expects _:g164 ;
+	fno:returns _:g167 .
+
+_:g164 rdf:first grel:any_e ;
+	rdf:rest _:g165 .
+
+_:g165 rdf:first grel:uri_value ;
+	rdf:rest _:g166 .
+
+_:g166 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g167 rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+grel:controls_filter rdf:type fno:Function ;
+	fno:name "filter" ;
+	dcterms:description "filter" ;
+	fno:expects _:g168 ;
+	fno:returns _:g171 .
+
+_:g168 rdf:first grel:array_a ;
+	rdf:rest _:g169 .
+
+_:g169 rdf:first grel:uri_value ;
+	rdf:rest _:g170 .
+
+_:g170 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g171 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:controls_forEach rdf:type fno:Function ;
+	fno:name "forEach" ;
+	dcterms:description "forEach" ;
+	fno:expects _:g172 ;
+	fno:returns _:g175 .
+
+_:g172 rdf:first grel:array_a ;
+	rdf:rest _:g173 .
+
+_:g173 rdf:first grel:uri_value ;
+	rdf:rest _:g174 .
+
+_:g174 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g175 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:controls_isBlank rdf:type fno:Function ;
+	fno:name "isBlank" ;
+	dcterms:description "isBlank" ;
+	fno:expects _:g176 ;
+	fno:returns _:g177 .
+
+_:g176 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g177 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:controls_isError rdf:type fno:Function ;
+	fno:name "isError" ;
+	dcterms:description "isError" ;
+	fno:expects _:g178 ;
+	fno:returns _:g179 .
+
+_:g178 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g179 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:controls_isNonBlank rdf:type fno:Function ;
+	fno:name "isNonBlank" ;
+	dcterms:description "isNonBlank" ;
+	fno:expects _:g180 ;
+	fno:returns _:g181 .
+
+_:g180 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g181 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:controls_isNotNull rdf:type fno:Function ;
+	fno:name "isNotNull" ;
+	dcterms:description "isNotNull" ;
+	fno:expects _:g182 ;
+	fno:returns _:g183 .
+
+_:g182 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g183 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:controls_isNull rdf:type fno:Function ;
+	fno:name "isNull" ;
+	dcterms:description "isNull" ;
+	fno:expects _:g184 ;
+	fno:returns _:g185 .
+
+_:g184 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g185 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:controls_isNumeric rdf:type fno:Function ;
+	fno:name "isNumeric" ;
+	dcterms:description "isNumeric" ;
+	fno:expects _:g186 ;
+	fno:returns _:g187 .
+
+_:g186 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g187 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:other_jsonize rdf:type fno:Function ;
+	fno:name "jsonize" ;
+	dcterms:description "jsonize" ;
+	fno:expects _:g188 ;
+	fno:returns _:g189 .
+
+_:g188 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g189 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_toNumber rdf:type fno:Function ;
+	fno:name "toNumber" ;
+	dcterms:description "toNumber" ;
+	fno:expects _:g190 ;
+	fno:returns _:g191 .
+
+_:g190 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g191 rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+grel:string_toString rdf:type fno:Function ;
+	fno:name "toString" ;
+	dcterms:description "toString" ;
+	fno:expects _:g192 ;
+	fno:returns _:g193 .
+
+_:g192 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g193 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_type rdf:type fno:Function ;
+	fno:name "type" ;
+	dcterms:description "type" ;
+	fno:expects _:g194 ;
+	fno:returns _:g195 .
+
+_:g194 rdf:first grel:any_e ;
+	rdf:rest rdf:nil .
+
+_:g195 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_coalesce rdf:type fno:Function ;
+	fno:name "coalesce" ;
+	dcterms:description "coalesce" ;
+	fno:expects _:g196 ;
+	fno:returns _:g197 .
+
+_:g196 rdf:first grel:any_rep_e ;
+	rdf:rest rdf:nil .
+
+_:g197 rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+grel:array_length rdf:type fno:Function ;
+	fno:name "length" ;
+	dcterms:description "length" ;
+	fno:expects _:g198 ;
+	fno:returns _:g199 .
+
+_:g198 rdf:first grel:array_a ;
+	rdf:rest rdf:nil .
+
+_:g199 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:array_reverse rdf:type fno:Function ;
+	fno:name "reverse" ;
+	dcterms:description "reverse" ;
+	fno:expects _:g200 ;
+	fno:returns _:g201 .
+
+_:g200 rdf:first grel:array_a ;
+	rdf:rest rdf:nil .
+
+_:g201 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:array_sort rdf:type fno:Function ;
+	fno:name "sort" ;
+	dcterms:description "sort" ;
+	fno:expects _:g202 ;
+	fno:returns _:g203 .
+
+_:g202 rdf:first grel:array_a ;
+	rdf:rest rdf:nil .
+
+_:g203 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:math_sum rdf:type fno:Function ;
+	fno:name "sum" ;
+	dcterms:description "sum" ;
+	fno:expects _:g204 ;
+	fno:returns _:g205 .
+
+_:g204 rdf:first grel:array_a ;
+	rdf:rest rdf:nil .
+
+_:g205 rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+grel:array_uniques rdf:type fno:Function ;
+	fno:name "uniques" ;
+	dcterms:description "uniques" ;
+	fno:expects _:g206 ;
+	fno:returns _:g207 .
+
+_:g206 rdf:first grel:array_a ;
+	rdf:rest rdf:nil .
+
+_:g207 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+_:g208 rdf:first grel:output_number ;
+	rdf:rest rdf:nil .
+
+grel:boolean_not rdf:type fno:Function ;
+	fno:name "not" ;
+	dcterms:description "not" ;
+	fno:expects _:g209 ;
+	fno:returns _:g210 .
+
+_:g209 rdf:first grel:bool_b ;
+	rdf:rest rdf:nil .
+
+_:g210 rdf:first grel:output_bool ;
+	rdf:rest rdf:nil .
+
+grel:math_ceil rdf:type fno:Function ;
+	fno:name "ceil" ;
+	dcterms:description "ceil" ;
+	fno:expects _:g211 ;
+	fno:returns _:g212 .
+
+_:g211 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g212 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:math_exp rdf:type fno:Function ;
+	fno:name "exp" ;
+	dcterms:description "exp" ;
+	fno:expects _:g213 ;
+	fno:returns _:g214 .
+
+_:g213 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g214 rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+grel:math_floor rdf:type fno:Function ;
+	fno:name "floor" ;
+	dcterms:description "floor" ;
+	fno:expects _:g215 ;
+	fno:returns _:g216 .
+
+_:g215 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g216 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:math_ln rdf:type fno:Function ;
+	fno:name "ln" ;
+	dcterms:description "ln" ;
+	fno:expects _:g217 ;
+	fno:returns _:g218 .
+
+_:g217 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g218 rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+grel:math_log rdf:type fno:Function ;
+	fno:name "log" ;
+	dcterms:description "log" ;
+	fno:expects _:g219 ;
+	fno:returns _:g220 .
+
+_:g219 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g220 rdf:first grel:output_decimal ;
+	rdf:rest rdf:nil .
+
+grel:math_round rdf:type fno:Function ;
+	fno:name "round" ;
+	dcterms:description "round" ;
+	fno:expects _:g221 ;
+	fno:returns _:g222 .
+
+_:g221 rdf:first grel:dec_n ;
+	rdf:rest rdf:nil .
+
+_:g222 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:string_mqlKeyUnquote rdf:type fno:Function ;
+	fno:name "mqlKeyUnquote" ;
+	dcterms:description "mqlKeyUnquote" ;
+	fno:expects _:g223 ;
+	fno:returns _:g224 .
+
+_:g223 rdf:first grel:string_key ;
+	rdf:rest rdf:nil .
+
+_:g224 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_fingerprint rdf:type fno:Function ;
+	fno:name "fingerprint" ;
+	dcterms:description "fingerprint" ;
+	fno:expects _:g225 ;
+	fno:returns _:g226 .
+
+_:g225 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g226 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_length rdf:type fno:Function ;
+	fno:name "length" ;
+	dcterms:description "length" ;
+	fno:expects _:g227 ;
+	fno:returns _:g228 .
+
+_:g227 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g228 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:string_md5 rdf:type fno:Function ;
+	fno:name "md5" ;
+	dcterms:description "md5" ;
+	fno:expects _:g229 ;
+	fno:returns _:g230 .
+
+_:g229 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g230 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_mqlKeyQuote rdf:type fno:Function ;
+	fno:name "mqlKeyQuote" ;
+	dcterms:description "mqlKeyQuote" ;
+	fno:expects _:g231 ;
+	fno:returns _:g232 .
+
+_:g231 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g232 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_parseHtml rdf:type fno:Function ;
+	fno:name "parseHtml" ;
+	dcterms:description "parseHtml" ;
+	fno:expects _:g233 ;
+	fno:returns _:g234 .
+
+_:g233 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g234 rdf:first grel:output_element ;
+	rdf:rest rdf:nil .
+
+grel:other_parseJson rdf:type fno:Function ;
+	fno:name "parseJson" ;
+	dcterms:description "parseJson" ;
+	fno:expects _:g235 ;
+	fno:returns _:g236 .
+
+_:g235 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g236 rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+grel:string_sha1 rdf:type fno:Function ;
+	fno:name "sha1" ;
+	dcterms:description "sha1" ;
+	fno:expects _:g237 ;
+	fno:returns _:g238 .
+
+_:g237 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g238 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_splitByCharType rdf:type fno:Function ;
+	fno:name "splitByCharType" ;
+	dcterms:description "splitByCharType" ;
+	fno:expects _:g239 ;
+	fno:returns _:g240 .
+
+_:g239 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g240 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:string_strip rdf:type fno:Function ;
+	fno:name "strip" ;
+	dcterms:description "strip" ;
+	fno:expects _:g241 ;
+	fno:returns _:g242 .
+
+_:g241 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g242 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_toLowercase rdf:type fno:Function ;
+	fno:name "toLowercase" ;
+	dcterms:description "toLowercase" ;
+	fno:expects _:g243 ;
+	fno:returns _:g244 .
+
+_:g243 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g244 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_toTitlecase rdf:type fno:Function ;
+	fno:name "toTitlecase" ;
+	dcterms:description "toTitlecase" ;
+	fno:expects _:g245 ;
+	fno:returns _:g246 .
+
+_:g245 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g246 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_toUppercase rdf:type fno:Function ;
+	fno:name "toUppercase" ;
+	dcterms:description "toUppercase" ;
+	fno:expects _:g247 ;
+	fno:returns _:g248 .
+
+_:g247 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g248 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_trim rdf:type fno:Function ;
+	fno:name "trim" ;
+	dcterms:description "trim" ;
+	fno:expects _:g249 ;
+	fno:returns _:g250 .
+
+_:g249 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g250 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:string_unicode rdf:type fno:Function ;
+	fno:name "unicode" ;
+	dcterms:description "unicode" ;
+	fno:expects _:g251 ;
+	fno:returns _:g252 .
+
+_:g251 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g252 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:string_unicodeType rdf:type fno:Function ;
+	fno:name "unicodeType" ;
+	dcterms:description "unicodeType" ;
+	fno:expects _:g253 ;
+	fno:returns _:g254 .
+
+_:g253 rdf:first grel:string_s ;
+	rdf:rest rdf:nil .
+
+_:g254 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:other_cross rdf:type fno:Function ;
+	fno:name "cross" ;
+	dcterms:description "cross" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g255 .
+
+_:g255 rdf:first grel:output_array ;
+	rdf:rest rdf:nil .
+
+grel:other_facetCount rdf:type fno:Function ;
+	fno:name "facetCount" ;
+	dcterms:description "facetCount" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g256 .
+
+_:g256 rdf:first grel:output_int ;
+	rdf:rest rdf:nil .
+
+grel:other_htmlAttr rdf:type fno:Function ;
+	fno:name "htmlAttr" ;
+	dcterms:description "htmlAttr" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g257 .
+
+_:g257 rdf:first grel:output_any ;
+	rdf:rest rdf:nil .
+
+grel:other_htmlText rdf:type fno:Function ;
+	fno:name "htmlText" ;
+	dcterms:description "htmlText" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g258 .
+
+_:g258 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_innerHtml rdf:type fno:Function ;
+	fno:name "innerHtml" ;
+	dcterms:description "innerHtml" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g259 .
+
+_:g259 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:date_now rdf:type fno:Function ;
+	fno:name "now" ;
+	dcterms:description "now" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g260 .
+
+_:g260 rdf:first grel:output_datetime ;
+	rdf:rest rdf:nil .
+
+grel:other_outerHtml rdf:type fno:Function ;
+	fno:name "outerHtml" ;
+	dcterms:description "outerHtml" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g261 .
+
+_:g261 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_ownText rdf:type fno:Function ;
+	fno:name "ownText" ;
+	dcterms:description "ownText" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g262 .
+
+_:g262 rdf:first grel:output_string ;
+	rdf:rest rdf:nil .
+
+grel:other_select rdf:type fno:Function ;
+	fno:name "select" ;
+	dcterms:description "select" ;
+	fno:expects rdf:nil ;
+	fno:returns _:g263 .
+
+_:g263 rdf:first grel:output_element ;
+	rdf:rest rdf:nil .
+

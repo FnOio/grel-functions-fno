@@ -1,0 +1,85 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix fnoi: <https://w3id.org/function/vocabulary/implementation#> .
+@prefix fnom: <https://w3id.org/function/vocabulary/mapping#> .
+@prefix fns: <https://fno.io/hub/data/resource/> .
+@prefix grel: <http://semweb.mmlab.be/ns/grel#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix oo: <https://linkedsoftwaredependencies.org/vocabularies/object-oriented#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+
+<https://fno.io/hub/data/resource/Function/leftpad> rdf:type fno:Function ;
+	fno:name "left-pad" ;
+	dcterms:description "String left pad: add spaces to the left of a string until the length of the string is the specified amount." ;
+	fno:expects ( <https://fno.io/hub/data/resource/Parameter/leftpad1> <https://fno.io/hub/data/resource/Parameter/leftpad2> ) ;
+	fno:returns ( <https://fno.io/hub/data/resource/Output/leftpad> ) ;
+	fno:solves <https://fno.io/hub/data/resource/Problem/leftpad> .
+
+<https://fno.io/hub/data/resource/Parameter/leftpad1>
+  a fno:Parameter ;
+  rdfs:label "string" ;
+  fno:predicate <https://fno.io/hub/data/resource/Predicate/leftpad1> ;
+  dcterms:description "The string to be padded."^^xsd:string ;
+  fno:type xsd:string ;
+  fno:required true .
+
+<https://fno.io/hub/data/resource/Parameter/leftpad2>
+  a fno:Parameter ;
+  rdfs:label "amount" ;
+  fno:predicate <https://fno.io/hub/data/resource/Predicate/leftpad2> ;
+  dcterms:description "The amount of characters the output should have."^^xsd:string ;
+  fno:type xsd:integer ;
+  fno:required true .
+
+<https://fno.io/hub/data/resource/Output/leftpad>
+  a fno:Output ;
+  fno:predicate <https://fno.io/hub/data/resource/Predicate/leftpad> ;
+  dcterms:description "The output of the left pad operation."^^xsd:string ;
+  fno:type xsd:string ;
+  fno:required true .
+
+<https://fno.io/hub/data/resource/Implementation/leftpadImplementationNPM>
+  rdf:type oo:Module ;
+  rdf:type fno:Implementation ;
+  rdf:type fnoi:NpmPackage ;
+  doap:name "left-pad" ;
+  rdfs:label "left pad NPM Implementation" ;
+  oo:component <https://fno.io/hub/data/resource/ComponentInstance/leftpadImplementationNPMLeftpadFunction> .
+
+<https://fno.io/hub/data/resource/Implementation/leftpadImplementationJavaScript>
+  rdf:type fno:Implementation ;
+  rdf:type fnoi:JavaScriptFunction ;
+  doap:download-page "https://fno.io/hub/api/implementations/js/leftpad.js" .
+
+<https://fno.io/hub/data/resource/Implementation/implementationDivideAPI>
+  a fnoi:JsonApi .
+
+<https://fno.io/hub/data/resource/ComponentInstance/leftpadImplementationNPMLeftpadFunction>
+  a oo:ComponentInstance ;
+  rdfs:comment "This component is the function that pads the string to the left."^^xsd:string .
+
+<https://fno.io/hub/data/resource/Mapping/mappingLeftpadLeftpadImplementationNPM>
+  rdf:type fno:Mapping ;
+  fno:function <https://fno.io/hub/data/resource/Function/leftpad> ;
+  fno:implementation <https://fno.io/hub/data/resource/Implementation/leftpadImplementationNPM> ;
+  fno:methodMapping <https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM> ;
+  fno:parameterMapping <https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM_leftpad1> ;
+  fno:parameterMapping <https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM_leftpad2> .
+
+<https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM> rdf:type fno:MethodMapping, fnom:StringMethodMapping ;
+	fnom:method-name "left-pad" .
+
+<https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM_leftpad1> rdf:type fno:ParameterMapping, fnom:PositionParameterMapping ;
+  fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/leftpad1> ;
+  fnom:implementationParameterPosition 0 .
+
+<https://fno.io/hub/data/resource/MethodMapping/mappingLeftpadLeftpadImplementationNPM_leftpad2> rdf:type fno:ParameterMapping, fnom:PositionParameterMapping ;
+  fnom:functionParameter <https://fno.io/hub/data/resource/Parameter/leftpad2> ;
+  fnom:implementationParameterPosition 1 .
+
+<https://fno.io/hub/data/resource/Problem/leftpad> rdf:type fno:Problem ;
+	fno:name "left pad" ;
+	dcterms:description "Padding a string to a certain length."^^xsd:string ;
