@@ -4,10 +4,9 @@ const {PassThrough} = require('stream');
 
 const N3 = require("n3");
 const csv = require("csvtojson");
-const graphy = require('graphy');
-const read = graphy.content.ttl.read;
-const write = graphy.content.ttl.write;
-const tree = graphy.util.dataset.tree;
+const ttl_read = require('@graphy/content.ttl.read');
+const ttl_write = require('@graphy/content.ttl.write');
+const dataset = require('@graphy/memory.dataset.fast');
 
 const GrelParser = require("../lib/grel-parser");
 const SPARQLParser = require("../lib/sparql-parser");
@@ -15,7 +14,7 @@ const XPATHParser = require("../lib/xpath-parser");
 const SQLParser = require("../lib/sql-parser");
 
 const {DataFactory} = N3;
-const {namedNode, literal, defaultGraph, quad} = DataFactory;
+const {namedNode, literal} = DataFactory;
 
 const prefixes = {
   dcterms: "http://purl.org/dc/terms/",
@@ -91,9 +90,9 @@ async function main() {
 
   return new Promise((resolve, reject) => {
     pipeStream.pipe(outStream);
-    pipeStream.pipe(read())
-      .pipe(tree())
-      .pipe(write())
+    pipeStream.pipe(ttl_read())
+      .pipe(dataset())
+      .pipe(ttl_write())
       .pipe(outStreamPretty).on('end', () => {
       resolve();
     });

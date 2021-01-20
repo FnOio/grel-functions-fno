@@ -11,5 +11,5 @@ Distributions and earlier versions can be found under `_dist`
 Other resources are
 
 - `resources/alignment`: the aligned GREL functions, created for following publication: <https://doi.org/10.1016/j.future.2019.10.006>
+  - Create new version in `resources/alignment/_dist` with `npm run alignment`
 - `resources/fnhub`: additional demo functions, created for following publication: <https://doi.org/10.1016/j.future.2019.10.006>
-
