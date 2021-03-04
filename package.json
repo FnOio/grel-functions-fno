@@ -12,10 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "csvtojson": "^2.0.10",
-    "n3": "^1.5.0"
+    "n3": "^1.8.1"
   },
   "devDependencies": {
-    "dateformat": "^4.4.1",
+    "dateformat": "^4.5.1",
     "graphy": "^4.3.3"
   }
 }
