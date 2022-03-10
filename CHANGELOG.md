@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 20220308
+
+### Fixed
+
+- `xsd:number` --> `xsd:integer`
+
 ## 20210824
 
 ### Added
