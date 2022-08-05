@@ -1456,6 +1456,91 @@ grel:math_tanh
     fno:returns         (grel:output_decimal).
 
 
+#DEGREES
+grel:math_degrees
+    a                   fno:Function;
+    fno:name            "degrees";
+    dcterms:description "degrees";
+    fno:expects         (grel:param_dec_n);
+    fno:returns         (grel:output_decimal).
+
+#RADIANS
+grel:math_radians
+    a                   fno:Function;
+    fno:name            "radians";
+    dcterms:description "degrees";
+    fno:expects         (grel:param_dec_n);
+    fno:returns         (grel:output_decimal).
+
+#EVEN
+grel:math_even
+    a                   fno:Function;
+    fno:name            "even";
+    dcterms:description "even";
+    fno:expects         (grel:param_dec_n);
+    fno:returns         (grel:output_decimal).
+
+#ODD
+grel:math_odd
+    a                   fno:Function;
+    fno:name            "odd";
+    dcterms:description "odd";
+    fno:expects         (grel:param_dec_n);
+    fno:returns         (grel:output_decimal).
+
+#FACT
+grel:math_fact
+    a                   fno:Function;
+    fno:name            "fact";
+    dcterms:description "fact";
+    fno:expects         (grel:param_int_i);
+    fno:returns         (grel:output_number).
+
+#FACTN
+grel:math_factn
+    a                   fno:Function;
+    fno:name            "factn";
+    dcterms:description "factn";
+    fno:expects         (grel:param_int_i grel:param_int_i2);
+    fno:returns         (grel:output_number);
+
+#GCD
+grel:math_gcd
+    a                   fno:Function;
+    fno:name            "gcd";
+    dcterms:description "gcd";
+    fno:expects         (grel:param_int_i grel:param_int_i2);
+    fno:returns         (grel:output_number).
+
+#LCM
+grel:math_lcm
+    a                   fno:Function;
+    fno:name            "lcm";
+    dcterms:description "lcm";
+    fno:expects         (grel:param_int_i grel:param_int_i2);
+    fno:returns         (grel:output_number).
+
+#QUOTIENT
+grel:math_quotient
+    a                   fno:Function;
+    fno:name            "quotient";
+    dcterms:description "quotient";
+    fno:expects         (grel:param_dec_n grel:param_dec_n2);
+    fno:returns         (grel:output_decimal).
+
+
+#RANDOMNUMBER
+grel:math_randomNumber
+    a                   fno:Function;
+    fno:name            "randomNumber";
+    dcterms:description "randomNumber";
+    fno:expects         (grel:param_int_i grel:param_int_i2);
+    fno:returns         (grel:output_number).
+
+
+#MULTINOMIAL
+
+
 
 #grel:math_sum
 #    a                   fno:Function ;
