@@ -1539,6 +1539,12 @@ grel:math_randomNumber
 
 
 #MULTINOMIAL
+grel:math_multinomial
+    a                   fno:Function;
+    fno:name            "multinomial";
+    dcterms:description "multinomial";
+    fno:expects         ( grel:param_a );
+    fno:returns         (grel:output_number);
 
 
 
