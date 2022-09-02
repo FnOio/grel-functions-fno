@@ -1396,7 +1396,7 @@ grel:math_atan
     fno:name            "atan2";
     dcterms:description "atan2";
     fno:expects         (grel:param_dec_n grel:param_dec_n2);
-    fno:returns         (grel:output_decimal);
+    fno:returns         (grel:output_decimal).
 
 #COMBIN
 grel:math_combin
@@ -1502,7 +1502,7 @@ grel:math_factn
     fno:name            "factn";
     dcterms:description "factn";
     fno:expects         (grel:param_int_i grel:param_int_i2);
-    fno:returns         (grel:output_number);
+    fno:returns         (grel:output_number).
 
 #GCD
 grel:math_gcd
@@ -1544,7 +1544,7 @@ grel:math_multinomial
     fno:name            "multinomial";
     dcterms:description "multinomial";
     fno:expects         ( grel:param_a );
-    fno:returns         (grel:output_number);
+    fno:returns         (grel:output_number).
 
 
 
