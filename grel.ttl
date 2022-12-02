@@ -420,7 +420,7 @@ grel:string_toString
     a                   fno:Function ;
     fno:name            "toString" ;
     dcterms:description "toString" ;
-    fno:expects         ( grel:param_any_e ) ;
+    fno:expects         ( grel:param_any_e string_opt_format ) ;
     fno:returns         ( grel:stringOut ) .
 
 #STARTSWITH
@@ -1708,6 +1708,15 @@ grel:param_any_rep_e
 #    fno:predicate grel:param_format ;
 #    fno:type      xsd:string ;
 #    fno:required  "true"^^xsd:boolean .
+
+grel:string_opt_format
+    a             fno:Parameter ;
+    fno:name      "format" ;
+    rdfs:label    "format" ;
+    fno:predicate grel:param_opt_format ;
+    fno:type      xsd:string ;
+    fno:required  "false"^^xsd:boolean .
+
 
 #grel:bool_opt_omit
 #    a             fno:Parameter ;
