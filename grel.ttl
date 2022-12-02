@@ -717,7 +717,7 @@ grel:string_toNumber
    fno:name            "toNumber" ;
    dcterms:description "toNumber" ;
    fno:expects         ( grel:param_any_e ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 grel:param_any_e
     a             fno:Parameter ;
@@ -1222,7 +1222,7 @@ grel:math_floor
    dcterms:description "floor" ;
    fno:solves          grel:prob_floor ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 # <https://www.w3.org/TR/sparql11-query/#func-floor>
 #    skos:broader grel:math_floor .
@@ -1241,7 +1241,7 @@ grel:math_ceil
    dcterms:description "ceil" ;
    fno:solves          grel:prob_ceil ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 grel:prob_round
     a        fno:Problem ;
@@ -1257,7 +1257,7 @@ grel:math_round
    dcterms:description "round" ;
    fno:solves          grel:prob_round ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 #<https://www.w3.org/TR/sparql11-query/#func-round>
 #    skos:broader grel:math_round .
