@@ -420,7 +420,7 @@ grel:string_toString
     a                   fno:Function ;
     fno:name            "toString" ;
     dcterms:description "toString" ;
-    fno:expects         ( grel:param_any_e ) ;
+    fno:expects         ( grel:param_any_e string_opt_format ) ;
     fno:returns         ( grel:stringOut ) .
 
 #STARTSWITH
@@ -717,7 +717,7 @@ grel:string_toNumber
    fno:name            "toNumber" ;
    dcterms:description "toNumber" ;
    fno:expects         ( grel:param_any_e ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 grel:param_any_e
     a             fno:Parameter ;
@@ -942,14 +942,22 @@ grel:string_reinterpret
    a                   fno:Function ;
    fno:name            "reinterpret" ;
    dcterms:description "reinterpret" ;
-   fno:expects         ( grel:valueParam grel:param_string_encoder ) ;
+   fno:expects         ( grel:valueParam grel:param_string_encoder_target grel:param_string_encoder_source ) ;
    fno:returns         ( grel:stringOut ) .
 
-grel:param_string_encoder
+grel:param_string_encoder_target
     a             fno:Parameter ;
-    fno:name      "encoder" ;
-    rdfs:label    "encoder" ;
-    fno:predicate grel:p_string_encoder ;
+    fno:name      "encoder target" ;
+    rdfs:label    "encoder target" ;
+    fno:predicate grel:p_string_encoder_target ;
+    fno:type      xsd:string ;
+    fno:required  "true"^^xsd:boolean .
+
+grel:param_string_encoder_target_source
+    a             fno:Parameter ;
+    fno:name      "encoder source" ;
+    rdfs:label    "encoder source" ;
+    fno:predicate grel:p_string_encoder_source ;
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
 
@@ -1222,7 +1230,7 @@ grel:math_floor
    dcterms:description "floor" ;
    fno:solves          grel:prob_floor ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 # <https://www.w3.org/TR/sparql11-query/#func-floor>
 #    skos:broader grel:math_floor .
@@ -1241,7 +1249,7 @@ grel:math_ceil
    dcterms:description "ceil" ;
    fno:solves          grel:prob_ceil ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 grel:prob_round
     a        fno:Problem ;
@@ -1257,7 +1265,7 @@ grel:math_round
    dcterms:description "round" ;
    fno:solves          grel:prob_round ;
    fno:expects         ( grel:param_dec_n ) ;
-   fno:returns         ( grel:output_number ) .
+   fno:returns         ( grel:output_decimal ) .
 
 #<https://www.w3.org/TR/sparql11-query/#func-round>
 #    skos:broader grel:math_round .
@@ -1708,6 +1716,15 @@ grel:param_any_rep_e
 #    fno:predicate grel:param_format ;
 #    fno:type      xsd:string ;
 #    fno:required  "true"^^xsd:boolean .
+
+grel:string_opt_format
+    a             fno:Parameter ;
+    fno:name      "format" ;
+    rdfs:label    "format" ;
+    fno:predicate grel:param_opt_format ;
+    fno:type      xsd:string ;
+    fno:required  "false"^^xsd:boolean .
+
 
 #grel:bool_opt_omit
 #    a             fno:Parameter ;
