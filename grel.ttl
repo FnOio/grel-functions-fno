@@ -942,14 +942,22 @@ grel:string_reinterpret
    a                   fno:Function ;
    fno:name            "reinterpret" ;
    dcterms:description "reinterpret" ;
-   fno:expects         ( grel:valueParam grel:param_string_encoder ) ;
+   fno:expects         ( grel:valueParam grel:param_string_encoder_target grel:param_string_encoder_source ) ;
    fno:returns         ( grel:stringOut ) .
 
-grel:param_string_encoder
+grel:param_string_encoder_target
     a             fno:Parameter ;
-    fno:name      "encoder" ;
-    rdfs:label    "encoder" ;
-    fno:predicate grel:p_string_encoder ;
+    fno:name      "encoder target" ;
+    rdfs:label    "encoder target" ;
+    fno:predicate grel:p_string_encoder_target ;
+    fno:type      xsd:string ;
+    fno:required  "true"^^xsd:boolean .
+
+grel:param_string_encoder_target_source
+    a             fno:Parameter ;
+    fno:name      "encoder source" ;
+    rdfs:label    "encoder source" ;
+    fno:predicate grel:p_string_encoder_source ;
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
 
