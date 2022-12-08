@@ -420,7 +420,7 @@ grel:string_toString
     a                   fno:Function ;
     fno:name            "toString" ;
     dcterms:description "toString" ;
-    fno:expects         ( grel:param_any_e string_opt_format ) ;
+    fno:expects         ( grel:param_any_e grel:string_opt_format ) ;
     fno:returns         ( grel:stringOut ) .
 
 #STARTSWITH
@@ -953,7 +953,7 @@ grel:param_string_encoder_target
     fno:type      xsd:string ;
     fno:required  "true"^^xsd:boolean .
 
-grel:param_string_encoder_target_source
+grel:param_string_encoder_source
     a             fno:Parameter ;
     fno:name      "encoder source" ;
     rdfs:label    "encoder source" ;
