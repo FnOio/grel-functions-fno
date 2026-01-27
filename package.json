@@ -11,7 +11,7 @@
   "author": "Ben De Meester <ben.demeester@ugent.be> (http://ben.de-meester/org/#me)",
   "license": "MIT",
   "dependencies": {
-    "csvtojson": "^2.0.10",
+    "csvtojson": "^2.0.13",
     "n3": "^1.11.1"
   },
   "devDependencies": {
