@@ -6,7 +6,7 @@ but this one got moved to the actual implementation: <https://github.com/FnOio/g
 
 More info on FnO on <https://fno.io>.
 
-Distributions and earlier versions can be found under `_dist`
+Distributions and earlier versions can be found under `_dist`; [RELEASE.md](RELEASE.md) describes how a release is made and published
 
 Other resources are
 

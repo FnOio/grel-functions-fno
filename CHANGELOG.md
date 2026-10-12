@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 20261012
+
 ### Fixed
 - Some (return) parameters to conform to GREL functions
 - The return type of `grel:array_slice` must be `grel:output_array`.
+- `grel:math_atan2` is described under its own IRI; its description used `grel:math_atan`.
 
 ## 20221012
 

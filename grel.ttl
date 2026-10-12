@@ -27,7 +27,7 @@ grel:dataset
     dcterms:title        "GREL Fno Descriptions"@en ;
     dcterms:description  "The FnO descriptions of the GREL functions" ;
     dcterms:contributor  <https://ben.de-meester.org/#me> ;
-    dcterms:modified     "2022-10-12"^^xsd:date ;
+    dcterms:modified     "2026-10-12"^^xsd:date ;
     cc:license           <http://creativecommons.org/license/by/3.0/> ;
     dcterms:issued       "2016-12-15"^^xsd:date ;
     dcterms:rights       "Copyright © Ghent University -- imec -- IDLab"@en ;
@@ -1399,7 +1399,7 @@ grel:math_atan
     fno:returns         (grel:output_decimal).
 
 #ATAN2
-grel:math_atan
+grel:math_atan2
     a                   fno:Function;
     fno:name            "atan2";
     dcterms:description "atan2";
