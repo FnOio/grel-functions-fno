@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 20261013
+
 ### Fixed
 - `grel:date_diff`, `grel:math_even` and `grel:math_odd` return `grel:output_number` (`xsd:integer`), as their Java implementations do.
 
